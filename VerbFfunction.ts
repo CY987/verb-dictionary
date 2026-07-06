@@ -32,14 +32,20 @@ export class VerbFfunction
                     {
                         combination = Item + "as";
                     }
-                    combination = Item + "es";
+                    else
+                    {
+                        combination = Item + "es";
+                    }
                     break;
                 case "él":
                     if ( type === Type.Ar )
                     {
                         combination = Item + "a";
                     }
-                    combination = Item + "e";
+                    else
+                    {
+                        combination = Item + "e";
+                    }
                     break;
                 case "nosotros":
                     if ( type === Type.Ar )
@@ -50,7 +56,10 @@ export class VerbFfunction
                     {
                         combination = Item + "emos";
                     }
-                    combination = Item + "imos";
+                    else
+                    {
+                        combination = Item + "imos";
+                    }
                     break;
                 case "vosotros":
                     if ( type === Type.Ar )
@@ -61,14 +70,20 @@ export class VerbFfunction
                     {
                         combination = Item + "éis";
                     }
-                    combination = Item + "ís";
+                    else
+                    {
+                        combination = Item + "ís";
+                    }
                     break;
                 case "ellos":
                     if ( type === Type.Ar )
                     {
                         combination = Item + "an";
                     }
-                    combination = Item + "en";
+                    else
+                    {
+                        combination = Item + "en";
+                    }
                     break;
             }
 

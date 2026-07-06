@@ -1,92 +1,98 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>動詞時態與變形查詢工具</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
 <body class="bg-gray-50 min-h-screen flex flex-col items-center py-10">
 
     <div class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
-        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">動詞變形查詢字典</h1>
 
-        <!-- 搜尋框 -->
-        <div class="flex gap-2 mb-6">
-            <input id="search-input" type="text" placeholder="輸入動詞原形 (例如: eat)"
-                class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <button onclick="searchWord()"
-                class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">查詢</button>
+        <!-- 上方三顆按鈕 -->
+        <div class="flex justify-between mb-8">
+            <button onclick="selectType('ar')" class="border-4 border-black px-16 py-6 text-3xl">Ar</button>
+            <button onclick="selectType('er')" class="border-4 border-black px-16 py-6 text-3xl">Er</button>
+            <button onclick="selectType('ir')" class="border-4 border-black px-16 py-6 text-3xl">Ir</button>
         </div>
 
-        <!-- 結果顯示區 -->
-        <div id="result-zone" class="hidden">
-            <h2 id="res-word" class="text-3xl font-extrabold text-blue-600 mb-2"></h2>
-            <p id="res-def" class="text-gray-600 mb-6"></p>
+        <!-- 中間顯示區 -->
+        <div class="border-4 border-black h-24 flex items-center justify-center mb-8">
+            <div id="word-list" class="flex gap-4"></div>
+            <div id="selected-word" class="hidden text-xl">顯示選取的單字</div>
+        </div>
 
-            <div class="border-t pt-4">
-                <h3 class="text-lg font-semibold text-gray-700 mb-3">⏳ 時態變形 (Tenses)</h3>
-                <ul class="grid grid-cols-2 gap-2 text-sm text-gray-600 mb-6">
-                    <li>現在式: <span id="t-pres" class="font-bold text-gray-800"></span></li>
-                    <li>過去式: <span id="t-past" class="font-bold text-gray-800"></span></li>
-                    <li>現在分詞: <span id="t-p-part" class="font-bold text-gray-800"></span></li>
-                    <li>過去分詞: <span id="t-past-part" class="font-bold text-gray-800"></span></li>
-                </ul>
+        <!-- 下方 1~6 結果 -->
+        <div class="grid grid-cols-2 text-5xl text-center">
+            <div class="border-r-4 border-black py-4">
+                <div id="p1">1</div>
+                <hr class="border-2 border-black my-4">
+                <div id="p2">2</div>
+                <hr class="border-2 border-black my-4">
+                <div id="p3">3</div>
             </div>
 
-            <div class="border-t pt-4">
-                <h3 class="text-lg font-semibold text-gray-700 mb-3">👤 主詞配合 (現在式變形)</h3>
-                <ul class="grid grid-cols-2 gap-2 text-sm text-gray-600">
-                    <li>I / You / We / They: <span id="c-plural" class="font-bold text-gray-800"></span></li>
-                    <li>He / She / It: <span id="c-singular" class="font-bold text-red-600"></span></li>
-                </ul>
+            <div class="py-4">
+                <div id="p4">4</div>
+                <hr class="border-2 border-black my-4">
+                <div id="p5">5</div>
+                <hr class="border-2 border-black my-4">
+                <div id="p6">6</div>
             </div>
         </div>
 
-        <div id="not-found" class="hidden text-center text-gray-400 mt-4">找不到該單字，請試試看 "eat"</div>
     </div>
 
-    <script>
-        // 模擬的本地資料庫（實際開發可透過 fetch("db.json") 載入）
-        const dictionary = {
-            "eat": {
-                "word": "eat", "definition": "吃 (vt./vi.)",
-                "tenses": { "pres": "eat", "past": "ate", "p_part": "eating", "past_part": "eaten" },
-                "conjugation": { "plural": "eat", "singular": "eats" }
-            },
-            "do": {
-                "word": "do", "definition": "做、執行 (vt./vi.)",
-                "tenses": { "pres": "do", "past": "did", "p_part": "doing", "past_part": "done" },
-                "conjugation": { "plural": "do", "singular": "does" }
-            }
+    <script type="module">
+        import { Type, Tense, WordDataMap } from "./Data.js";
+        import { VerbConjugator } from "./Verb.js";
+
+        const conjugator = new VerbConjugator();
+
+        const typeMap = {
+            ar: Type.Ar,
+            er: Type.Er,
+            ir: Type.Ir,
         };
 
-        function searchWord() {
-            const query = document.getElementById('search-input').value.trim().toLowerCase();
-            const resultZone = document.getElementById('result-zone');
-            const notFound = document.getElementById('not-found');
+        window.selectType = function (typeKey) {
+            const type = typeMap[typeKey];
+            const list = WordDataMap.get(type) ?? [];
 
-            if (dictionary[query]) {
-                const data = dictionary[query];
-                document.getElementById('res-word').innerText = data.word;
-                document.getElementById('res-def').innerText = data.definition;
-                document.getElementById('t-pres').innerText = data.tenses.pres;
-                document.getElementById('t-past').innerText = data.tenses.past;
-                document.getElementById('t-p-part').innerText = data.tenses.p_part;
-                document.getElementById('t-past-part').innerText = data.tenses.past_part;
-                document.getElementById('c-plural').innerText = data.conjugation.plural;
-                document.getElementById('c-singular').innerText = data.conjugation.singular;
+            const wordList = document.getElementById("word-list");
+            const selectedWord = document.getElementById("selected-word");
 
-                resultZone.classList.remove('hidden');
-                notFound.classList.add('hidden');
-            } else {
-                resultZone.classList.add('hidden');
-                notFound.classList.remove('hidden');
+            wordList.innerHTML = "";
+            wordList.classList.remove("hidden");
+            selectedWord.classList.add("hidden");
+
+            resetResult();
+
+            list.forEach(item => {
+                const btn = document.createElement("button");
+                btn.innerText = item.voc;
+                btn.className = "px-4 py-2 border rounded hover:bg-gray-100";
+                btn.onclick = () => selectWord(item.voc, type);
+                wordList.appendChild(btn);
+            });
+        };
+
+        function selectWord(word, type) {
+            const result = conjugator.conjugate({
+                word,
+                tag: Tense.Present,
+                type,
+            });
+
+            document.getElementById("word-list").classList.add("hidden");
+
+            const selectedWord = document.getElementById("selected-word");
+            selectedWord.classList.remove("hidden");
+            selectedWord.innerText = word;
+
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`p${i + 1}`).innerText = result[i] ?? "";
+            }
+        }
+
+        function resetResult() {
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`p${i}`).innerText = i;
             }
         }
     </script>
-</body>
 
-</html>
+</body>
