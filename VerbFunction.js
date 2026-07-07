@@ -1,10 +1,8 @@
-import { Type, VerbForm } from "./Data.js";
-
+import { Type } from "./Data.js";
 export class VerbFunction
 {
-    private static _instance: VerbFunction;
-    private constructor() { }
-    public static get Instance(): VerbFunction
+    constructor() { }
+    static get Instance()
     {
         if ( !VerbFunction._instance )
         {
@@ -12,16 +10,16 @@ export class VerbFunction
         }
         return VerbFunction._instance;
     }
-    public getStem( found: string ): string
+    getStem( found )
     {
         return found.slice( 0, -2 );
     }
-    public presentTense( found: VerbForm, Item: string, type: Type ): string[]
+    presentTense( found, Item, type )
     {
-        let result: string[] = [];
+        let result = [];
         for ( let i = 0; i < found.personal.length; i++ )
         {
-            let combination: string = "";
+            let combination = "";
             switch ( found.personal[ i ] )
             {
                 case "yo":
@@ -86,18 +84,16 @@ export class VerbFunction
                     }
                     break;
             }
-
             result.push( combination );
         }
-
         return result;
     }
-    public subjunctiveTense( found: VerbForm, Item: string, type: Type ): string[]
+    subjunctiveTense( found, Item, type )
     {
-        let result: string[] = [];
+        let result = [];
         for ( let i = 0; i < found.personal.length; i++ )
         {
-            let combination: string = "";
+            let combination = "";
             switch ( found.personal[ i ] )
             {
                 case "yo":
@@ -105,7 +101,7 @@ export class VerbFunction
                     {
                         combination = Item + "e";
                     }
-                    else 
+                    else
                     {
                         combination = Item + "a";
                     }
@@ -135,7 +131,7 @@ export class VerbFunction
                     {
                         combination = Item + "emos";
                     }
-                    else 
+                    else
                     {
                         combination = Item + "amos";
                     }
@@ -145,7 +141,7 @@ export class VerbFunction
                     {
                         combination = Item + "éis";
                     }
-                    else 
+                    else
                     {
                         combination = Item + "áis";
                     }
@@ -161,18 +157,16 @@ export class VerbFunction
                     }
                     break;
             }
-
             result.push( combination );
         }
-
         return result;
     }
-    public pretéritoTense( found: VerbForm, Item: string, type: Type ): string[]
+    pretéritoTense( found, Item, type )
     {
-        let result: string[] = [];
+        let result = [];
         for ( let i = 0; i < found.personal.length; i++ )
         {
-            let combination: string = "";
+            let combination = "";
             switch ( found.personal[ i ] )
             {
                 case "yo":
@@ -180,7 +174,7 @@ export class VerbFunction
                     {
                         combination = Item + "é";
                     }
-                    else 
+                    else
                     {
                         combination = Item + "í";
                     }
@@ -236,10 +230,8 @@ export class VerbFunction
                     }
                     break;
             }
-
             result.push( combination );
         }
-
         return result;
     }
 }

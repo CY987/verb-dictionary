@@ -1,32 +1,24 @@
-import { Tense, VerbForm, WordDataMap, WordType } from "./Data.js";
+import { Tense, WordDataMap } from "./Data.js";
 import { VerbFunction } from "./VerbFunction.js";
-
 export class VerbConjugator
 {
-    constructor()
-    { }
-    public conjugate( selectWord: WordType ): string[]
+    constructor() { }
+    conjugate( selectWord )
     {
-
         const targetTable = WordDataMap.get( selectWord.type );
         if ( !targetTable )
         {
             console.warn( `找不到類型: ${selectWord.type} 的動詞庫` );
             return [];
         }
-        const found = targetTable.find(
-            item => item.voc === selectWord.word && item.tag.includes( selectWord.tag )
-        );
-
+        const found = targetTable.find( item => item.voc === selectWord.word && item.tag.includes( selectWord.tag ) );
         if ( !found )
         {
             console.warn( `找不到動詞: ${selectWord.word} 或該動詞不支援時態: ${selectWord.tag}` );
             return [];
         }
-
         // 取得字根 (例如 "comer" -> "com")
         const stem = VerbFunction.Instance.getStem( found.voc );
-
         // 根據指定的時態進行變位
         switch ( selectWord.tag )
         {
@@ -43,4 +35,3 @@ export class VerbConjugator
         }
     }
 }
-
