@@ -1,35 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西班牙文動詞變化</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
 <body class="bg-gray-50 min-h-screen flex items-center justify-center py-10">
 
     <div class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
 
         <div class="flex justify-between mb-8">
-            <button onclick="selectType('ar')" class="border-4 border-black px-16 py-6 text-3xl">Ar</button>
-            <button onclick="selectType('er')" class="border-4 border-black px-16 py-6 text-3xl">Er</button>
-            <button onclick="selectType('ir')" class="border-4 border-black px-16 py-6 text-3xl">Ir</button>
+            <button onclick="selectType('ar')"
+                class="border-4 border-black px-16 py-6 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ar</button>
+            <button onclick="selectType('er')"
+                class="border-4 border-black px-16 py-6 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Er</button>
+            <button onclick="selectType('ir')"
+                class="border-4 border-black px-16 py-6 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ir</button>
         </div>
 
-        <div class="border-4 border-black h-24 flex items-center justify-center mb-8">
+        <div class="border-4 border-black h-24 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
             <div id="word-list" class="flex gap-4"></div>
-            <div id="selected-word" class="hidden text-xl">顯示選取的單字</div>
+            <div id="selected-word" class="hidden text-3xl font-bold">顯示選取的單字</div>
         </div>
 
-        <div class="grid grid-cols-2 text-5xl text-center font-bold">
-            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center">
+        <div class="grid grid-cols-2 text-4xl text-center font-bold">
+            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p1">1</div>
             </div>
-            <div class="border-b-4 border-black py-8 flex items-center justify-center">
+            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p4">4</div>
             </div>
-            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center">
+            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p2">2</div>
             </div>
-            <div class="border-b-4 border-black py-8 flex items-center justify-center">
+            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p5">5</div>
             </div>
-            <div class="border-r-4 border-black py-8 flex items-center justify-center">
+            <div class="border-r-4 border-black py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p3">3</div>
             </div>
-            <div class="py-8 flex items-center justify-center">
+            <div class="py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p6">6</div>
             </div>
         </div>
@@ -64,7 +77,7 @@
             list.forEach(item => {
                 const btn = document.createElement("button");
                 btn.innerText = item.voc;
-                btn.className = "px-4 py-2 border rounded hover:bg-gray-100";
+                btn.className = "px-4 py-2 border-2 border-black rounded font-medium hover:bg-gray-200 cursor-pointer";
                 btn.onclick = () => selectWord(item.voc, type);
                 wordList.appendChild(btn);
             });
@@ -96,3 +109,5 @@
     </script>
 
 </body>
+
+</html>
