@@ -29,67 +29,41 @@ export class VerbFunction
                     break;
                 case "tú":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "as";
-                    }
+                    { combination = Item + "as"; }
                     else
-                    {
-                        combination = Item + "es";
-                    }
+                    { combination = Item + "es"; }
                     break;
                 case "él":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "a";
-                    }
+                    { combination = Item + "a"; }
                     else
-                    {
-                        combination = Item + "e";
-                    }
+                    { combination = Item + "e"; }
                     break;
                 case "nosotros":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "amos";
-                    }
+                    { combination = Item + "amos"; }
                     else if ( type === Type.Er )
-                    {
-                        combination = Item + "emos";
-                    }
+                    { combination = Item + "emos"; }
                     else
-                    {
-                        combination = Item + "imos";
-                    }
+                    { combination = Item + "imos"; }
                     break;
                 case "vosotros":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "áis";
-                    }
+                    { combination = Item + "áis"; }
                     else if ( type === Type.Er )
-                    {
-                        combination = Item + "éis";
-                    }
+                    { combination = Item + "éis"; }
                     else
-                    {
-                        combination = Item + "ís";
-                    }
+                    { combination = Item + "ís"; }
                     break;
                 case "ellos":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "an";
-                    }
+                    { combination = Item + "an"; }
                     else
-                    {
-                        combination = Item + "en";
-                    }
+                    { combination = Item + "en"; }
                     break;
             }
-
             result.push( combination );
         }
-
         return result;
     }
     public subjunctiveTense( found: VerbForm, Item: string, type: Type ): string[]
@@ -102,69 +76,43 @@ export class VerbFunction
             {
                 case "yo":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "e";
-                    }
-                    else 
-                    {
-                        combination = Item + "a";
-                    }
+                    { combination = Item + "e"; }
+                    else
+                    { combination = Item + "a"; }
                     break;
                 case "tú":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "es";
-                    }
+                    { combination = Item + "es"; }
                     else
-                    {
-                        combination = Item + "as";
-                    }
+                    { combination = Item + "as"; }
                     break;
                 case "él":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "e";
-                    }
+                    { combination = Item + "e"; }
                     else
-                    {
-                        combination = Item + "a";
-                    }
+                    { combination = Item + "a"; }
                     break;
                 case "nosotros":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "emos";
-                    }
-                    else 
-                    {
-                        combination = Item + "amos";
-                    }
+                    { combination = Item + "emos"; }
+                    else
+                    { combination = Item + "amos"; }
                     break;
                 case "vosotros":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "éis";
-                    }
-                    else 
-                    {
-                        combination = Item + "áis";
-                    }
+                    { combination = Item + "éis"; }
+                    else
+                    { combination = Item + "áis"; }
                     break;
                 case "ellos":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "en";
-                    }
+                    { combination = Item + "en"; }
                     else
-                    {
-                        combination = Item + "an";
-                    }
+                    { combination = Item + "an"; }
                     break;
             }
-
             result.push( combination );
         }
-
         return result;
     }
     public pretéritoTense( found: VerbForm, Item: string, type: Type ): string[]
@@ -177,69 +125,253 @@ export class VerbFunction
             {
                 case "yo":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "é";
-                    }
-                    else 
-                    {
-                        combination = Item + "í";
-                    }
+                    { combination = Item + "é"; }
+                    else
+                    { combination = Item + "í"; }
                     break;
                 case "tú":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "aste";
-                    }
+                    { combination = Item + "aste"; }
                     else
-                    {
-                        combination = Item + "iste";
-                    }
+                    { combination = Item + "iste"; }
                     break;
                 case "él":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "ó";
-                    }
+                    { combination = Item + "ó"; }
                     else
-                    {
-                        combination = Item + "ió";
-                    }
+                    { combination = Item + "ió"; }
                     break;
                 case "nosotros":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "amos";
-                    }
+                    { combination = Item + "amos"; }
                     else
-                    {
-                        combination = Item + "imos";
-                    }
+                    { combination = Item + "imos"; }
                     break;
                 case "vosotros":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "asteis";
-                    }
+                    { combination = Item + "asteis"; }
                     else
-                    {
-                        combination = Item + "isteis";
-                    }
+                    { combination = Item + "isteis"; }
                     break;
                 case "ellos":
                     if ( type === Type.Ar )
-                    {
-                        combination = Item + "aron";
-                    }
+                    { combination = Item + "aron"; }
                     else
-                    {
-                        combination = Item + "ieron";
-                    }
+                    { combination = Item + "ieron"; }
                     break;
             }
-
             result.push( combination );
         }
-
         return result;
     }
+    public imperfectTense( found: VerbForm, Item: string, type: Type ): string[]
+    {
+        let result: string[] = [];
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    if ( type === Type.Ar )
+                    { combination = Item + "aba"; }
+                    else
+                    { combination = Item + "ía"; }
+                    break;
+                case "tú":
+                    if ( type === Type.Ar )
+                    { combination = Item + "abas"; }
+                    else
+                    { combination = Item + "ías"; }
+                    break;
+                case "él":
+                    if ( type === Type.Ar )
+                    { combination = Item + "aba"; }
+                    else
+                    { combination = Item + "ía"; }
+                    break;
+                case "nosotros":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ábamos"; }
+                    else
+                    { combination = Item + "íamos"; }
+                    break;
+                case "vosotros":
+                    if ( type === Type.Ar )
+                    { combination = Item + "abais"; }
+                    else
+                    { combination = Item + "íais"; }
+                    break;
+                case "ellos":
+                    if ( type === Type.Ar )
+                    { combination = Item + "aban"; }
+                    else
+                    { combination = Item + "ían"; }
+                    break;
+            }
+            result.push( combination );
+        }
+        return result;
+    }
+    public futureTense( found: VerbForm, Item: string, type: Type ): string[]
+    {
+        let result: string[] = [];
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    combination = Item + "é";
+                    break;
+                case "tú":
+                    combination = Item + "ás";
+                    break;
+                case "él":
+                    combination = Item + "á";
+                    break;
+                case "nosotros":
+                    combination = Item + "emos";
+                    break;
+                case "vosotros":
+                    combination = Item + "éis";
+                    break;
+                case "ellos":
+                    combination = Item + "án";
+                    break;
+            }
+            result.push( combination );
+        }
+        return result;
+    }
+    public conditionalTense( found: VerbForm, Item: string, type: Type ): string[]
+    {
+        let result: string[] = [];
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    combination = Item + "ía";
+                    break;
+                case "tú":
+                    combination = Item + "ías";
+                    break;
+                case "él":
+                    combination = Item + "ía";
+                    break;
+                case "nosotros":
+                    combination = Item + "íamos";
+                    break;
+                case "vosotros":
+                    combination = Item + "íais";
+                    break;
+                case "ellos":
+                    combination = Item + "ían";
+                    break;
+            }
+            result.push( combination );
+        }
+        return result;
+    }
+    public impSubRaTense( found: VerbForm, Item: string, type: Type ): string[]
+    {
+        let result: string[] = [];
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ara"; }
+                    else
+                    { combination = Item + "iera"; }
+                    break;
+                case "tú":
+                    if ( type === Type.Ar )
+                    { combination = Item + "aras"; }
+                    else
+                    { combination = Item + "ieras"; }
+                    break;
+                case "él":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ara"; }
+                    else
+                    { combination = Item + "iera"; }
+                    break;
+                case "nosotros":
+                    if ( type === Type.Ar )
+                    { combination = Item + "áramos"; }
+                    else
+                    { combination = Item + "iéramos"; }
+                    break;
+                case "vosotros":
+                    if ( type === Type.Ar )
+                    { combination = Item + "arais"; }
+                    else
+                    { combination = Item + "ierais"; }
+                    break;
+                case "ellos":
+                    if ( type === Type.Ar )
+                    { combination = Item + "aran"; }
+                    else
+                    { combination = Item + "ieran"; }
+                    break;
+            }
+            result.push( combination );
+        }
+        return result;
+    }
+    public impSubSeTense( found: VerbForm, Item: string, type: Type ): string[]
+    {
+        let result: string[] = [];
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ase"; }
+                    else
+                    { combination = Item + "iese"; }
+                    break;
+                case "tú":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ases"; }
+                    else
+                    { combination = Item + "ieses"; }
+                    break;
+                case "él":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ase"; }
+                    else
+                    { combination = Item + "iese"; }
+                    break;
+                case "nosotros":
+                    if ( type === Type.Ar )
+                    { combination = Item + "ásemos"; }
+                    else
+                    { combination = Item + "iésemos"; }
+                    break;
+                case "vosotros":
+                    if ( type === Type.Ar )
+                    { combination = Item + "aseis"; }
+                    else
+                    { combination = Item + "ieseis"; }
+                    break;
+                case "ellos":
+                    if ( type === Type.Ar )
+                    { combination = Item + "asen"; }
+                    else
+                    { combination = Item + "iesen"; }
+                    break;
+            }
+            result.push( combination );
+        }
+        return result;
+    }
+
 }

@@ -48,19 +48,19 @@ export const ALL_MAIN_TENSES = [
 
 const ErVerb: VerbForm[] =
     [
-        { voc: "comer", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs" ], regular: true },
-        { voc: "aprender", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs" ], regular: true }
+        { voc: "comer", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "aprender", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true }
     ]
 
 const ArVerb: VerbForm[] =
     [
-        { voc: "hablar", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs" ], regular: true },
-        { voc: "tomar", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs" ], regular: true }
+        { voc: "hablar", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "tomar", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true }
     ]
 const IrVerb: VerbForm[] =
     [
-        { voc: "vivir", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs" ], regular: true },
-        { voc: "escribir", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs" ], regular: true }
+        { voc: "vivir", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "escribir", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true }
     ]
 export const WordDataMap: Map<Type, VerbForm[]> = new Map();
 WordDataMap.set( Type.Ar, ArVerb );

@@ -36,6 +36,16 @@ export class VerbConjugator
                 return VerbFunction.Instance.subjunctiveTense( found, stem, selectWord.type );
             case Tense.Pretérito:
                 return VerbFunction.Instance.pretéritoTense( found, stem, selectWord.type );
+            case Tense.Imperfect:
+                return VerbFunction.Instance.imperfectTense( found, stem, selectWord.type );
+            case Tense.Future:
+                return VerbFunction.Instance.futureTense( found, found.voc, selectWord.type );
+            case Tense.Conditional:
+                return VerbFunction.Instance.conditionalTense( found, found.voc, selectWord.type );
+            case Tense.ImperfectSubjunctiveRa:
+                return VerbFunction.Instance.impSubRaTense( found, stem, selectWord.type );
+            case Tense.ImperfectSubjunctiveSe:
+                return VerbFunction.Instance.impSubSeTense( found, stem, selectWord.type );
             // 未來可以輕鬆在這邊擴充其他時態的 method
             // return this.getFutureTense(found.personal, found.voc); 
             default:
