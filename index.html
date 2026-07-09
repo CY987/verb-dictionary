@@ -110,6 +110,7 @@
 
         // 切換時態的邏輯
         function selectTense(tenseValue) {
+            console.log("點擊時態：", tenseValue);
             currentTense = tenseValue;
             updateTenseUI();
 
@@ -176,7 +177,7 @@
                 tag: currentTense,
                 type,
             });
-
+            console.log(result);
             document.getElementById("word-list").classList.add("hidden");
 
             const selectedWord = document.getElementById("selected-word");
