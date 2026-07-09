@@ -39,11 +39,21 @@
             <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
                 <div id="p5">vosotros</div>
             </div>
-            <div class="border-r-4 border-black py-8 flex items-center justify-center min-h-[120px]">
-                <div id="p3">3</div>
+            <!-- 3. él ella usted -->
+            <div class="border-r-4 border-black py-8 flex items-center justify-center min-h-[120px] px-2">
+                <div id="p3" class="flex flex-col gap-1 text-3xl">
+                    <span>él</span>
+                    <span>ella</span>
+                    <span>usted</span>
+                </div>
             </div>
-            <div class="py-8 flex items-center justify-center min-h-[120px]">
-                <div id="p6">6</div>
+            <!-- 6. ellos ellas ustedes -->
+            <div class="py-8 flex items-center justify-center min-h-[120px] px-2">
+                <div id="p6" class="flex flex-col gap-1 text-3xl">
+                    <span>ellos</span>
+                    <span>ellas</span>
+                    <span>ustedes</span>
+                </div>
             </div>
         </div>
 
@@ -60,7 +70,15 @@
             er: Type.Er,
             ir: Type.Ir,
         };
-
+        // 定義對應人稱的陣列，方便重置時讀取
+        const defaultPronouns = [
+            "yo",
+            "tú",
+            "él ella usted",
+            "nosotros",
+            "vosotros",
+            "ellos ellas ustedes"
+        ];
         window.selectType = function (typeKey) {
             const type = typeMap[typeKey];
             const list = WordDataMap.get(type) ?? [];
@@ -103,7 +121,7 @@
 
         function resetResult() {
             for (let i = 1; i <= 6; i++) {
-                document.getElementById(`p${i}`).innerText = i;
+                document.getElementById(`p${i}`).innerText = defaultPronouns[i - 1];
             }
         }
     </script>
