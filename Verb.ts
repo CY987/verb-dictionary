@@ -1,4 +1,4 @@
-import { Tense, VerbForm, WordDataMap, WordType } from "./Data.js";
+import { Tense, WordDataMap, WordType } from "./Data.js";
 import { VerbFunction } from "./VerbFunction.js";
 
 export class VerbConjugator
@@ -15,7 +15,7 @@ export class VerbConjugator
             return [];
         }
         const found = targetTable.find(
-            item => item.voc === selectWord.word && item.tag.includes( selectWord.tag )
+            item => item.voc === selectWord.word
         );
 
         if ( !found )
