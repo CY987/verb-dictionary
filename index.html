@@ -64,7 +64,7 @@
     </div>
 
     <script type="module">
-        import { Type, Tense, WordDataMap } from "./Data.js";
+        import { Type, Tense, WordDataMap, ALL_MAIN_TENSES } from "./Data.js";
         import { VerbConjugator } from "./Verb.js";
 
         const conjugator = new VerbConjugator();
@@ -94,15 +94,16 @@
             const tenseZone = document.getElementById("tense-zone");
             tenseZone.innerHTML = "";
 
-            // 將所有 Tense Enum 列出
-            Object.keys(Tense).forEach(key => {
-                const tenseValue = Tense[key];
+            // 直接跑現成的時態陣列
+            ALL_MAIN_TENSES.forEach(tenseValue => {
                 const btn = document.createElement("button");
-                btn.innerText = key; // 顯示名稱如 Present, Subjunctive
+
+                // 畫面上顯示優化過的名稱
+                btn.innerText = tenseValue;
                 btn.id = `tense-${tenseValue}`;
                 btn.className = "px-3 py-2 border-2 border-black rounded cursor-pointer text-center transition hover:bg-gray-100";
 
-                // 點擊切換時態
+                // 點擊時，確保傳過去的就是確切的 Enum 字串值
                 btn.onclick = () => {
                     selectTense(tenseValue);
                 };
@@ -122,16 +123,14 @@
             }
         }
 
-        // 更新時態按鈕的高亮狀態
+        // 3. 修改：更新高亮 UI 邏輯，同樣改用 ALL_MAIN_TENSES 確保完全對齊
         function updateTenseUI() {
-            Object.values(Tense).forEach(value => {
+            ALL_MAIN_TENSES.forEach(value => {
                 const btn = document.getElementById(`tense-${value}`);
                 if (!btn) return;
                 if (value === currentTense) {
-                    // 當前選中的時態：反白高亮
                     btn.className = "px-3 py-2 border-2 border-black bg-black text-white rounded cursor-pointer text-center font-bold";
                 } else {
-                    // 未選中的時態
                     btn.className = "px-3 py-2 border-2 border-black bg-white text-black rounded cursor-pointer text-center transition hover:bg-gray-100";
                 }
             });
@@ -175,11 +174,11 @@
             });
         };
 
-        // 核心：呼叫 conjugator 並渲染畫面的方法
+        // 4. 修改：單字顯示標題優化
         function renderConjugation(word, type) {
             const result = conjugator.conjugate({
                 word,
-                tag: currentTense, // 帶入當前選取的時態
+                tag: currentTense,
                 type,
             });
 
@@ -187,9 +186,10 @@
 
             const selectedWord = document.getElementById("selected-word");
             selectedWord.classList.remove("hidden");
-            selectedWord.innerText = `${word} (${getKeyByValue(Tense, currentTense)})`;
 
-            // 移除代名詞分行的 flex 排版
+            // 直接顯示時態名稱即可，不需用輔助工具反查
+            selectedWord.innerText = `${word} (${currentTense})`;
+
             document.getElementById("p3").classList.remove("flex-col", "gap-1");
             document.getElementById("p6").classList.remove("flex-col", "gap-1");
 
