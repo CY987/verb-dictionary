@@ -26,7 +26,7 @@ export class VerbConjugator
 
         // 取得字根 (例如 "comer" -> "com")
         const stem = VerbFunction.Instance.getStem( found.voc );
-
+        console.log( "tag =", selectWord.tag );
         // 根據指定的時態進行變位
         switch ( selectWord.tag )
         {
@@ -49,6 +49,7 @@ export class VerbConjugator
             // 未來可以輕鬆在這邊擴充其他時態的 method
             // return this.getFutureTense(found.personal, found.voc); 
             default:
+                console.warn( "尚未支援此時態:", selectWord.tag );
                 return [];
         }
     }

@@ -28,9 +28,9 @@ export enum Tense
     Conditional = "Conditional",
     ImperfectSubjunctiveRa = "ImperfectSubjunctiveRa",
     ImperfectSubjunctiveSe = "ImperfectSubjunctiveSe",
-    Imperative = "Imperative",
-    Gerund = "Gerund",
-    PastParticiple = "PastParticiple",
+    // Imperative = "Imperative",
+    // Gerund = "Gerund",
+    // PastParticiple = "PastParticiple",
 }
 export const ALL_MAIN_TENSES = [
     Tense.Present,
@@ -39,11 +39,11 @@ export const ALL_MAIN_TENSES = [
     Tense.Imperfect,
     Tense.Pretérito,
     Tense.Subjunctive,
-    Tense.Gerund,
-    Tense.Imperative,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.PastParticiple,
+    // Tense.PastParticiple,
+    // Tense.Gerund,
+    // Tense.Imperative,
 ];
 
 const ErVerb: VerbForm[] =
