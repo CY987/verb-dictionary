@@ -75,7 +75,7 @@
             ir: Type.Ir,
         };
 
-        // 全域狀態：記錄使用者目前選了什麼
+        // 全域狀態
         let currentType = null;
         let currentWord = null;
         let currentTense = Tense.Present; // 預設為現在式
@@ -94,16 +94,12 @@
             const tenseZone = document.getElementById("tense-zone");
             tenseZone.innerHTML = "";
 
-            // 直接跑現成的時態陣列
             ALL_MAIN_TENSES.forEach(tenseValue => {
                 const btn = document.createElement("button");
-
-                // 畫面上顯示優化過的名稱
                 btn.innerText = tenseValue;
                 btn.id = `tense-${tenseValue}`;
                 btn.className = "px-3 py-2 border-2 border-black rounded cursor-pointer text-center transition hover:bg-gray-100";
 
-                // 點擊時，確保傳過去的就是確切的 Enum 字串值
                 btn.onclick = () => {
                     selectTense(tenseValue);
                 };
@@ -117,13 +113,12 @@
             currentTense = tenseValue;
             updateTenseUI();
 
-            // 如果當前已經有選定的單字，直接重新計算並刷新動詞變化畫面
             if (currentWord && currentType !== null) {
                 renderConjugation(currentWord, currentType);
             }
         }
 
-        // 3. 修改：更新高亮 UI 邏輯，同樣改用 ALL_MAIN_TENSES 確保完全對齊
+        // 更新時態按鈕的高亮樣式
         function updateTenseUI() {
             ALL_MAIN_TENSES.forEach(value => {
                 const btn = document.getElementById(`tense-${value}`);
@@ -136,10 +131,11 @@
             });
         }
 
+        // 選擇 Ar / Er / Ir 庫
         window.selectType = function (typeKey) {
             const type = typeMap[typeKey];
             currentType = type;
-            currentWord = null; // 切換字庫時清空當前單字
+            currentWord = null;
 
             const list = WordDataMap.get(type) ?? [];
 
@@ -163,7 +159,6 @@
                 wordList.appendChild(btn);
             });
 
-            // 更新 Ar/Er/Ir 按鈕的高亮樣式
             ['ar', 'er', 'ir'].forEach(k => {
                 const b = document.getElementById(`btn-${k}`);
                 if (k === typeKey) {
@@ -174,7 +169,7 @@
             });
         };
 
-        // 4. 修改：單字顯示標題優化
+        // 核心：渲染動詞變位結果
         function renderConjugation(word, type) {
             const result = conjugator.conjugate({
                 word,
@@ -186,30 +181,29 @@
 
             const selectedWord = document.getElementById("selected-word");
             selectedWord.classList.remove("hidden");
-
-            // 直接顯示時態名稱即可，不需用輔助工具反查
             selectedWord.innerText = `${word} (${currentTense})`;
 
+            // 顯示動詞時，移除代名詞專用的垂直分行 flex 排版
             document.getElementById("p3").classList.remove("flex-col", "gap-1");
             document.getElementById("p6").classList.remove("flex-col", "gap-1");
 
+            // 💡 最佳化：使用 innerHTML 來洗掉代名詞標籤，並安全填入結果
             for (let i = 0; i < 6; i++) {
-                document.getElementById(`p${i + 1}`).innerText = result[i] ?? "";
+                // 如果該時態（如副動詞）回傳不足 6 個，後面格子直接給空字串，防止 undefined 露出
+                document.getElementById(`p${i + 1}`).innerHTML = result[i] ?? "";
             }
         }
 
+        // 重置回預設代名詞
         function resetResult() {
+            // 還原第 3、6 格的垂直分行排版
             document.getElementById("p3").classList.add("flex-col", "gap-1");
             document.getElementById("p6").classList.add("flex-col", "gap-1");
 
+            // 使用 innerHTML 重新塞入帶有 <span> 的代名詞模板
             for (let i = 1; i <= 6; i++) {
                 document.getElementById(`p${i}`).innerHTML = defaultTemplates[i - 1];
             }
-        }
-
-        // 輔助工具：用 value 反查 Enum 的 key 名稱
-        function getKeyByValue(object, value) {
-            return Object.keys(object).find(key => object[key] === value);
         }
 
         // 網頁載入時初始化時態按鈕
