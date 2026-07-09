@@ -10,15 +10,21 @@
 
 <body class="bg-gray-50 min-h-screen flex items-center justify-center py-10">
 
-    <div class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
+    <div class="w-full max-w-2xl bg-white p-6 rounded-xl shadow-md">
 
-        <div class="flex justify-between mb-8">
-            <button onclick="selectType('ar')"
-                class="border-4 border-black px-16 py-6 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ar</button>
-            <button onclick="selectType('er')"
-                class="border-4 border-black px-16 py-6 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Er</button>
-            <button onclick="selectType('ir')"
-                class="border-4 border-black px-16 py-6 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ir</button>
+        <div class="flex justify-between mb-6">
+            <button onclick="selectType('ar')" id="btn-ar"
+                class="border-4 border-black px-16 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ar</button>
+            <button onclick="selectType('er')" id="btn-er"
+                class="border-4 border-black px-16 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Er</button>
+            <button onclick="selectType('ir')" id="btn-ir"
+                class="border-4 border-black px-16 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ir</button>
+        </div>
+
+        <div class="mb-6">
+            <div class="text-sm font-bold text-gray-500 mb-2">時態 / Tense：</div>
+            <div id="tense-zone" class="grid grid-cols-3 gap-2 text-sm font-semibold">
+            </div>
         </div>
 
         <div class="border-4 border-black h-24 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
@@ -27,28 +33,26 @@
         </div>
 
         <div class="grid grid-cols-2 text-4xl text-center font-bold">
-            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
+            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
                 <div id="p1">yo</div>
             </div>
-            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
+            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
                 <div id="p4">nosotros</div>
             </div>
-            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
+            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
                 <div id="p2">tú</div>
             </div>
-            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[120px]">
+            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
                 <div id="p5">vosotros</div>
             </div>
-            <!-- 3. él ella usted -->
-            <div class="border-r-4 border-black py-8 flex items-center justify-center min-h-[120px] px-2">
+            <div class="border-r-4 border-black py-8 flex items-center justify-center min-h-[140px] px-2">
                 <div id="p3" class="flex flex-col gap-1 text-3xl">
                     <span>él</span>
                     <span>ella</span>
                     <span>usted</span>
                 </div>
             </div>
-            <!-- 6. ellos ellas ustedes -->
-            <div class="py-8 flex items-center justify-center min-h-[120px] px-2">
+            <div class="py-8 flex items-center justify-center min-h-[140px] px-2">
                 <div id="p6" class="flex flex-col gap-1 text-3xl">
                     <span>ellos</span>
                     <span>ellas</span>
@@ -70,17 +74,74 @@
             er: Type.Er,
             ir: Type.Ir,
         };
-        // 定義對應人稱的陣列，方便重置時讀取
-        const defaultPronouns = [
+
+        // 全域狀態：記錄使用者目前選了什麼
+        let currentType = null;
+        let currentWord = null;
+        let currentTense = Tense.Present; // 預設為現在式
+
+        const defaultTemplates = [
             "yo",
             "tú",
-            "él ella usted",
+            `<span>él</span><span>ella</span><span>usted</span>`,
             "nosotros",
             "vosotros",
-            "ellos ellas ustedes"
+            `<span>ellos</span><span>ellas</span><span>ustedes</span>`
         ];
+
+        // 初始化時態按鈕
+        function initTenseButtons() {
+            const tenseZone = document.getElementById("tense-zone");
+            tenseZone.innerHTML = "";
+
+            // 將所有 Tense Enum 列出
+            Object.keys(Tense).forEach(key => {
+                const tenseValue = Tense[key];
+                const btn = document.createElement("button");
+                btn.innerText = key; // 顯示名稱如 Present, Subjunctive
+                btn.id = `tense-${tenseValue}`;
+                btn.className = "px-3 py-2 border-2 border-black rounded cursor-pointer text-center transition hover:bg-gray-100";
+
+                // 點擊切換時態
+                btn.onclick = () => {
+                    selectTense(tenseValue);
+                };
+                tenseZone.appendChild(btn);
+            });
+            updateTenseUI();
+        }
+
+        // 切換時態的邏輯
+        function selectTense(tenseValue) {
+            currentTense = tenseValue;
+            updateTenseUI();
+
+            // 如果當前已經有選定的單字，直接重新計算並刷新動詞變化畫面
+            if (currentWord && currentType !== null) {
+                renderConjugation(currentWord, currentType);
+            }
+        }
+
+        // 更新時態按鈕的高亮狀態
+        function updateTenseUI() {
+            Object.values(Tense).forEach(value => {
+                const btn = document.getElementById(`tense-${value}`);
+                if (!btn) return;
+                if (value === currentTense) {
+                    // 當前選中的時態：反白高亮
+                    btn.className = "px-3 py-2 border-2 border-black bg-black text-white rounded cursor-pointer text-center font-bold";
+                } else {
+                    // 未選中的時態
+                    btn.className = "px-3 py-2 border-2 border-black bg-white text-black rounded cursor-pointer text-center transition hover:bg-gray-100";
+                }
+            });
+        }
+
         window.selectType = function (typeKey) {
             const type = typeMap[typeKey];
+            currentType = type;
+            currentWord = null; // 切換字庫時清空當前單字
+
             const list = WordDataMap.get(type) ?? [];
 
             const wordList = document.getElementById("word-list");
@@ -96,15 +157,29 @@
                 const btn = document.createElement("button");
                 btn.innerText = item.voc;
                 btn.className = "px-4 py-2 border-2 border-black rounded font-medium hover:bg-gray-200 cursor-pointer";
-                btn.onclick = () => selectWord(item.voc, type);
+                btn.onclick = () => {
+                    currentWord = item.voc;
+                    renderConjugation(item.voc, type);
+                };
                 wordList.appendChild(btn);
+            });
+
+            // 更新 Ar/Er/Ir 按鈕的高亮樣式
+            ['ar', 'er', 'ir'].forEach(k => {
+                const b = document.getElementById(`btn-${k}`);
+                if (k === typeKey) {
+                    b.classList.add('bg-gray-200');
+                } else {
+                    b.classList.remove('bg-gray-200');
+                }
             });
         };
 
-        function selectWord(word, type) {
+        // 核心：呼叫 conjugator 並渲染畫面的方法
+        function renderConjugation(word, type) {
             const result = conjugator.conjugate({
                 word,
-                tag: Tense.Present,
+                tag: currentTense, // 帶入當前選取的時態
                 type,
             });
 
@@ -112,7 +187,11 @@
 
             const selectedWord = document.getElementById("selected-word");
             selectedWord.classList.remove("hidden");
-            selectedWord.innerText = word;
+            selectedWord.innerText = `${word} (${getKeyByValue(Tense, currentTense)})`;
+
+            // 移除代名詞分行的 flex 排版
+            document.getElementById("p3").classList.remove("flex-col", "gap-1");
+            document.getElementById("p6").classList.remove("flex-col", "gap-1");
 
             for (let i = 0; i < 6; i++) {
                 document.getElementById(`p${i + 1}`).innerText = result[i] ?? "";
@@ -120,10 +199,21 @@
         }
 
         function resetResult() {
+            document.getElementById("p3").classList.add("flex-col", "gap-1");
+            document.getElementById("p6").classList.add("flex-col", "gap-1");
+
             for (let i = 1; i <= 6; i++) {
-                document.getElementById(`p${i}`).innerText = defaultPronouns[i - 1];
+                document.getElementById(`p${i}`).innerHTML = defaultTemplates[i - 1];
             }
         }
+
+        // 輔助工具：用 value 反查 Enum 的 key 名稱
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
+
+        // 網頁載入時初始化時態按鈕
+        initTenseButtons();
     </script>
 
 </body>
