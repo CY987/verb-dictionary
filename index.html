@@ -27,8 +27,10 @@
             </div>
         </div>
 
-        <div class="border-4 border-black h-24 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
-            <div id="word-list" class="flex gap-4"></div>
+        <div class="border-4 border-black min-h-24 p-4 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
+
+            <div id="word-list" class="grid grid-cols-3 sm:grid-cols-4 gap-2 w-full text-center"></div>
+
             <div id="selected-word" class="hidden text-3xl font-bold">顯示選取的單字</div>
         </div>
 
@@ -90,17 +92,20 @@
         ];
 
         // 初始化時態按鈕
-        function initTenseButtons() {
+        function initTenseButtons()
+        {
             const tenseZone = document.getElementById("tense-zone");
             tenseZone.innerHTML = "";
 
-            ALL_MAIN_TENSES.forEach(tenseValue => {
+            ALL_MAIN_TENSES.forEach(tenseValue =>
+            {
                 const btn = document.createElement("button");
                 btn.innerText = tenseValue;
                 btn.id = `tense-${tenseValue}`;
                 btn.className = "px-3 py-2 border-2 border-black rounded cursor-pointer text-center transition hover:bg-gray-100";
 
-                btn.onclick = () => {
+                btn.onclick = () =>
+                {
                     selectTense(tenseValue);
                 };
                 tenseZone.appendChild(btn);
@@ -109,32 +114,39 @@
         }
 
         // 切換時態的邏輯
-        function selectTense(tenseValue) {
+        function selectTense(tenseValue)
+        {
             console.log("點擊時態：", tenseValue);
             currentTense = tenseValue;
             updateTenseUI();
 
-            if (currentWord && currentType !== null) {
+            if (currentWord && currentType !== null)
+            {
                 renderConjugation(currentWord, currentType);
             }
         }
 
         // 更新時態按鈕的高亮樣式
-        function updateTenseUI() {
-            ALL_MAIN_TENSES.forEach(value => {
+        function updateTenseUI()
+        {
+            ALL_MAIN_TENSES.forEach(value =>
+            {
                 const btn = document.getElementById(`tense-${value}`);
                 if (!btn) return;
-                if (value === currentTense) {
+                if (value === currentTense)
+                {
                     btn.className = "px-3 py-2 border-2 border-black bg-black text-white rounded cursor-pointer text-center font-bold";
-                } else {
+                } else
+                {
                     btn.className = "px-3 py-2 border-2 border-black bg-white text-black rounded cursor-pointer text-center transition hover:bg-gray-100";
                 }
             });
         }
 
         // 選擇 Ar / Er / Ir 庫
-        window.selectType = function (typeKey) {
-            const type = typeMap[typeKey];
+        window.selectType = function (typeKey)
+        {
+            const type = typeMap[ typeKey ];
             currentType = type;
             currentWord = null;
 
@@ -149,29 +161,35 @@
 
             resetResult();
 
-            list.forEach(item => {
+            list.forEach(item =>
+            {
                 const btn = document.createElement("button");
                 btn.innerText = item.voc;
                 btn.className = "px-4 py-2 border-2 border-black rounded font-medium hover:bg-gray-200 cursor-pointer";
-                btn.onclick = () => {
+                btn.onclick = () =>
+                {
                     currentWord = item.voc;
                     renderConjugation(item.voc, type);
                 };
                 wordList.appendChild(btn);
             });
 
-            ['ar', 'er', 'ir'].forEach(k => {
+            [ 'ar', 'er', 'ir' ].forEach(k =>
+            {
                 const b = document.getElementById(`btn-${k}`);
-                if (k === typeKey) {
+                if (k === typeKey)
+                {
                     b.classList.add('bg-gray-200');
-                } else {
+                } else
+                {
                     b.classList.remove('bg-gray-200');
                 }
             });
         };
 
         // 核心：渲染動詞變位結果
-        function renderConjugation(word, type) {
+        function renderConjugation(word, type)
+        {
             const result = conjugator.conjugate({
                 word,
                 tag: currentTense,
@@ -189,21 +207,24 @@
             document.getElementById("p6").classList.remove("flex-col", "gap-1");
 
             // 💡 最佳化：使用 innerHTML 來洗掉代名詞標籤，並安全填入結果
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < 6; i++)
+            {
                 // 如果該時態（如副動詞）回傳不足 6 個，後面格子直接給空字串，防止 undefined 露出
-                document.getElementById(`p${i + 1}`).innerHTML = result[i] ?? "";
+                document.getElementById(`p${i + 1}`).innerHTML = result[ i ] ?? "";
             }
         }
 
         // 重置回預設代名詞
-        function resetResult() {
+        function resetResult()
+        {
             // 還原第 3、6 格的垂直分行排版
             document.getElementById("p3").classList.add("flex-col", "gap-1");
             document.getElementById("p6").classList.add("flex-col", "gap-1");
 
             // 使用 innerHTML 重新塞入帶有 <span> 的代名詞模板
-            for (let i = 1; i <= 6; i++) {
-                document.getElementById(`p${i}`).innerHTML = defaultTemplates[i - 1];
+            for (let i = 1; i <= 6; i++)
+            {
+                document.getElementById(`p${i}`).innerHTML = defaultTemplates[ i - 1 ];
             }
         }
 
