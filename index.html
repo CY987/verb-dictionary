@@ -27,11 +27,15 @@
             </div>
         </div>
 
-        <div class="border-4 border-black min-h-24 p-4 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
+        <div class="border-4 border-black h-40 p-4 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
 
-            <div id="word-list" class="grid grid-cols-3 sm:grid-cols-4 gap-2 w-full text-center"></div>
+            <div id="word-list-container" class="w-full h-full overflow-y-auto flex items-start justify-center">
+                <div id="word-list" class="grid grid-cols-3 gap-2 w-full text-center"
+                    style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem;">
+                </div>
+            </div>
 
-            <div id="selected-word" class="hidden text-3xl font-bold">顯示選取的單字</div>
+            <div id="selected-word" class="hidden text-3xl font-bold text-center">顯示選取的單字</div>
         </div>
 
         <div class="grid grid-cols-2 text-4xl text-center font-bold">
@@ -152,11 +156,15 @@
 
             const list = WordDataMap.get(type) ?? [];
 
+            const wordListContainer = document.getElementById("word-list-container");
             const wordList = document.getElementById("word-list");
             const selectedWord = document.getElementById("selected-word");
 
             wordList.innerHTML = "";
-            wordList.classList.remove("hidden");
+            // 💡 修改：這裡同步把 container 的 hidden 拿掉，並將滾動條拉回最上方(置頂)
+            wordListContainer.classList.remove("hidden");
+            wordListContainer.scrollTop = 0;
+
             selectedWord.classList.add("hidden");
 
             resetResult();
@@ -196,7 +204,9 @@
                 type,
             });
             console.log(result);
-            document.getElementById("word-list").classList.add("hidden");
+
+            // 💡 修改：改為隱藏外層的 container，才不會留下空的滾動條空間
+            document.getElementById("word-list-container").classList.add("hidden");
 
             const selectedWord = document.getElementById("selected-word");
             selectedWord.classList.remove("hidden");
@@ -206,10 +216,8 @@
             document.getElementById("p3").classList.remove("flex-col", "gap-1");
             document.getElementById("p6").classList.remove("flex-col", "gap-1");
 
-            // 💡 最佳化：使用 innerHTML 來洗掉代名詞標籤，並安全填入結果
             for (let i = 0; i < 6; i++)
             {
-                // 如果該時態（如副動詞）回傳不足 6 個，後面格子直接給空字串，防止 undefined 露出
                 document.getElementById(`p${i + 1}`).innerHTML = result[ i ] ?? "";
             }
         }
