@@ -48,21 +48,33 @@ export const ALL_MAIN_TENSES = [
 
 const ErVerb: VerbForm[] =
     [
-        { voc: "comer", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
-        { voc: "aprender", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true }
+        { voc: "comer", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes"], regular: true },
+        { voc: "aprender", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes"], regular: true }
     ]
 
 const ArVerb: VerbForm[] =
     [
-        { voc: "hablar", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
-        { voc: "tomar", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true }
+        { voc: "hablar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes"], regular: true },
+        { voc: "tomar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes"], regular: true },
+        { voc: "amar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "ayudar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "bailar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "cambiar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "cantar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "dejar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "entrar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "esperar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "expresar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "ganar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "gastar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
+        { voc: "lavar", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustededs"], regular: true },
     ]
 const IrVerb: VerbForm[] =
     [
-        { voc: "vivir", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
-        { voc: "escribir", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true }
+        { voc: "vivir", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes"], regular: true },
+        { voc: "escribir", tag: ALL_MAIN_TENSES, personal: ["yo", "tú", "él", "nosotros", "vosotros", "ellos"], personalImperative: ["tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes"], regular: true }
     ]
 export const WordDataMap: Map<Type, VerbForm[]> = new Map();
-WordDataMap.set( Type.Ar, ArVerb );
-WordDataMap.set( Type.Er, ErVerb );
-WordDataMap.set( Type.Ir, IrVerb );
+WordDataMap.set(Type.Ar, ArVerb);
+WordDataMap.set(Type.Er, ErVerb);
+WordDataMap.set(Type.Ir, IrVerb);
