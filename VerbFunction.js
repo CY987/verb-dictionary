@@ -415,4 +415,97 @@ export class VerbFunction {
         }
         return result;
     }
+    imperativeTense(found, Item, type) {
+        let result = [];
+        for (let i = 0; i < found.personalImperative.length; i++) {
+            let combination = "";
+            switch (found.personalImperative[i]) {
+                case "tú":
+                    if (type === Type.Ar) {
+                        combination = Item + "a";
+                    }
+                    else {
+                        combination = Item + "e";
+                    }
+                    break;
+                case "túNegativo":
+                    if (type === Type.Ar) {
+                        combination = "no " + Item + "es";
+                    }
+                    else {
+                        combination = "no " + Item + "as";
+                    }
+                    break;
+                case "usted":
+                    if (type === Type.Ar) {
+                        combination = Item + "e";
+                    }
+                    else {
+                        combination = Item + "a";
+                    }
+                    break;
+                case "nosotros":
+                    if (type === Type.Ar) {
+                        combination = Item + "emos";
+                    }
+                    else {
+                        combination = Item + "amos";
+                    }
+                    break;
+                case "vosotros":
+                    if (type === Type.Ar) {
+                        combination = Item + "ad";
+                    }
+                    else if (type === Type.Er) {
+                        combination = Item + "ed";
+                    }
+                    else {
+                        combination = Item + "id";
+                    }
+                    break;
+                case "vosotrosNegativo":
+                    if (type === Type.Ar) {
+                        combination = "no " + Item + "éis";
+                    }
+                    else {
+                        combination = "no " + Item + "áis";
+                    }
+                    break;
+                case "ustedes":
+                    if (type === Type.Ar) {
+                        combination = Item + "en";
+                    }
+                    else {
+                        combination = Item + "an";
+                    }
+                    break;
+            }
+            result.push(combination);
+        }
+        return result;
+    }
+    gerundTense(Item, type) {
+        let result = [];
+        let combination = "";
+        if (type === Type.Ar) {
+            combination = Item + "ando";
+        }
+        else {
+            combination = Item + "iendo";
+        }
+        result.push(combination);
+        return result;
+    }
+    pastParticipleTense(Item, type) {
+        let result = [];
+        let combination = "";
+        if (type === Type.Ar) {
+            combination = Item + "ado";
+        }
+        else {
+            combination = Item + "ido";
+        }
+        result.push(combination);
+        return result;
+    }
 }

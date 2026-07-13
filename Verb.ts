@@ -27,8 +27,6 @@ export class VerbConjugator
         // 取得字根 (例如 "comer" -> "com")
         const stem = VerbFunction.Instance.getStem( found.voc );
 
-        console.log( "tag =", selectWord.tag );
-        console.log( "found =", found );
         // 根據指定的時態進行變位
         switch ( selectWord.tag )
         {
@@ -39,11 +37,7 @@ export class VerbConjugator
             case Tense.Pretérito:
                 return VerbFunction.Instance.pretéritoTense( found, stem, selectWord.type );
             case Tense.Imperfect:
-                console.log( "before" );
-                const r = VerbFunction.Instance.imperfectTense( found, stem, selectWord.type );
-                console.log( "after", r );
-                return r;
-            // return VerbFunction.Instance.imperfectTense( found, stem, selectWord.type );
+                return VerbFunction.Instance.imperfectTense( found, stem, selectWord.type );
             case Tense.Future:
                 return VerbFunction.Instance.futureTense( found, found.voc, selectWord.type );
             case Tense.Conditional:
@@ -52,8 +46,12 @@ export class VerbConjugator
                 return VerbFunction.Instance.impSubRaTense( found, stem, selectWord.type );
             case Tense.ImperfectSubjunctiveSe:
                 return VerbFunction.Instance.impSubSeTense( found, stem, selectWord.type );
-            // 未來可以輕鬆在這邊擴充其他時態的 method
-            // return this.getFutureTense(found.personal, found.voc); 
+            case Tense.Imperative:
+                return VerbFunction.Instance.imperativeTense( found, stem, selectWord.type );
+            case Tense.Gerund:
+                return VerbFunction.Instance.gerundTense( stem, selectWord.type );
+            case Tense.PastParticiple:
+                return VerbFunction.Instance.pastParticipleTense( stem, selectWord.type );
             default:
                 console.log( "進入 default:", selectWord.tag );
                 return [];
