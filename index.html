@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>西班牙文動詞變化</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -12,91 +14,235 @@
 
     <div class="w-full max-w-4xl bg-white p-6 rounded-xl shadow-md">
 
+        <!-- Ar / Er / Ir -->
         <div class="flex justify-center items-center gap-20 mb-6">
+
             <button onclick="selectType('ar')" id="btn-ar"
-                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ar</button>
+                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">
+                Ar
+            </button>
+
             <button onclick="selectType('er')" id="btn-er"
-                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Er</button>
+                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">
+                Er
+            </button>
+
             <button onclick="selectType('ir')" id="btn-ir"
-                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">Ir</button>
+                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">
+                Ir
+            </button>
+
         </div>
 
+        <!-- 時態 -->
         <div class="mb-6">
-            <div class="text-sm font-bold text-gray-500 mb-2">時態 / Tense：</div>
+
+            <div class="text-sm font-bold text-gray-500 mb-2">
+                時態 / Tense：
+            </div>
+
             <div id="tense-zone" class="grid grid-cols-3 gap-2 text-sm font-semibold">
             </div>
+
         </div>
 
-        <div class="border-4 border-black h-40 p-4 flex items-center justify-center mb-8 rounded-lg bg-gray-50">
+        <!-- 搜尋欄 -->
+        <div class="mb-6">
 
+            <input id="word-search" type="text" placeholder="搜尋全部動詞或英文意思，例如 tomar、drink" class="
+                    w-full
+                    px-4
+                    py-3
+                    border-2
+                    border-black
+                    rounded-lg
+                    text-lg
+            
+                    disabled:cursor-not-allowed
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-gray-400
+                ">
+
+        </div>
+
+        <!-- 單字列表／目前單字 -->
+        <div class="
+            border-4
+            border-black
+            h-40
+            p-4
+            flex
+            items-center
+            justify-center
+            mb-8
+            rounded-lg
+            bg-gray-50
+        ">
+
+            <!-- 單字列表 -->
             <div id="word-list-container" class="w-full h-full overflow-y-auto flex items-start justify-center">
-                <div id="word-list" class="grid grid-cols-3 gap-2 w-full text-center"
-                    style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem;">
+
+                <div id="word-list" class="grid grid-cols-3 gap-2 w-full text-center">
                 </div>
+
             </div>
 
-            <div id="selected-word" class="hidden text-3xl font-bold text-center">顯示選取的單字</div>
+            <!-- 選取的單字 -->
+            <div id="selected-word" class="hidden text-3xl font-bold text-center">
+                顯示選取的單字
+            </div>
+
         </div>
 
         <!-- 一般六人稱結果 -->
         <div id="normal-result" class="grid grid-cols-2 text-4xl text-center font-bold">
-            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
+
+            <!-- yo -->
+            <div class="
+                border-r-4
+                border-b-4
+                border-black
+                py-8
+                flex
+                items-center
+                justify-center
+                min-h-[140px]
+            ">
                 <div id="p1">yo</div>
             </div>
 
-            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
+            <!-- nosotros -->
+            <div class="
+                border-b-4
+                border-black
+                py-8
+                flex
+                items-center
+                justify-center
+                min-h-[140px]
+            ">
                 <div id="p4">nosotros</div>
             </div>
 
-            <div class="border-r-4 border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
+            <!-- tú -->
+            <div class="
+                border-r-4
+                border-b-4
+                border-black
+                py-8
+                flex
+                items-center
+                justify-center
+                min-h-[140px]
+            ">
                 <div id="p2">tú</div>
             </div>
 
-            <div class="border-b-4 border-black py-8 flex items-center justify-center min-h-[140px]">
+            <!-- vosotros -->
+            <div class="
+                border-b-4
+                border-black
+                py-8
+                flex
+                items-center
+                justify-center
+                min-h-[140px]
+            ">
                 <div id="p5">vosotros</div>
             </div>
 
-            <div class="border-r-4 border-black py-8 flex items-center justify-center min-h-[140px] px-2">
+            <!-- él / ella / usted -->
+            <div class="
+                border-r-4
+                border-black
+                py-8
+                px-2
+                flex
+                items-center
+                justify-center
+                min-h-[140px]
+            ">
+
                 <div id="p3" class="flex flex-col gap-1 text-3xl">
+
                     <span>él</span>
                     <span>ella</span>
                     <span>usted</span>
+
                 </div>
+
             </div>
 
-            <div class="py-8 flex items-center justify-center min-h-[140px] px-2">
+            <!-- ellos / ellas / ustedes -->
+            <div class="
+                py-8
+                px-2
+                flex
+                items-center
+                justify-center
+                min-h-[140px]
+            ">
+
                 <div id="p6" class="flex flex-col gap-1 text-3xl">
+
                     <span>ellos</span>
                     <span>ellas</span>
                     <span>ustedes</span>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- 命令式、現在分詞、過去分詞使用 -->
-        <div id="single-result"
-            class="hidden w-full text-3xl text-center font-bold border-4 border-black rounded-lg overflow-hidden">
+        <!-- Imperative / Gerund / PastParticiple -->
+        <div id="single-result" class="
+                hidden
+                w-full
+                text-3xl
+                text-center
+                font-bold
+                border-4
+                border-black
+                rounded-lg
+                overflow-hidden
+            ">
         </div>
 
     </div>
 
     <script type="module">
-        import { Type, Tense, WordDataMap, ALL_MAIN_TENSES } from "./Data.js";
-        import { VerbConjugator } from "./Verb.js";
+
+        import {
+            Type,
+            Tense,
+            WordDataMap,
+            ALL_MAIN_TENSES
+        } from "./Data.js";
+
+        import {
+            VerbConjugator
+        } from "./Verb.js";
+
 
         const conjugator = new VerbConjugator();
+
 
         const typeMap = {
             ar: Type.Ar,
             er: Type.Er,
-            ir: Type.Ir,
+            ir: Type.Ir
         };
 
-        // 全域狀態
+
+        // 目前狀態
         let currentType = null;
         let currentWord = null;
-        let currentTense = Tense.Present; // 預設為現在式
+        let currentTense = Tense.Present;
 
+
+        // 六格初始顯示內容
         const defaultTemplates = [
             "yo",
             "tú",
@@ -106,34 +252,62 @@
             `<span>ellos</span><span>ellas</span><span>ustedes</span>`
         ];
 
+
+        /**
+         * 判斷是否為單欄格式
+         */
         function isSingleColumnTense(tense) {
             return tense === Tense.Imperative ||
                 tense === Tense.Gerund ||
                 tense === Tense.PastParticiple;
         }
-        // 初始化時態按鈕
+
+
+        /**
+         * 初始化時態按鈕
+         */
         function initTenseButtons() {
             const tenseZone = document.getElementById("tense-zone");
+
             tenseZone.innerHTML = "";
 
             ALL_MAIN_TENSES.forEach(tenseValue => {
                 const btn = document.createElement("button");
+
                 btn.innerText = tenseValue;
                 btn.id = `tense-${tenseValue}`;
-                btn.className = "px-3 py-2 border-2 border-black rounded cursor-pointer text-center transition hover:bg-gray-100";
+
+                btn.className = `
+                    px-3
+                    py-2
+                    border-2
+                    border-black
+                    rounded
+                    cursor-pointer
+                    text-center
+                    transition
+                    hover:bg-gray-100
+                `;
 
                 btn.onclick = () => {
                     selectTense(tenseValue);
                 };
+
                 tenseZone.appendChild(btn);
             });
+
             updateTenseUI();
         }
 
-        // 切換時態的邏輯
+
+        /**
+         * 選取時態
+         */
         function selectTense(tenseValue) {
             console.log("點擊時態：", tenseValue);
+
             currentTense = tenseValue;
+
             updateTenseUI();
 
             if (currentWord && currentType !== null) {
@@ -141,25 +315,67 @@
             }
         }
 
-        // 更新時態按鈕的高亮樣式
+
+        /**
+         * 更新時態按鈕樣式
+         */
         function updateTenseUI() {
             ALL_MAIN_TENSES.forEach(value => {
                 const btn = document.getElementById(`tense-${value}`);
-                if (!btn) return;
+
+                if (!btn) {
+                    return;
+                }
+
                 if (value === currentTense) {
-                    btn.className = "px-3 py-2 border-2 border-black bg-black text-white rounded cursor-pointer text-center font-bold";
-                } else {
-                    btn.className = "px-3 py-2 border-2 border-black bg-white text-black rounded cursor-pointer text-center transition hover:bg-gray-100";
+                    btn.className = `
+                        px-3
+                        py-2
+                        border-2
+                        border-black
+                        bg-black
+                        text-white
+                        rounded
+                        cursor-pointer
+                        text-center
+                        font-bold
+                    `;
+                }
+                else {
+                    btn.className = `
+                        px-3
+                        py-2
+                        border-2
+                        border-black
+                        bg-white
+                        text-black
+                        rounded
+                        cursor-pointer
+                        text-center
+                        transition
+                        hover:bg-gray-100
+                    `;
                 }
             });
         }
+
+
+        /**
+         * 重設變位結果顯示
+         */
         function resetResult() {
-            const normalResult = document.getElementById("normal-result");
-            const singleResult = document.getElementById("single-result");
+            const normalResult =
+                document.getElementById("normal-result");
+
+            const singleResult =
+                document.getElementById("single-result");
+
 
             normalResult.classList.remove("hidden");
+
             singleResult.classList.add("hidden");
             singleResult.innerHTML = "";
+
 
             document
                 .getElementById("p3")
@@ -168,101 +384,257 @@
             document
                 .getElementById("p6")
                 .classList.add("flex-col", "gap-1");
+
 
             for (let i = 1; i <= 6; i++) {
                 document.getElementById(`p${i}`).innerHTML =
                     defaultTemplates[i - 1];
             }
         }
-        // 選擇 Ar / Er / Ir 庫
+
+
+        /**
+         * 回到初始狀態
+         */
+        function resetPage() {
+            currentType = null;
+            currentWord = null;
+            currentTense = Tense.Present;
+
+
+            const searchInput =
+                document.getElementById("word-search");
+
+            searchInput.value = "";
+            searchInput.disabled = false;
+            searchInput.placeholder =
+                "搜尋全部動詞或英文意思，例如 tomar、drink";
+
+            updateTenseUI();
+
+
+            document
+                .getElementById("word-list-container")
+                .classList.remove("hidden");
+
+            document
+                .getElementById("word-list")
+                .innerHTML = "";
+
+            document
+                .getElementById("selected-word")
+                .classList.add("hidden");
+
+
+            resetResult();
+
+
+            ["ar", "er", "ir"].forEach(key => {
+                document
+                    .getElementById(`btn-${key}`)
+                    .classList.remove("bg-gray-200");
+            });
+        }
+
+
+        /**
+         * 渲染單字列表
+         */
+        function renderWordList(list, fallbackType = null) {
+            const wordList = document.getElementById("word-list");
+            wordList.innerHTML = "";
+
+            list.forEach(item => {
+                const itemType = item.type ?? fallbackType;
+
+                const btn = document.createElement("button");
+
+                btn.innerHTML = `
+            <div class="font-bold">${item.voc}</div>
+            <div class="text-sm text-gray-500">
+                ${item.meaning ?? ""}
+            </div>
+        `;
+
+                btn.className =
+                    "px-4 py-2 border-2 border-black rounded hover:bg-gray-200 cursor-pointer";
+
+                btn.onclick = () => {
+                    currentType = itemType;
+                    currentWord = item.voc;
+
+                    updateTypeUI(itemType);
+                    renderConjugation(item.voc, itemType);
+                };
+
+                wordList.appendChild(btn);
+            });
+
+            if (list.length === 0) {
+                wordList.innerHTML = `
+            <div class="col-span-3 py-6 text-gray-500 font-bold">
+                找不到符合的單字
+            </div>
+        `;
+            }
+        }
+        function updateTypeUI(type) {
+            const typeKeyMap = {
+                [Type.Ar]: "ar",
+                [Type.Er]: "er",
+                [Type.Ir]: "ir"
+            };
+
+            const selectedKey = typeKeyMap[type];
+
+            ["ar", "er", "ir"].forEach(key => {
+                const btn = document.getElementById(`btn-${key}`);
+
+                if (key === selectedKey) {
+                    btn.classList.add("bg-gray-200");
+                }
+                else {
+                    btn.classList.remove("bg-gray-200");
+                }
+            });
+        }
+
+        /**
+         * 選擇 Ar / Er / Ir
+         */
         window.selectType = function (typeKey) {
             const type = typeMap[typeKey];
+
+
+            // 再次點擊相同類型時，取消選取並回到初始畫面
+            if (currentType === type) {
+                resetPage();
+
+                return;
+            }
+
+
             currentType = type;
             currentWord = null;
 
-            const list = WordDataMap.get(type) ?? [];
 
-            const wordListContainer = document.getElementById("word-list-container");
-            const wordList = document.getElementById("word-list");
-            const selectedWord = document.getElementById("selected-word");
+            const searchInput =
+                document.getElementById("word-search");
 
-            wordList.innerHTML = "";
-            // 💡 修改：這裡同步把 container 的 hidden 拿掉，並將滾動條拉回最上方(置頂)
+            searchInput.value = "";
+            searchInput.disabled = false;
+            searchInput.placeholder =
+                "搜尋動詞或英文意思，例如 tomar、drink";
+
+
+            const list =
+                WordDataMap.get(type) ?? [];
+
+
+            const wordListContainer =
+                document.getElementById("word-list-container");
+
+            const selectedWord =
+                document.getElementById("selected-word");
+
+
             wordListContainer.classList.remove("hidden");
             wordListContainer.scrollTop = 0;
 
             selectedWord.classList.add("hidden");
 
+
             resetResult();
 
-            list.forEach(item => {
-                const btn = document.createElement("button");
-                btn.innerText = item.voc;
-                btn.className = "px-4 py-2 border-2 border-black rounded font-medium hover:bg-gray-200 cursor-pointer";
-                btn.onclick = () => {
-                    currentWord = item.voc;
-                    renderConjugation(item.voc, type);
-                };
-                wordList.appendChild(btn);
-            });
+            renderWordList(list, type);
 
-            ['ar', 'er', 'ir'].forEach(k => {
-                const b = document.getElementById(`btn-${k}`);
-                if (k === typeKey) {
-                    b.classList.add('bg-gray-200');
-                } else {
-                    b.classList.remove('bg-gray-200');
+
+            ["ar", "er", "ir"].forEach(key => {
+                const btn =
+                    document.getElementById(`btn-${key}`);
+
+                if (key === typeKey) {
+                    btn.classList.add("bg-gray-200");
+                }
+                else {
+                    btn.classList.remove("bg-gray-200");
                 }
             });
         };
 
-        // 核心：渲染動詞變位結果
+
+        /**
+         * 渲染變位結果
+         */
         function renderConjugation(word, type) {
             const result = conjugator.conjugate({
                 word,
                 tag: currentTense,
-                type,
+                type
             });
 
+
             console.log(result);
+
 
             document
                 .getElementById("word-list-container")
                 .classList.add("hidden");
 
-            const selectedWord = document.getElementById("selected-word");
+
+            const selectedWord =
+                document.getElementById("selected-word");
+
             selectedWord.classList.remove("hidden");
 
-            const wordData = (WordDataMap.get(type) ?? [])
-                .find(item => item.voc === word);
 
-            const meaning = wordData?.meaning ?? "";
+            const wordData =
+                (WordDataMap.get(type) ?? [])
+                    .find(item => item.voc === word);
+
+
+            const meaning =
+                wordData?.meaning ?? "";
+
 
             selectedWord.innerText =
                 `${word} (${currentTense}) — ${meaning}`;
 
-            const normalResult = document.getElementById("normal-result");
-            const singleResult = document.getElementById("single-result");
 
+            const normalResult =
+                document.getElementById("normal-result");
+
+            const singleResult =
+                document.getElementById("single-result");
+
+
+            // 特殊單欄格式
             if (isSingleColumnTense(currentTense)) {
-                // 隱藏原本六格
                 normalResult.classList.add("hidden");
 
-                // 顯示單欄
                 singleResult.classList.remove("hidden");
                 singleResult.innerHTML = "";
+
+
+                // 只有 Imperative 顯示人稱
                 const personal =
                     currentTense === Tense.Imperative
                         ? wordData?.personalImperative ?? []
                         : [];
+
+
                 renderSingleColumnResult(result, personal);
+
                 return;
             }
 
-            // 一般時態顯示六格
+
+            // 一般六格格式
             normalResult.classList.remove("hidden");
+
             singleResult.classList.add("hidden");
             singleResult.innerHTML = "";
+
 
             document
                 .getElementById("p3")
@@ -272,57 +644,149 @@
                 .getElementById("p6")
                 .classList.remove("flex-col", "gap-1");
 
+
             for (let i = 0; i < 6; i++) {
                 document.getElementById(`p${i + 1}`).innerHTML =
                     result[i] ?? "";
             }
         }
+
+
+        /**
+         * 渲染單欄結果
+         */
         function renderSingleColumnResult(result, personal = []) {
-            const singleResult = document.getElementById("single-result");
+            const singleResult =
+                document.getElementById("single-result");
+
 
             const labelMap = {
                 túNegativo: "tú (neg.)",
                 vosotrosNegativo: "vosotros (neg.)"
             };
 
-            const showPersonal = personal.length > 0;
+
+            const showPersonal =
+                personal.length > 0;
+
 
             result.forEach((value, index) => {
-                const row = document.createElement("div");
+                const row =
+                    document.createElement("div");
 
-                row.className =
-                    "min-h-[90px] px-8 flex items-center text-3xl font-bold";
+
+                row.className = `
+                    min-h-[90px]
+                    px-8
+                    flex
+                    items-center
+                    text-3xl
+                    font-bold
+                `;
+
 
                 if (index < result.length - 1) {
-                    row.classList.add("border-b-4", "border-black");
+                    row.classList.add(
+                        "border-b-4",
+                        "border-black"
+                    );
                 }
 
-                if (showPersonal) {
-                    const subject = personal[index] ?? "";
 
-                    row.classList.add("grid", "grid-cols-[220px_1fr]");
+                if (showPersonal) {
+                    const subject =
+                        personal[index] ?? "";
+
+
+                    row.classList.add(
+                        "grid",
+                        "grid-cols-[220px_1fr]"
+                    );
+
 
                     row.innerHTML = `
-                <div class="text-gray-500 text-2xl text-left">
-                    ${labelMap[subject] ?? subject}
-                </div>
+                        <div class="text-gray-500 text-2xl text-left">
+                            ${labelMap[subject] ?? subject}
+                        </div>
 
-                <div class="text-center">
-                    ${value ?? ""}
-                </div>
-            `;
+                        <div class="text-center">
+                            ${value ?? ""}
+                        </div>
+                    `;
                 }
                 else {
                     row.classList.add("justify-center");
 
-                    row.innerText = value ?? "";
+                    row.innerText =
+                        value ?? "";
                 }
+
 
                 singleResult.appendChild(row);
             });
         }
-        // 網頁載入時初始化時態按鈕
+
+
+        /**
+         * 搜尋輸入事件
+         */
+        document
+            .getElementById("word-search")
+            .addEventListener("input", event => {
+                const keyword = event.target.value
+                    .trim()
+                    .toLowerCase();
+
+                let searchList = [];
+
+                if (currentType !== null) {
+                    // 有選 Ar / Er / Ir：只搜尋目前類型
+                    searchList = (WordDataMap.get(currentType) ?? [])
+                        .map(item => ({
+                            ...item,
+                            type: currentType
+                        }));
+                }
+                else {
+                    // 沒有選類型：搜尋全部類型
+                    [Type.Ar, Type.Er, Type.Ir].forEach(type => {
+                        const list = WordDataMap.get(type) ?? [];
+
+                        searchList.push(
+                            ...list.map(item => ({
+                                ...item,
+                                type
+                            }))
+                        );
+                    });
+                }
+
+                const filteredList = searchList.filter(item => {
+                    const word = item.voc?.toLowerCase() ?? "";
+                    const meaning = item.meaning?.toLowerCase() ?? "";
+
+                    return word.includes(keyword) ||
+                        meaning.includes(keyword);
+                });
+
+                currentWord = null;
+
+                renderWordList(filteredList);
+
+                document
+                    .getElementById("word-list-container")
+                    .classList.remove("hidden");
+
+                document
+                    .getElementById("selected-word")
+                    .classList.add("hidden");
+
+                resetResult();
+            });
+
+        // 初始化
         initTenseButtons();
+
     </script>
 
 </body>

@@ -49,10 +49,10 @@ export const ALL_MAIN_TENSES = [
 
 const ErVerb: VerbForm[] =
     [
-        { voc: "comer", meaning: "to eat", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "aprender", meaning: "to learn", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "barrer", meaning: "to sweep", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "beber", meaning: "to drink", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "comer", meaning: "to eat", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "correr", meaning: "to run", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "deber", meaning: "should", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "meter", meaning: "to put in", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
@@ -64,8 +64,6 @@ const ErVerb: VerbForm[] =
 
 const ArVerb: VerbForm[] =
     [
-        { voc: "hablar", meaning: "to speak", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
-        { voc: "tomar", meaning: "to take, drink", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "amar", meaning: "to love", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "ayudar", meaning: "to help", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "bailar", meaning: "to dancce", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
@@ -77,6 +75,7 @@ const ArVerb: VerbForm[] =
         { voc: "expresar", meaning: "to express", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "ganar", meaning: "to win, earn", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "gastar", meaning: "to spend, waste", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "hablar", meaning: "to speak", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "lavar", meaning: "to wash", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "limpair", meaning: "to clean", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "llevar", meaning: "to take, to wear", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
@@ -90,23 +89,24 @@ const ArVerb: VerbForm[] =
         { voc: "preparar", meaning: "to prepare", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "quedar", meaning: "to stay", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "tirar", meaning: "to pull; to throw", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "tomar", meaning: "to take, drink", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "trabajar", meaning: "to work", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "viajar", meaning: "to travel", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
     ]
 const IrVerb: VerbForm[] =
     [
-        { voc: "vivir", meaning: "to live", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
-        { voc: "escribir", meaning: "to write", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "añadir", meaning: "to add", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "asistir", meaning: "to attend", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "describir", meaning: "to describe", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "discutir", meaning: "to discuss", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "escribir", meaning: "to write", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "interrumpir", meaning: "to interrupt", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "ocurrir", meaning: "to occur", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "partir", meaning: "to leave", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "recibir", meaning: "to receive", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "subir", meaning: "to go up, climb", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
         { voc: "sufrir", meaning: "to suffer", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
+        { voc: "vivir", meaning: "to live", tag: ALL_MAIN_TENSES, personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ], regular: true },
     ]
 export const WordDataMap: Map<Type, VerbForm[]> = new Map();
 WordDataMap.set( Type.Ar, ArVerb );
