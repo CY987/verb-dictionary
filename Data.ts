@@ -31,7 +31,8 @@ export enum Tense
     ImperfectSubjunctiveSe = "ImperfectSubjunctiveSe",
     Imperative = "Imperative",
     Gerund = "Gerund",
-    PastParticiple = "PastParticiple",
+    PastGerund = "PastGerund",
+    presentPerfect = "presentPerfect",
 }
 export const ALL_MAIN_TENSES = [
     Tense.Present,
@@ -42,8 +43,9 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctive,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.PastParticiple,
+    Tense.presentPerfect,
     Tense.Gerund,
+    Tense.PastGerund,
     Tense.Imperative,
 ];
 

@@ -33,12 +33,14 @@ export class VerbConjugator {
                 return VerbFunction.Instance.impSubRaTense(found, stem, selectWord.type);
             case Tense.ImperfectSubjunctiveSe:
                 return VerbFunction.Instance.impSubSeTense(found, stem, selectWord.type);
+            case Tense.Gerund:
+                return VerbFunction.Instance.gerundTense(found, stem, selectWord.type);
+            case Tense.PastGerund:
+                return VerbFunction.Instance.pastGerundTense(found, stem, selectWord.type);
+            case Tense.presentPerfect:
+                return VerbFunction.Instance.presentPerfectTense(found, stem, selectWord.type);
             case Tense.Imperative:
                 return VerbFunction.Instance.imperativeTense(found, stem, selectWord.type);
-            case Tense.Gerund:
-                return VerbFunction.Instance.gerundTense(stem, selectWord.type);
-            case Tense.PastParticiple:
-                return VerbFunction.Instance.pastParticipleTense(stem, selectWord.type);
             default:
                 console.log("進入 default:", selectWord.tag);
                 return [];

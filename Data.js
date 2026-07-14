@@ -16,7 +16,8 @@ export var Tense;
     Tense["ImperfectSubjunctiveSe"] = "ImperfectSubjunctiveSe";
     Tense["Imperative"] = "Imperative";
     Tense["Gerund"] = "Gerund";
-    Tense["PastParticiple"] = "PastParticiple";
+    Tense["PastGerund"] = "PastGerund";
+    Tense["presentPerfect"] = "presentPerfect";
 })(Tense || (Tense = {}));
 export const ALL_MAIN_TENSES = [
     Tense.Present,
@@ -27,8 +28,9 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctive,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.PastParticiple,
+    Tense.presentPerfect,
     Tense.Gerund,
+    Tense.PastGerund,
     Tense.Imperative,
 ];
 const ErVerb = [

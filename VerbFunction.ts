@@ -430,34 +430,151 @@ export class VerbFunction
         }
         return result;
     }
-    public gerundTense( Item: string, type: Type ): string[]
+    public gerundTense( found: VerbForm, Item: string, type: Type ): string[]
     {
         let result: string[] = [];
-
-        let combination: string = "";
-
-        if ( type === Type.Ar )
-        { combination = Item + "ando"; }
-        else
-        { combination = Item + "iendo"; }
-
-        result.push( combination );
-
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    if ( type === Type.Ar )
+                    { combination = "estoy " + Item + "ando"; }
+                    else
+                    { combination = "estoy " + Item + "iendo"; }
+                    break;
+                case "tú":
+                    if ( type === Type.Ar )
+                    { combination = "estás " + Item + "ando"; }
+                    else
+                    { combination = "estás " + Item + "iendo"; }
+                    break;
+                case "él":
+                    if ( type === Type.Ar )
+                    { combination = "está " + Item + "ando"; }
+                    else
+                    { combination = "está " + Item + "iendo"; }
+                    break;
+                case "nosotros":
+                    if ( type === Type.Ar )
+                    { combination = "estamos " + Item + "ando"; }
+                    else
+                    { combination = "estamos " + Item + "iendo"; }
+                    break;
+                case "vosotros":
+                    if ( type === Type.Ar )
+                    { combination = "estáis " + Item + "ando"; }
+                    else
+                    { combination = "estáis " + Item + "iendo"; }
+                    break;
+                case "ellos":
+                    if ( type === Type.Ar )
+                    { combination = "están " + Item + "ando"; }
+                    else
+                    { combination = "están " + Item + "iendo"; }
+                    break;
+            }
+            result.push( combination );
+        }
         return result;
     }
-    public pastParticipleTense( Item: string, type: Type ): string[]
+    public pastGerundTense( found: VerbForm, Item: string, type: Type ): string[]
     {
         let result: string[] = [];
-
-        let combination: string = "";
-
-        if ( type === Type.Ar )
-        { combination = Item + "ado"; }
-        else
-        { combination = Item + "ido"; }
-
-        result.push( combination );
-
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    if ( type === Type.Ar )
+                    { combination = "estuve " + Item + "ando"; }
+                    else
+                    { combination = "estuve " + Item + "iendo"; }
+                    break;
+                case "tú":
+                    if ( type === Type.Ar )
+                    { combination = "estuviste " + Item + "ando"; }
+                    else
+                    { combination = "estuviste " + Item + "iendo"; }
+                    break;
+                case "él":
+                    if ( type === Type.Ar )
+                    { combination = "estuvo " + Item + "ando"; }
+                    else
+                    { combination = "estuvo " + Item + "iendo"; }
+                    break;
+                case "nosotros":
+                    if ( type === Type.Ar )
+                    { combination = "estuvimos " + Item + "ando"; }
+                    else
+                    { combination = "estuvimos " + Item + "iendo"; }
+                    break;
+                case "vosotros":
+                    if ( type === Type.Ar )
+                    { combination = "estuvisteis " + Item + "ando"; }
+                    else
+                    { combination = "estuvisteis " + Item + "iendo"; }
+                    break;
+                case "ellos":
+                    if ( type === Type.Ar )
+                    { combination = "estuvieron " + Item + "ando"; }
+                    else
+                    { combination = "estuvieron " + Item + "iendo"; }
+                    break;
+            }
+            result.push( combination );
+        }
+        return result;
+    }
+    public presentPerfectTense( found: VerbForm, Item: string, type: Type ): string[]
+    {
+        let result: string[] = [];
+        for ( let i = 0; i < found.personal.length; i++ )
+        {
+            let combination: string = "";
+            switch ( found.personal[ i ] )
+            {
+                case "yo":
+                    if ( type === Type.Ar )
+                    { combination = "haya " + Item + "ado"; }
+                    else
+                    { combination = "haya " + Item + "ido"; }
+                    break;
+                case "tú":
+                    if ( type === Type.Ar )
+                    { combination = "hayas " + Item + "ado"; }
+                    else
+                    { combination = "hayas " + Item + "ido"; }
+                    break;
+                case "él":
+                    if ( type === Type.Ar )
+                    { combination = "haya " + Item + "ado"; }
+                    else
+                    { combination = "haya " + Item + "ido"; }
+                    break;
+                case "nosotros":
+                    if ( type === Type.Ar )
+                    { combination = "hayamos " + Item + "ado"; }
+                    else
+                    { combination = "hayamos " + Item + "ido"; }
+                    break;
+                case "vosotros":
+                    if ( type === Type.Ar )
+                    { combination = "hayáis " + Item + "ado"; }
+                    else
+                    { combination = "hayáis " + Item + "ido"; }
+                    break;
+                case "ellos":
+                    if ( type === Type.Ar )
+                    { combination = "hayan " + Item + "ado"; }
+                    else
+                    { combination = "hayan " + Item + "ido"; }
+                    break;
+            }
+            result.push( combination );
+        }
         return result;
     }
 }
