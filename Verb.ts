@@ -1,4 +1,5 @@
-import { Tense, WordDataMap, WordType } from "./Data.js";
+import { Tense, WordType } from "./Data.js";
+import { WordDataMap } from "./RegularVerbData.js";
 import { VerbFunction } from "./VerbFunction.js";
 
 export class VerbConjugator
@@ -40,6 +41,8 @@ export class VerbConjugator
                 return VerbFunction.Instance.imperfectTense( found, stem, selectWord.type );
             case Tense.Future:
                 return VerbFunction.Instance.futureTense( found, found.voc, selectWord.type );
+            case Tense.FutureSimple:
+                return VerbFunction.Instance.futureSimpleTense( found, found.voc, selectWord.type );
             case Tense.Conditional:
                 return VerbFunction.Instance.conditionalTense( found, found.voc, selectWord.type );
             case Tense.ImperfectSubjunctiveRa:

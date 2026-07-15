@@ -1,4 +1,5 @@
-import { Tense, WordDataMap } from "./Data.js";
+import { Tense } from "./Data.js";
+import { WordDataMap } from "./RegularVerbData.js";
 import { VerbFunction } from "./VerbFunction.js";
 export class VerbConjugator {
     constructor() { }
@@ -27,6 +28,8 @@ export class VerbConjugator {
                 return VerbFunction.Instance.imperfectTense(found, stem, selectWord.type);
             case Tense.Future:
                 return VerbFunction.Instance.futureTense(found, found.voc, selectWord.type);
+            case Tense.FutureSimple:
+                return VerbFunction.Instance.futureSimpleTense(found, found.voc, selectWord.type);
             case Tense.Conditional:
                 return VerbFunction.Instance.conditionalTense(found, found.voc, selectWord.type);
             case Tense.ImperfectSubjunctiveRa:

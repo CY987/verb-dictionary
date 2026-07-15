@@ -1,4 +1,5 @@
-import { Type } from "./Data.js";
+import { Pronoun, Type } from "./Data.js";
+import { Ending, } from "./RegularVerbEnding.js";
 export class VerbFunction {
     constructor() { }
     static get Instance() {
@@ -11,70 +12,15 @@ export class VerbFunction {
         return found.slice(0, -2);
     }
     presentTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case "yo":
-                    combination = Item + "o";
-                    break;
-                case "tú":
-                    if (type === Type.Ar) {
-                        combination = Item + "as";
-                    }
-                    else {
-                        combination = Item + "es";
-                    }
-                    break;
-                case "él":
-                    if (type === Type.Ar) {
-                        combination = Item + "a";
-                    }
-                    else {
-                        combination = Item + "e";
-                    }
-                    break;
-                case "nosotros":
-                    if (type === Type.Ar) {
-                        combination = Item + "amos";
-                    }
-                    else if (type === Type.Er) {
-                        combination = Item + "emos";
-                    }
-                    else {
-                        combination = Item + "imos";
-                    }
-                    break;
-                case "vosotros":
-                    if (type === Type.Ar) {
-                        combination = Item + "áis";
-                    }
-                    else if (type === Type.Er) {
-                        combination = Item + "éis";
-                    }
-                    else {
-                        combination = Item + "ís";
-                    }
-                    break;
-                case "ellos":
-                    if (type === Type.Ar) {
-                        combination = Item + "an";
-                    }
-                    else {
-                        combination = Item + "en";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+        const table = Ending.Present[type];
+        return found.personal.map(p => Item + table[p]);
     }
     subjunctiveTense(found, Item, type) {
         let result = [];
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = Item + "e";
                     }
@@ -82,7 +28,7 @@ export class VerbFunction {
                         combination = Item + "a";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = Item + "es";
                     }
@@ -90,7 +36,7 @@ export class VerbFunction {
                         combination = Item + "as";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = Item + "e";
                     }
@@ -98,7 +44,7 @@ export class VerbFunction {
                         combination = Item + "a";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = Item + "emos";
                     }
@@ -106,7 +52,7 @@ export class VerbFunction {
                         combination = Item + "amos";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = Item + "éis";
                     }
@@ -114,7 +60,7 @@ export class VerbFunction {
                         combination = Item + "áis";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = Item + "en";
                     }
@@ -132,7 +78,7 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = Item + "é";
                     }
@@ -140,7 +86,7 @@ export class VerbFunction {
                         combination = Item + "í";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = Item + "aste";
                     }
@@ -148,7 +94,7 @@ export class VerbFunction {
                         combination = Item + "iste";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = Item + "ó";
                     }
@@ -156,7 +102,7 @@ export class VerbFunction {
                         combination = Item + "ió";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = Item + "amos";
                     }
@@ -164,7 +110,7 @@ export class VerbFunction {
                         combination = Item + "imos";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = Item + "asteis";
                     }
@@ -172,7 +118,7 @@ export class VerbFunction {
                         combination = Item + "isteis";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = Item + "aron";
                     }
@@ -190,7 +136,7 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = Item + "aba";
                     }
@@ -198,7 +144,7 @@ export class VerbFunction {
                         combination = Item + "ía";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = Item + "abas";
                     }
@@ -206,7 +152,7 @@ export class VerbFunction {
                         combination = Item + "ías";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = Item + "aba";
                     }
@@ -214,7 +160,7 @@ export class VerbFunction {
                         combination = Item + "ía";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = Item + "ábamos";
                     }
@@ -222,7 +168,7 @@ export class VerbFunction {
                         combination = Item + "íamos";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = Item + "abais";
                     }
@@ -230,7 +176,7 @@ export class VerbFunction {
                         combination = Item + "íais";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = Item + "aban";
                     }
@@ -248,23 +194,51 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     combination = Item + "é";
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     combination = Item + "ás";
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     combination = Item + "á";
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     combination = Item + "emos";
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     combination = Item + "éis";
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     combination = Item + "án";
+                    break;
+            }
+            result.push(combination);
+        }
+        return result;
+    }
+    futureSimpleTense(found, Item, type) {
+        let result = [];
+        for (let i = 0; i < found.personal.length; i++) {
+            let combination = "";
+            switch (found.personal[i]) {
+                case Pronoun.Yo:
+                    combination = "voy a " + Item;
+                    break;
+                case Pronoun.Tú:
+                    combination = "vas a " + Item;
+                    break;
+                case Pronoun.ÉL:
+                    combination = "va a " + Item;
+                    break;
+                case Pronoun.Nosotros:
+                    combination = "vamos a " + Item;
+                    break;
+                case Pronoun.Vosotros:
+                    combination = "vais a " + Item;
+                    break;
+                case Pronoun.Ellos:
+                    combination = "van a " + Item;
                     break;
             }
             result.push(combination);
@@ -276,22 +250,22 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     combination = Item + "ía";
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     combination = Item + "ías";
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     combination = Item + "ía";
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     combination = Item + "íamos";
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     combination = Item + "íais";
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     combination = Item + "ían";
                     break;
             }
@@ -304,7 +278,7 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = Item + "ara";
                     }
@@ -312,7 +286,7 @@ export class VerbFunction {
                         combination = Item + "iera";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = Item + "aras";
                     }
@@ -320,7 +294,7 @@ export class VerbFunction {
                         combination = Item + "ieras";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = Item + "ara";
                     }
@@ -328,7 +302,7 @@ export class VerbFunction {
                         combination = Item + "iera";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = Item + "áramos";
                     }
@@ -336,7 +310,7 @@ export class VerbFunction {
                         combination = Item + "iéramos";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = Item + "arais";
                     }
@@ -344,7 +318,7 @@ export class VerbFunction {
                         combination = Item + "ierais";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = Item + "aran";
                     }
@@ -362,7 +336,7 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = Item + "ase";
                     }
@@ -370,7 +344,7 @@ export class VerbFunction {
                         combination = Item + "iese";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = Item + "ases";
                     }
@@ -378,7 +352,7 @@ export class VerbFunction {
                         combination = Item + "ieses";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = Item + "ase";
                     }
@@ -386,7 +360,7 @@ export class VerbFunction {
                         combination = Item + "iese";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = Item + "ásemos";
                     }
@@ -394,7 +368,7 @@ export class VerbFunction {
                         combination = Item + "iésemos";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = Item + "aseis";
                     }
@@ -402,7 +376,7 @@ export class VerbFunction {
                         combination = Item + "ieseis";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = Item + "asen";
                     }
@@ -415,81 +389,12 @@ export class VerbFunction {
         }
         return result;
     }
-    imperativeTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personalImperative.length; i++) {
-            let combination = "";
-            switch (found.personalImperative[i]) {
-                case "tú":
-                    if (type === Type.Ar) {
-                        combination = Item + "a";
-                    }
-                    else {
-                        combination = Item + "e";
-                    }
-                    break;
-                case "túNegativo":
-                    if (type === Type.Ar) {
-                        combination = "no " + Item + "es";
-                    }
-                    else {
-                        combination = "no " + Item + "as";
-                    }
-                    break;
-                case "usted":
-                    if (type === Type.Ar) {
-                        combination = Item + "e";
-                    }
-                    else {
-                        combination = Item + "a";
-                    }
-                    break;
-                case "nosotros":
-                    if (type === Type.Ar) {
-                        combination = Item + "emos";
-                    }
-                    else {
-                        combination = Item + "amos";
-                    }
-                    break;
-                case "vosotros":
-                    if (type === Type.Ar) {
-                        combination = Item + "ad";
-                    }
-                    else if (type === Type.Er) {
-                        combination = Item + "ed";
-                    }
-                    else {
-                        combination = Item + "id";
-                    }
-                    break;
-                case "vosotrosNegativo":
-                    if (type === Type.Ar) {
-                        combination = "no " + Item + "éis";
-                    }
-                    else {
-                        combination = "no " + Item + "áis";
-                    }
-                    break;
-                case "ustedes":
-                    if (type === Type.Ar) {
-                        combination = Item + "en";
-                    }
-                    else {
-                        combination = Item + "an";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
-    }
     gerundTense(found, Item, type) {
         let result = [];
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = "estoy " + Item + "ando";
                     }
@@ -497,7 +402,7 @@ export class VerbFunction {
                         combination = "estoy " + Item + "iendo";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = "estás " + Item + "ando";
                     }
@@ -505,7 +410,7 @@ export class VerbFunction {
                         combination = "estás " + Item + "iendo";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = "está " + Item + "ando";
                     }
@@ -513,7 +418,7 @@ export class VerbFunction {
                         combination = "está " + Item + "iendo";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = "estamos " + Item + "ando";
                     }
@@ -521,7 +426,7 @@ export class VerbFunction {
                         combination = "estamos " + Item + "iendo";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = "estáis " + Item + "ando";
                     }
@@ -529,7 +434,7 @@ export class VerbFunction {
                         combination = "estáis " + Item + "iendo";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = "están " + Item + "ando";
                     }
@@ -547,7 +452,7 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = "estuve " + Item + "ando";
                     }
@@ -555,7 +460,7 @@ export class VerbFunction {
                         combination = "estuve " + Item + "iendo";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = "estuviste " + Item + "ando";
                     }
@@ -563,7 +468,7 @@ export class VerbFunction {
                         combination = "estuviste " + Item + "iendo";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = "estuvo " + Item + "ando";
                     }
@@ -571,7 +476,7 @@ export class VerbFunction {
                         combination = "estuvo " + Item + "iendo";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = "estuvimos " + Item + "ando";
                     }
@@ -579,7 +484,7 @@ export class VerbFunction {
                         combination = "estuvimos " + Item + "iendo";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = "estuvisteis " + Item + "ando";
                     }
@@ -587,7 +492,7 @@ export class VerbFunction {
                         combination = "estuvisteis " + Item + "iendo";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = "estuvieron " + Item + "ando";
                     }
@@ -605,7 +510,7 @@ export class VerbFunction {
         for (let i = 0; i < found.personal.length; i++) {
             let combination = "";
             switch (found.personal[i]) {
-                case "yo":
+                case Pronoun.Yo:
                     if (type === Type.Ar) {
                         combination = "haya " + Item + "ado";
                     }
@@ -613,7 +518,7 @@ export class VerbFunction {
                         combination = "haya " + Item + "ido";
                     }
                     break;
-                case "tú":
+                case Pronoun.Tú:
                     if (type === Type.Ar) {
                         combination = "hayas " + Item + "ado";
                     }
@@ -621,7 +526,7 @@ export class VerbFunction {
                         combination = "hayas " + Item + "ido";
                     }
                     break;
-                case "él":
+                case Pronoun.ÉL:
                     if (type === Type.Ar) {
                         combination = "haya " + Item + "ado";
                     }
@@ -629,7 +534,7 @@ export class VerbFunction {
                         combination = "haya " + Item + "ido";
                     }
                     break;
-                case "nosotros":
+                case Pronoun.Nosotros:
                     if (type === Type.Ar) {
                         combination = "hayamos " + Item + "ado";
                     }
@@ -637,7 +542,7 @@ export class VerbFunction {
                         combination = "hayamos " + Item + "ido";
                     }
                     break;
-                case "vosotros":
+                case Pronoun.Vosotros:
                     if (type === Type.Ar) {
                         combination = "hayáis " + Item + "ado";
                     }
@@ -645,12 +550,81 @@ export class VerbFunction {
                         combination = "hayáis " + Item + "ido";
                     }
                     break;
-                case "ellos":
+                case Pronoun.Ellos:
                     if (type === Type.Ar) {
                         combination = "hayan " + Item + "ado";
                     }
                     else {
                         combination = "hayan " + Item + "ido";
+                    }
+                    break;
+            }
+            result.push(combination);
+        }
+        return result;
+    }
+    imperativeTense(found, Item, type) {
+        let result = [];
+        for (let i = 0; i < found.personalImperative.length; i++) {
+            let combination = "";
+            switch (found.personalImperative[i]) {
+                case Pronoun.Tú:
+                    if (type === Type.Ar) {
+                        combination = Item + "a";
+                    }
+                    else {
+                        combination = Item + "e";
+                    }
+                    break;
+                case Pronoun.TúNegativo:
+                    if (type === Type.Ar) {
+                        combination = "no " + Item + "es";
+                    }
+                    else {
+                        combination = "no " + Item + "as";
+                    }
+                    break;
+                case Pronoun.Usted:
+                    if (type === Type.Ar) {
+                        combination = Item + "e";
+                    }
+                    else {
+                        combination = Item + "a";
+                    }
+                    break;
+                case Pronoun.Nosotros:
+                    if (type === Type.Ar) {
+                        combination = Item + "emos";
+                    }
+                    else {
+                        combination = Item + "amos";
+                    }
+                    break;
+                case Pronoun.Vosotros:
+                    if (type === Type.Ar) {
+                        combination = Item + "ad";
+                    }
+                    else if (type === Type.Er) {
+                        combination = Item + "ed";
+                    }
+                    else {
+                        combination = Item + "id";
+                    }
+                    break;
+                case Pronoun.VosotrosNegativo:
+                    if (type === Type.Ar) {
+                        combination = "no " + Item + "éis";
+                    }
+                    else {
+                        combination = "no " + Item + "áis";
+                    }
+                    break;
+                case Pronoun.Ustedes:
+                    if (type === Type.Ar) {
+                        combination = Item + "en";
+                    }
+                    else {
+                        combination = Item + "an";
                     }
                     break;
             }

@@ -15,33 +15,32 @@
     <div class="w-full max-w-4xl bg-white p-6 rounded-xl shadow-md">
 
         <!-- Ar / Er / Ir -->
-        <div class="flex justify-center items-center gap-20 mb-6">
+        <div class="grid grid-cols-2 gap-4 mb-6">
 
-            <button onclick="selectType('ar')" id="btn-ar"
-                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">
-                Ar
-            </button>
+            <div>
+                <label class="block mb-2 font-bold text-gray-500">
+                    Type
+                </label>
 
-            <button onclick="selectType('er')" id="btn-er"
-                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">
-                Er
-            </button>
+                <select id="type-select" class="w-full border-2 border-black rounded-lg px-4 py-3">
 
-            <button onclick="selectType('ir')" id="btn-ir"
-                class="border-4 border-black px-12 py-4 text-3xl font-bold cursor-pointer rounded-lg hover:bg-gray-100">
-                Ir
-            </button>
+                    <option value="">All</option>
+                    <option value="ar">Ar</option>
+                    <option value="er">Er</option>
+                    <option value="ir">Ir</option>
 
-        </div>
-
-        <!-- 時態 -->
-        <div class="mb-6">
-
-            <div class="text-sm font-bold text-gray-500 mb-2">
-                時態 / Tense：
+                </select>
             </div>
 
-            <div id="tense-zone" class="grid grid-cols-3 gap-2 text-sm font-semibold">
+            <div>
+
+                <label class="block mb-2 font-bold text-gray-500">
+                    Tense
+                </label>
+
+                <select id="tense-select" class="w-full border-2 border-black rounded-lg px-4 py-3">
+                </select>
+
             </div>
 
         </div>
@@ -196,7 +195,7 @@
 
         </div>
 
-        <!-- Imperative / Gerund / PastParticiple -->
+        <!-- Imperative  -->
         <div id="single-result" class="
                 hidden
                 w-full
@@ -215,16 +214,14 @@
     <script type="module">
 
         import {
-            Type,
-            Tense,
-            WordDataMap,
-            ALL_MAIN_TENSES
+            Type, Tense, ALL_MAIN_TENSES,
         } from "./Data.js";
 
         import {
             VerbConjugator
         } from "./Verb.js";
 
+        import { WordDataMap } from "./RegularVerbData.js";
 
         const conjugator = new VerbConjugator();
 
@@ -260,44 +257,28 @@
             return tense === Tense.Imperative;
         }
 
+        function initTenseSelect() {
+            const tenseSelect =
+                document.getElementById("tense-select");
 
-        /**
-         * 初始化時態按鈕
-         */
-        function initTenseButtons() {
-            const tenseZone = document.getElementById("tense-zone");
+            tenseSelect.innerHTML = "";
 
-            tenseZone.innerHTML = "";
+            ALL_MAIN_TENSES.forEach(tense => {
+                const option = document.createElement("option");
 
-            ALL_MAIN_TENSES.forEach(tenseValue => {
-                const btn = document.createElement("button");
+                option.value = tense;
+                option.textContent = tense;
 
-                btn.innerText = tenseValue;
-                btn.id = `tense-${tenseValue}`;
-
-                btn.className = `
-                    px-3
-                    py-2
-                    border-2
-                    border-black
-                    rounded
-                    cursor-pointer
-                    text-center
-                    transition
-                    hover:bg-gray-100
-                `;
-
-                btn.onclick = () => {
-                    selectTense(tenseValue);
-                };
-
-                tenseZone.appendChild(btn);
+                tenseSelect.appendChild(option);
             });
 
-            updateTenseUI();
+            tenseSelect.value = currentTense;
+
+            // 選擇不同時態時重新渲染
+            tenseSelect.addEventListener("change", event => {
+                selectTense(event.target.value);
+            });
         }
-
-
         /**
          * 選取時態
          */
@@ -318,43 +299,12 @@
          * 更新時態按鈕樣式
          */
         function updateTenseUI() {
-            ALL_MAIN_TENSES.forEach(value => {
-                const btn = document.getElementById(`tense-${value}`);
+            const tenseSelect =
+                document.getElementById("tense-select");
 
-                if (!btn) {
-                    return;
-                }
-
-                if (value === currentTense) {
-                    btn.className = `
-                        px-3
-                        py-2
-                        border-2
-                        border-black
-                        bg-black
-                        text-white
-                        rounded
-                        cursor-pointer
-                        text-center
-                        font-bold
-                    `;
-                }
-                else {
-                    btn.className = `
-                        px-3
-                        py-2
-                        border-2
-                        border-black
-                        bg-white
-                        text-black
-                        rounded
-                        cursor-pointer
-                        text-center
-                        transition
-                        hover:bg-gray-100
-                    `;
-                }
-            });
+            if (tenseSelect) {
+                tenseSelect.value = currentTense;
+            }
         }
 
 
@@ -399,17 +349,16 @@
             currentWord = null;
             currentTense = Tense.Present;
 
+            document.getElementById("type-select").value = "";
+            document.getElementById("tense-select").value =
+                Tense.Present;
 
             const searchInput =
                 document.getElementById("word-search");
 
             searchInput.value = "";
-            searchInput.disabled = false;
             searchInput.placeholder =
                 "搜尋全部動詞或英文意思，例如 tomar、drink";
-
-            updateTenseUI();
-
 
             document
                 .getElementById("word-list-container")
@@ -423,17 +372,8 @@
                 .getElementById("selected-word")
                 .classList.add("hidden");
 
-
             resetResult();
-
-
-            ["ar", "er", "ir"].forEach(key => {
-                document
-                    .getElementById(`btn-${key}`)
-                    .classList.remove("bg-gray-200");
-            });
         }
-
 
         /**
          * 渲染單字列表
@@ -483,51 +423,35 @@
                 [Type.Ir]: "ir"
             };
 
-            const selectedKey = typeKeyMap[type];
+            const selectedKey =
+                typeKeyMap[type] ?? "";
 
-            ["ar", "er", "ir"].forEach(key => {
-                const btn = document.getElementById(`btn-${key}`);
-
-                if (key === selectedKey) {
-                    btn.classList.add("bg-gray-200");
-                }
-                else {
-                    btn.classList.remove("bg-gray-200");
-                }
-            });
+            document.getElementById("type-select").value =
+                selectedKey;
         }
 
         /**
          * 選擇 Ar / Er / Ir
          */
-        window.selectType = function (typeKey) {
+        function selectType(typeKey) {
             const type = typeMap[typeKey];
 
-
-            // 再次點擊相同類型時，取消選取並回到初始畫面
-            if (currentType === type) {
-                resetPage();
-
+            if (type === undefined) {
                 return;
             }
-
 
             currentType = type;
             currentWord = null;
 
+            document.getElementById("type-select").value = typeKey;
 
             const searchInput =
                 document.getElementById("word-search");
 
             searchInput.value = "";
-            searchInput.disabled = false;
-            searchInput.placeholder =
-                "搜尋動詞或英文意思，例如 tomar、drink";
-
 
             const list =
                 WordDataMap.get(type) ?? [];
-
 
             const wordListContainer =
                 document.getElementById("word-list-container");
@@ -535,31 +459,14 @@
             const selectedWord =
                 document.getElementById("selected-word");
 
-
             wordListContainer.classList.remove("hidden");
             wordListContainer.scrollTop = 0;
 
             selectedWord.classList.add("hidden");
 
-
             resetResult();
-
             renderWordList(list, type);
-
-
-            ["ar", "er", "ir"].forEach(key => {
-                const btn =
-                    document.getElementById(`btn-${key}`);
-
-                if (key === typeKey) {
-                    btn.classList.add("bg-gray-200");
-                }
-                else {
-                    btn.classList.remove("bg-gray-200");
-                }
-            });
-        };
-
+        }
 
         /**
          * 渲染變位結果
@@ -782,9 +689,24 @@
                 resetResult();
             });
 
-        // 初始化
-        initTenseButtons();
+        // Type 下拉選單事件
+        document
+            .getElementById("type-select")
+            .addEventListener("change", e => {
+                const value = e.target.value;
 
+                if (!value) {
+
+                    resetPage();
+
+                    return;
+                }
+
+                selectType(value);
+            });
+        // 初始化
+        // initTenseButtons();
+        initTenseSelect();
     </script>
 
 </body>
