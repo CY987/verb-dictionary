@@ -33,7 +33,7 @@ export enum Tense
     Imperative = "Imperative",
     Gerund = "Gerund",
     PastGerund = "PastGerund",
-    presentPerfect = "presentPerfect",
+    PretéritoPerDeSub = "PretéritoPerfectoDeSubjuntivo",
 }
 export enum Pronoun
 {
@@ -58,7 +58,7 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctive,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.presentPerfect,
+    Tense.PretéritoPerDeSub,
     Tense.Gerund,
     Tense.PastGerund,
     Tense.Imperative,

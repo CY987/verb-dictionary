@@ -1,5 +1,4 @@
-import { Pronoun, Type } from "./Data.js";
-import { Ending, } from "./RegularVerbEnding.js";
+import { EstarPastHead, EstarPresentHead, HaberPastHead, ImperativeHead, Morpheme, } from "./RegularVerbEnding.js";
 export class VerbFunction {
     constructor() { }
     static get Instance() {
@@ -8,628 +7,78 @@ export class VerbFunction {
         }
         return VerbFunction._instance;
     }
+    getElement(tense, type) {
+        return Morpheme[tense][type];
+    }
     getStem(found) {
         return found.slice(0, -2);
     }
-    presentTense(found, Item, type) {
-        const table = Ending.Present[type];
+    presentTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
         return found.personal.map(p => Item + table[p]);
     }
-    subjunctiveTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = Item + "e";
-                    }
-                    else {
-                        combination = Item + "a";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = Item + "es";
-                    }
-                    else {
-                        combination = Item + "as";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = Item + "e";
-                    }
-                    else {
-                        combination = Item + "a";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "emos";
-                    }
-                    else {
-                        combination = Item + "amos";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "éis";
-                    }
-                    else {
-                        combination = Item + "áis";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = Item + "en";
-                    }
-                    else {
-                        combination = Item + "an";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    subjunctiveTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    pretéritoTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = Item + "é";
-                    }
-                    else {
-                        combination = Item + "í";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = Item + "aste";
-                    }
-                    else {
-                        combination = Item + "iste";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = Item + "ó";
-                    }
-                    else {
-                        combination = Item + "ió";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "amos";
-                    }
-                    else {
-                        combination = Item + "imos";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "asteis";
-                    }
-                    else {
-                        combination = Item + "isteis";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = Item + "aron";
-                    }
-                    else {
-                        combination = Item + "ieron";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    pretéritoTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    imperfectTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = Item + "aba";
-                    }
-                    else {
-                        combination = Item + "ía";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = Item + "abas";
-                    }
-                    else {
-                        combination = Item + "ías";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = Item + "aba";
-                    }
-                    else {
-                        combination = Item + "ía";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "ábamos";
-                    }
-                    else {
-                        combination = Item + "íamos";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "abais";
-                    }
-                    else {
-                        combination = Item + "íais";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = Item + "aban";
-                    }
-                    else {
-                        combination = Item + "ían";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    imperfectTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    futureTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    combination = Item + "é";
-                    break;
-                case Pronoun.Tú:
-                    combination = Item + "ás";
-                    break;
-                case Pronoun.ÉL:
-                    combination = Item + "á";
-                    break;
-                case Pronoun.Nosotros:
-                    combination = Item + "emos";
-                    break;
-                case Pronoun.Vosotros:
-                    combination = Item + "éis";
-                    break;
-                case Pronoun.Ellos:
-                    combination = Item + "án";
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    futureTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    futureSimpleTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    combination = "voy a " + Item;
-                    break;
-                case Pronoun.Tú:
-                    combination = "vas a " + Item;
-                    break;
-                case Pronoun.ÉL:
-                    combination = "va a " + Item;
-                    break;
-                case Pronoun.Nosotros:
-                    combination = "vamos a " + Item;
-                    break;
-                case Pronoun.Vosotros:
-                    combination = "vais a " + Item;
-                    break;
-                case Pronoun.Ellos:
-                    combination = "van a " + Item;
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    futureSimpleTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => table[p] + Item);
     }
-    conditionalTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    combination = Item + "ía";
-                    break;
-                case Pronoun.Tú:
-                    combination = Item + "ías";
-                    break;
-                case Pronoun.ÉL:
-                    combination = Item + "ía";
-                    break;
-                case Pronoun.Nosotros:
-                    combination = Item + "íamos";
-                    break;
-                case Pronoun.Vosotros:
-                    combination = Item + "íais";
-                    break;
-                case Pronoun.Ellos:
-                    combination = Item + "ían";
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    conditionalTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    impSubRaTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = Item + "ara";
-                    }
-                    else {
-                        combination = Item + "iera";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = Item + "aras";
-                    }
-                    else {
-                        combination = Item + "ieras";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = Item + "ara";
-                    }
-                    else {
-                        combination = Item + "iera";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "áramos";
-                    }
-                    else {
-                        combination = Item + "iéramos";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "arais";
-                    }
-                    else {
-                        combination = Item + "ierais";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = Item + "aran";
-                    }
-                    else {
-                        combination = Item + "ieran";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    impSubRaTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    impSubSeTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = Item + "ase";
-                    }
-                    else {
-                        combination = Item + "iese";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = Item + "ases";
-                    }
-                    else {
-                        combination = Item + "ieses";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = Item + "ase";
-                    }
-                    else {
-                        combination = Item + "iese";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "ásemos";
-                    }
-                    else {
-                        combination = Item + "iésemos";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "aseis";
-                    }
-                    else {
-                        combination = Item + "ieseis";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = Item + "asen";
-                    }
-                    else {
-                        combination = Item + "iesen";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    impSubSeTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => Item + table[p]);
     }
-    gerundTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = "estoy " + Item + "ando";
-                    }
-                    else {
-                        combination = "estoy " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = "estás " + Item + "ando";
-                    }
-                    else {
-                        combination = "estás " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = "está " + Item + "ando";
-                    }
-                    else {
-                        combination = "está " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = "estamos " + Item + "ando";
-                    }
-                    else {
-                        combination = "estamos " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = "estáis " + Item + "ando";
-                    }
-                    else {
-                        combination = "estáis " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = "están " + Item + "ando";
-                    }
-                    else {
-                        combination = "están " + Item + "iendo";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    gerundTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => EstarPresentHead[p] + Item + table[p]);
     }
-    pastGerundTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = "estuve " + Item + "ando";
-                    }
-                    else {
-                        combination = "estuve " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = "estuviste " + Item + "ando";
-                    }
-                    else {
-                        combination = "estuviste " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = "estuvo " + Item + "ando";
-                    }
-                    else {
-                        combination = "estuvo " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = "estuvimos " + Item + "ando";
-                    }
-                    else {
-                        combination = "estuvimos " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = "estuvisteis " + Item + "ando";
-                    }
-                    else {
-                        combination = "estuvisteis " + Item + "iendo";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = "estuvieron " + Item + "ando";
-                    }
-                    else {
-                        combination = "estuvieron " + Item + "iendo";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    pastGerundTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => EstarPastHead[p] + Item + table[p]);
     }
-    presentPerfectTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personal.length; i++) {
-            let combination = "";
-            switch (found.personal[i]) {
-                case Pronoun.Yo:
-                    if (type === Type.Ar) {
-                        combination = "haya " + Item + "ado";
-                    }
-                    else {
-                        combination = "haya " + Item + "ido";
-                    }
-                    break;
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = "hayas " + Item + "ado";
-                    }
-                    else {
-                        combination = "hayas " + Item + "ido";
-                    }
-                    break;
-                case Pronoun.ÉL:
-                    if (type === Type.Ar) {
-                        combination = "haya " + Item + "ado";
-                    }
-                    else {
-                        combination = "haya " + Item + "ido";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = "hayamos " + Item + "ado";
-                    }
-                    else {
-                        combination = "hayamos " + Item + "ido";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = "hayáis " + Item + "ado";
-                    }
-                    else {
-                        combination = "hayáis " + Item + "ido";
-                    }
-                    break;
-                case Pronoun.Ellos:
-                    if (type === Type.Ar) {
-                        combination = "hayan " + Item + "ado";
-                    }
-                    else {
-                        combination = "hayan " + Item + "ido";
-                    }
-                    break;
-            }
-            result.push(combination);
-        }
-        return result;
+    pretéritoPerDeSubTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map(p => HaberPastHead[p] + Item + table[p]);
     }
-    imperativeTense(found, Item, type) {
-        let result = [];
-        for (let i = 0; i < found.personalImperative.length; i++) {
-            let combination = "";
-            switch (found.personalImperative[i]) {
-                case Pronoun.Tú:
-                    if (type === Type.Ar) {
-                        combination = Item + "a";
-                    }
-                    else {
-                        combination = Item + "e";
-                    }
-                    break;
-                case Pronoun.TúNegativo:
-                    if (type === Type.Ar) {
-                        combination = "no " + Item + "es";
-                    }
-                    else {
-                        combination = "no " + Item + "as";
-                    }
-                    break;
-                case Pronoun.Usted:
-                    if (type === Type.Ar) {
-                        combination = Item + "e";
-                    }
-                    else {
-                        combination = Item + "a";
-                    }
-                    break;
-                case Pronoun.Nosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "emos";
-                    }
-                    else {
-                        combination = Item + "amos";
-                    }
-                    break;
-                case Pronoun.Vosotros:
-                    if (type === Type.Ar) {
-                        combination = Item + "ad";
-                    }
-                    else if (type === Type.Er) {
-                        combination = Item + "ed";
-                    }
-                    else {
-                        combination = Item + "id";
-                    }
-                    break;
-                case Pronoun.VosotrosNegativo:
-                    if (type === Type.Ar) {
-                        combination = "no " + Item + "éis";
-                    }
-                    else {
-                        combination = "no " + Item + "áis";
-                    }
-                    break;
-                case Pronoun.Ustedes:
-                    if (type === Type.Ar) {
-                        combination = Item + "en";
-                    }
-                    else {
-                        combination = Item + "an";
-                    }
-                    break;
-            }
-            result.push(combination);
+    imperativeTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personalImperative.map(p => ImperativeHead[p] + Item + table[p]);
+    }
+    // irregular-----------------------------
+    irrPretéritoPerDeSubTense(found, Item) {
+        return found.personal.map(p => HaberPastHead[p] + Item[0]);
+    }
+    irrGerundTense(found, Item) {
+        return found.personal.map(p => EstarPresentHead[p] + Item[0]);
+    }
+    irrPastGerundTense(found, Item) {
+        return found.personal.map(p => EstarPastHead[p] + Item[0]);
+    }
+    mergeIrregular(regularResult, irregularResult) {
+        if (!irregularResult) {
+            return regularResult;
         }
-        return result;
+        return regularResult.map((regularValue, index) => irregularResult[index] || regularValue);
     }
 }

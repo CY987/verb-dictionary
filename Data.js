@@ -18,7 +18,7 @@ export var Tense;
     Tense["Imperative"] = "Imperative";
     Tense["Gerund"] = "Gerund";
     Tense["PastGerund"] = "PastGerund";
-    Tense["presentPerfect"] = "presentPerfect";
+    Tense["Pret\u00E9ritoPerDeSub"] = "Pret\u00E9ritoPerfectoDeSubjuntivo";
 })(Tense || (Tense = {}));
 export var Pronoun;
 (function (Pronoun) {
@@ -43,7 +43,7 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctive,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.presentPerfect,
+    Tense.PretéritoPerDeSub,
     Tense.Gerund,
     Tense.PastGerund,
     Tense.Imperative,

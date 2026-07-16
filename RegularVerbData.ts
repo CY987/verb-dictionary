@@ -8,6 +8,7 @@ const ErVerb: VerbForm[] =
         { voc: "comer", meaning: "to eat", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "correr", meaning: "to run", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "deber", meaning: "should", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
+        { voc: "leer", meaning: "to read", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: false },
         { voc: "meter", meaning: "to put in", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "prender", meaning: "to catch", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "temer", meaning: "to fear", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
@@ -17,6 +18,7 @@ const ErVerb: VerbForm[] =
 
 const ArVerb: VerbForm[] =
     [
+        { voc: "abandonar", meaning: "to abandon", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "amar", meaning: "to love", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "ayudar", meaning: "to help", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
         { voc: "bailar", meaning: "to dance", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },

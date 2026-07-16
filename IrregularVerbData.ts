@@ -3,10 +3,18 @@ import { Tense } from "./Data.js";
 export interface Irregular
 {
     voc: string;
-    tag: Tense[];
-    personal: string[];
-    personalImperative: string[];
+    obj: Partial<Record<Tense, string[]>>;
 }
-const irregular: Irregular[] = [
-    { voc: "abrir", tag: [ Tense.presentPerfect ], personal: [ "yo", "tú", "él", "nosotros", "vosotros", "ellos" ], personalImperative: [ "tú", "túNegativo", "usted", "nosotros", "vosotros", "vosotrosNegativo", "ustedes" ] },
+export const irregular: Irregular[] = [
+    { voc: "abrir", obj: { [ Tense.PretéritoPerDeSub ]: [ "abierto", ] } },
+    {
+        voc: "leer", obj: {
+            [ Tense.Pretérito ]: [ "", "leíste", "leyó", "leímos", "leísteis", "leyeron" ],
+            [ Tense.ImperfectSubjunctiveRa ]: [ "leyera", "leyeras", "leyera", "leyéramos", "leyerais", "leyeran" ],
+            [ Tense.ImperfectSubjunctiveSe ]: [ "leyese", "leyeses", "leyese", "leyésemos", "leyeseis", "leyesen" ],
+            [ Tense.Gerund ]: [ "leyendo" ],
+            [ Tense.PastGerund ]: [ "leyendo" ],
+            [ Tense.PretéritoPerDeSub ]: [ "leído" ],
+        }
+    }
 ]
