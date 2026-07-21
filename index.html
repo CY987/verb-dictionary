@@ -88,16 +88,16 @@
             </div>
 
             <!-- 選取的單字 -->
-            <div id="selected-word" class="hidden font-bold text-center break-words"
-                style="font-size: clamp(1.3rem, 3vw, 2rem);">
+            <div id="selected-word" class="hidden font-bold text-center
+            text-[clamp(1.2rem,2vw,2rem)] break-words">
                 顯示選取的單字
             </div>
 
         </div>
 
         <!-- 一般六人稱結果 -->
-        <div id="normal-result" class="grid grid-cols-2 text-center font-bold"
-            style="font-size: clamp(1.2rem, 3vw, 2.25rem);">
+        <div id="normal-result" class="grid grid-cols-2 text-center font-bold
+            text-[clamp(1rem,2vw,2.2rem)]">
 
             <!-- yo -->
             <div class="
@@ -108,8 +108,7 @@
                 flex
                 items-center
                 justify-center
-                min-h-[140px]
-                break-words leading-tight px-2
+                min-h-[100px] md:min-h-[120px] lg:min-h-[140px]
             ">
                 <div id="p1" class="break-words leading-tight px-2">yo</div>
             </div>
@@ -122,8 +121,7 @@
                 flex
                 items-center
                 justify-center
-                min-h-[140px]
-                break-words leading-tight px-2
+                min-h-[100px] md:min-h-[120px] lg:min-h-[140px]
             ">
                 <div id="p4" class="break-words leading-tight px-2">nosotros</div>
             </div>
@@ -137,8 +135,7 @@
                 flex
                 items-center
                 justify-center
-                min-h-[140px]
-                break-words leading-tight px-2
+                min-h-[100px] md:min-h-[120px] lg:min-h-[140px]
             ">
                 <div id="p2" class="break-words leading-tight px-2">tú</div>
             </div>
@@ -151,8 +148,7 @@
                 flex
                 items-center
                 justify-center
-                min-h-[140px]
-                break-words leading-tight px-2
+                min-h-[100px] md:min-h-[120px] lg:min-h-[140px]
             ">
                 <div id="p5" class="break-words leading-tight px-2">vosotros</div>
             </div>
@@ -166,8 +162,7 @@
                 flex
                 items-center
                 justify-center
-                min-h-[140px]
-                break-words leading-tight px-2
+                min-h-[100px] md:min-h-[120px] lg:min-h-[140px]
             ">
 
                 <div id="p3" class="flex flex-col gap-1 
@@ -188,8 +183,7 @@
                 flex
                 items-center
                 justify-center
-                min-h-[140px]
-                break-words leading-tight px-2
+                min-h-[100px] md:min-h-[120px] lg:min-h-[140px]
             ">
 
                 <div id="p6" class="flex flex-col gap-1 
@@ -596,8 +590,9 @@
                 flex
                 items-center
                 font-bold
+                text-[clamp(1rem,2vw,1.8rem)]
                 `;
-                row.style.fontSize = "clamp(1.2rem, 2.5vw, 2rem)";
+
 
                 if (index < result.length - 1) {
                     row.classList.add(
@@ -619,7 +614,8 @@
 
 
                     row.innerHTML = `
-                        <div class="text-gray-500 text-2xl text-left">
+                       <div class="text-gray-500 text-left
+                        text-[clamp(0.8rem,1.5vw,1.3rem)]">
                             ${labelMap[subject] ?? subject}
                         </div>
 
