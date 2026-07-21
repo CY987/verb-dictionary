@@ -88,14 +88,16 @@
             </div>
 
             <!-- 選取的單字 -->
-            <div id="selected-word" class="hidden text-3xl font-bold text-center">
+            <div id="selected-word" class="hidden font-bold text-center break-words"
+                style="font-size: clamp(1.3rem, 3vw, 2rem);">
                 顯示選取的單字
             </div>
 
         </div>
 
         <!-- 一般六人稱結果 -->
-        <div id="normal-result" class="grid grid-cols-2 text-4xl text-center font-bold">
+        <divid="normal-result" class="grid grid-cols-2 text-center font-bold"
+            style="font-size: clamp(1.2rem, 3vw, 2.25rem);">
 
             <!-- yo -->
             <div class="
@@ -107,8 +109,9 @@
                 items-center
                 justify-center
                 min-h-[140px]
+                break-words leading-tight px-2
             ">
-                <div id="p1">yo</div>
+                <div id="p1" class="break-words leading-tight px-2">yo</div>
             </div>
 
             <!-- nosotros -->
@@ -120,8 +123,9 @@
                 items-center
                 justify-center
                 min-h-[140px]
+                break-words leading-tight px-2
             ">
-                <div id="p4">nosotros</div>
+                <div id="p4" class="break-words leading-tight px-2">nosotros</div>
             </div>
 
             <!-- tú -->
@@ -134,8 +138,9 @@
                 items-center
                 justify-center
                 min-h-[140px]
+                break-words leading-tight px-2
             ">
-                <div id="p2">tú</div>
+                <div id="p2" class="break-words leading-tight px-2">tú</div>
             </div>
 
             <!-- vosotros -->
@@ -147,8 +152,9 @@
                 items-center
                 justify-center
                 min-h-[140px]
+                break-words leading-tight px-2
             ">
-                <div id="p5">vosotros</div>
+                <div id="p5" class="break-words leading-tight px-2">vosotros</div>
             </div>
 
             <!-- él / ella / usted -->
@@ -161,9 +167,11 @@
                 items-center
                 justify-center
                 min-h-[140px]
+                break-words leading-tight px-2
             ">
 
-                <div id="p3" class="flex flex-col gap-1 ">
+                <div id="p3" class="flex flex-col gap-1 
+                break-words leading-tight px-2">
 
                     <span>él</span>
                     <span>ella</span>
@@ -181,9 +189,11 @@
                 items-center
                 justify-center
                 min-h-[140px]
+                break-words leading-tight px-2
             ">
 
-                <div id="p6" class="flex flex-col gap-1 ">
+                <div id="p6" class="flex flex-col gap-1 
+                break-words leading-tight px-2">
 
                     <span>ellos</span>
                     <span>ellas</span>
@@ -193,10 +203,10 @@
 
             </div>
 
-        </div>
+    </div>
 
-        <!-- Imperative  -->
-        <div id="single-result" class="
+    <!-- Imperative  -->
+    <div id="single-result" class="
                 hidden
                 w-full
                 text-3xl
@@ -207,7 +217,7 @@
                 rounded-lg
                 overflow-hidden
             ">
-        </div>
+    </div>
 
     </div>
 
@@ -581,14 +591,13 @@
 
 
                 row.className = `
-                    min-h-[90px]
-                    px-8
-                    flex
-                    items-center
-                    text-3xl
-                    font-bold
+                min-h-[90px]
+                px-4
+                flex
+                items-center
+                font-bold
                 `;
-
+                row.style.fontSize = "clamp(1.2rem, 2.5vw, 2rem)";
 
                 if (index < result.length - 1) {
                     row.classList.add(
