@@ -19,7 +19,8 @@ export const irregular = [
         voc: "absolver", obj: {
             [Tense.Present]: ["absuelvo", "absuelves", "absuelve", "", "", "absuelven"],
             [Tense.Subjunctive]: ["absuelva", "absuelvas", "absuelva", "", "", "absuelvan"],
-            [Tense.PretéritoPerDeSub]: ["absuelto",]
+            [Tense.PretéritoPerDeSub]: ["absuelto",],
+            [Tense.Imperative]: ["absuelve", "no absuelvas", "absuelva", "", "", "", "absuelvan"],
         }
     },
     {
@@ -34,6 +35,18 @@ export const irregular = [
             [Tense.Present]: ["acuerdo", "acuerdas", "acuerda", "", "", "acuerdan"],
             [Tense.Subjunctive]: ["acuerde", "acuerdes", "acuerde", "", "", "acuerden"],
             [Tense.Imperative]: ["acuerda", "no acuerdes", "acuerde", "", "", "", "acuerden"],
+        }
+    },
+    {
+        voc: "adherir", obj: {
+            [Tense.Present]: ["adhiero", "adhieres", "adhiere", "", "", "adhieren"],
+            [Tense.Subjunctive]: ["adhiera", "adhieras", "adhiera", "adhiramos", "adhiráis", "adhieran"],
+            [Tense.Pretérito]: ["", "", "adhirió", "", "", "adhirieron"],
+            [Tense.ImperfectSubjunctiveRa]: ["adhiriera", "adhirieras", "adhiriera", "adhiriéramos", "adhirierais", "adhirieran"],
+            [Tense.ImperfectSubjunctiveSe]: ["adhiriese", "adhirieses", "adhiriese", "adhiriésemos", "adhirieseis", "adhiriesen"],
+            [Tense.Imperative]: ["adhiere", "no adhieras", "adhiera", "adhiramos", "", "no adhiráis", "adhieran"],
+            [Tense.Gerund]: ["adhiriendo"],
+            [Tense.PastGerund]: ["adhiriendo"],
         }
     },
     {
