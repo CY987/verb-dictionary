@@ -59,6 +59,7 @@ const ArVerb = [
     { voc: "aclarar", meaning: "to clarify; to rinse", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "acompañar", meaning: "to accompany", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "aconsejar", meaning: "to advise, counsel", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
+    { voc: "acordar", meaning: "to agree, decide", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "acostumbrar", meaning: "to get s.o. used to, accustom s.o. to", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "activar", meaning: "to activate, stimulate", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "acuchillar", meaning: "to cut", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },

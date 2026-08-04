@@ -21,12 +21,25 @@ export const irregular: Irregular[] = [
         }
     },
     { voc: "abrir", obj: { [ Tense.PretéritoPerDeSub ]: [ "abierto", ] } },
-    { voc: "absolver", obj: { [ Tense.PretéritoPerDeSub ]: [ "absuelto", ] } },
+    {
+        voc: "absolver", obj: {
+            [ Tense.Present ]: [ "absuelvo", "absuelves", "absuelve", "", "", "absuelven" ],
+            [ Tense.Subjunctive ]: [ "absuelva", "absuelvas", "absuelva", "", "", "absuelvan" ],
+            [ Tense.PretéritoPerDeSub ]: [ "absuelto", ]
+        }
+    },
     {
         voc: "acertar", obj: {
             [ Tense.Present ]: [ "acierto", "aciertas", "acierta", "", "", "aciertan" ],
             [ Tense.Subjunctive ]: [ "acierte", "aciertes", "acierte", "", "", "acierten" ],
             [ Tense.Imperative ]: [ "acierta", "no aciertes", "acierte", "", "", "", "acierten" ],
+        }
+    },
+    {
+        voc: "acordar", obj: {
+            [ Tense.Present ]: [ "acuerdo", "acuerdas", "acuerda", "", "", "acuerdan" ],
+            [ Tense.Subjunctive ]: [ "acuerde", "acuerdes", "acuerde", "", "", "acuerden" ],
+            [ Tense.Imperative ]: [ "acuerda", "no acuerdes", "acuerde", "", "", "", "acuerden" ],
         }
     },
     {

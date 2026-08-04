@@ -24,6 +24,13 @@ export const irregular = [
         }
     },
     {
+        voc: "acordar", obj: {
+            [Tense.Present]: ["acuerdo", "acuerdas", "acuerda", "", "", "acuerdan"],
+            [Tense.Subjunctive]: ["acuerde", "acuerdes", "acuerde", "", "", "acuerden"],
+            [Tense.Imperative]: ["acuerda", "no acuerdes", "acuerde", "", "", "", "acuerden"],
+        }
+    },
+    {
         voc: "leer", obj: {
             [Tense.Pretérito]: ["", "leíste", "leyó", "leímos", "leísteis", "leyeron"],
             [Tense.ImperfectSubjunctiveRa]: ["leyera", "leyeras", "leyera", "leyéramos", "leyerais", "leyeran"],
