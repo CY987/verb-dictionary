@@ -1,5 +1,6 @@
 import { ALL_MAIN_TENSES, DEFAULT_IMPERATIVE_PERSONAL, DEFAULT_PERSONAL, Type } from "./Data.js";
 const ErVerb = [
+    { voc: "absolver", meaning: "to acquit, absolve", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "absorber", meaning: "to absorb", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "aprender", meaning: "to learn", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "barrer", meaning: "to sweep", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
@@ -53,6 +54,7 @@ const ArVerb = [
     { voc: "acabar", meaning: "to finish, complete", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "acelerar", meaning: "to hurry, accelerate", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "aceptar", meaning: "to accept", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
+    { voc: "acertar", meaning: "to be right; to manage to", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "aclamar", meaning: "to acclaim", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "aclarar", meaning: "to clarify; to rinse", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },
     { voc: "acompañar", meaning: "to accompany", tag: ALL_MAIN_TENSES, personal: DEFAULT_PERSONAL, personalImperative: DEFAULT_IMPERATIVE_PERSONAL, regular: true },

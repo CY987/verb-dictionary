@@ -15,6 +15,14 @@ export const irregular = [
         }
     },
     { voc: "abrir", obj: { [Tense.PretéritoPerDeSub]: ["abierto",] } },
+    { voc: "absolver", obj: { [Tense.PretéritoPerDeSub]: ["absuelto",] } },
+    {
+        voc: "acertar", obj: {
+            [Tense.Present]: ["acierto", "aciertas", "acierta", "", "", "aciertan"],
+            [Tense.Subjunctive]: ["acierte", "aciertes", "acierte", "", "", "acierten"],
+            [Tense.Imperative]: ["acierta", "no aciertes", "acierte", "", "", "", "acierten"],
+        }
+    },
     {
         voc: "leer", obj: {
             [Tense.Pretérito]: ["", "leíste", "leyó", "leímos", "leísteis", "leyeron"],
