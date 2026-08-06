@@ -2342,7 +2342,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "dar (to give)",
+        voc: "dar",
         obj: {
             [Tense.Present]: ["doy", "das", "da", "damos", "dais", "dan"],
             [Tense.Subjunctive]: ["dé", "des", "dé", "demos", "deis", "den"],
@@ -2378,7 +2378,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "decir (to say, to tell)",
+        voc: "decir",
         obj: {
             [Tense.Present]: ["digo", "dices", "dice", "decimos", "decís", "dicen"],
             [Tense.Subjunctive]: ["diga", "digas", "diga", "digamos", "digáis", "digan"],
@@ -3962,7 +3962,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "estar (to be)",
+        voc: "estar",
         obj: {
             [Tense.Present]: ["estoy", "estás", "está", "estamos", "estáis", "están"],
             [Tense.Subjunctive]: ["esté", "estés", "esté", "estemos", "estéis", "estén"],
@@ -4700,7 +4700,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "hacer (to do, to make)",
+        voc: "hacer",
         obj: {
             [Tense.Present]: ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"],
             [Tense.Subjunctive]: ["haga", "hagas", "haga", "hagamos", "hagáis", "hagan"],
@@ -5222,7 +5222,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "ir (to go)",
+        voc: "ir",
         obj: {
             [Tense.Present]: ["voy", "vas", "va", "vamos", "vais", "van"],
             [Tense.Subjunctive]: ["vaya", "vayas", "vaya", "vayamos", "vayáis", "vayan"],
@@ -8354,7 +8354,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "saber (to know; to find out)",
+        voc: "saber",
         obj: {
             [Tense.Present]: ["sé", "sabes", "sabe", "sabemos", "sabéis", "saben"],
             [Tense.Subjunctive]: ["sepa", "sepas", "sepa", "sepamos", "sepáis", "sepan"],
@@ -8642,7 +8642,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "ser (to be)",
+        voc: "ser",
         obj: {
             [Tense.Present]: ["soy", "eres", "es", "somos", "sois", "son"],
             [Tense.Subjunctive]: ["sea", "seas", "sea", "seamos", "seáis", "sean"],
@@ -9236,7 +9236,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "tener (to have)",
+        voc: "tener",
         obj: {
             [Tense.Present]: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
             [Tense.Subjunctive]: ["tenga", "tengas", "tenga", "tengamos", "tengáis", "tengan"],
@@ -9794,7 +9794,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "venir (to come; to happen)",
+        voc: "venir",
         obj: {
             [Tense.Present]: ["vengo", "vienes", "viene", "venimos", "venís", "vienen"],
             [Tense.Subjunctive]: ["venga", "vengas", "venga", "vengamos", "vengáis", "vengan"],
@@ -9812,7 +9812,7 @@ export const nonRegularVerbs = [
         },
     },
     {
-        voc: "ver (to see)",
+        voc: "ver",
         obj: {
             [Tense.Present]: ["veo", "ves", "ve", "vemos", "veis", "ven"],
             [Tense.Subjunctive]: ["vea", "veas", "vea", "veamos", "veáis", "vean"],
