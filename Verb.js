@@ -1,7 +1,7 @@
 import { Tense } from "./Data.js";
 import { WordDataMap } from "./RegularVerbData.js";
 import { VerbFunction } from "./VerbFunction.js";
-import { irregular } from "./IrregularVerbData.js";
+import { nonRegularVerbs } from "./NewIrregularVerbData.js";
 export class VerbConjugator {
     constructor() { }
     conjugate(selectWord) {
@@ -18,7 +18,10 @@ export class VerbConjugator {
         // 僅在動詞標記為不規則時，尋找目前時態的不規則結果
         let irrWord;
         if (!found.regular) {
-            const irregularData = irregular.find(item => item.voc === found.voc);
+            // const irregularData = irregular.find(
+            //     item => item.voc === found.voc
+            // );
+            const irregularData = nonRegularVerbs.find(item => item.voc === found.voc);
             irrWord = irregularData?.obj[selectWord.tag];
         }
         // 取得字根 (例如 "comer" -> "com")

@@ -2,6 +2,7 @@ import { Tense, WordType } from "./Data.js";
 import { WordDataMap } from "./RegularVerbData.js";
 import { VerbFunction } from "./VerbFunction.js";
 import { irregular } from "./IrregularVerbData.js";
+import { nonRegularVerbs } from "./NewIrregularVerbData.js"
 export class VerbConjugator
 {
     constructor()
@@ -30,7 +31,11 @@ export class VerbConjugator
 
         if ( !found.regular )
         {
-            const irregularData = irregular.find(
+            // const irregularData = irregular.find(
+            //     item => item.voc === found.voc
+            // );
+
+            const irregularData = nonRegularVerbs.find(
                 item => item.voc === found.voc
             );
 
