@@ -3,3 +3,6 @@ node_modules/
 *.js.map
 *.d.ts
 *.d.ts.map
+
+test1.ts
+test2.ts
