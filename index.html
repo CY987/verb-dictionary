@@ -28,7 +28,8 @@
                     <option value="ar">Ar</option>
                     <option value="er">Er</option>
                     <option value="ir">Ir</option>
-
+                    <option value="se">se</option>
+                    <option value="le">le</option>
                 </select>
             </div>
 
@@ -233,7 +234,9 @@
         const typeMap = {
             ar: Type.Ar,
             er: Type.Er,
-            ir: Type.Ir
+            ir: Type.Ir,
+            se: Type.Se,
+            le: Type.Le,
         };
 
 
@@ -424,7 +427,9 @@
             const typeKeyMap = {
                 [Type.Ar]: "ar",
                 [Type.Er]: "er",
-                [Type.Ir]: "ir"
+                [Type.Ir]: "ir",
+                [Type.Se]: "se",
+                [Type.Le]: "le",
             };
 
             const selectedKey =
@@ -659,7 +664,7 @@
                 }
                 else {
                     // 沒有選類型：搜尋全部類型
-                    [Type.Ar, Type.Er, Type.Ir].forEach(type => {
+                    [Type.Ar, Type.Er, Type.Ir, Type.Se, Type.Le].forEach(type => {
                         const list = WordDataMap.get(type) ?? [];
 
                         searchList.push(

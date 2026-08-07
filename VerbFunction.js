@@ -1,4 +1,4 @@
-import { Morpheme, } from "./RegularVerbEnding.js";
+import { ImperativeHead, Morpheme, } from "./RegularVerbEnding.js";
 export class VerbFunction {
     constructor() { }
     static get Instance() {
@@ -66,10 +66,14 @@ export class VerbFunction {
     }
     imperativeTense(found, Item, word) {
         const table = this.getElement(word.tag, word.type);
-        return found.personalImperative.map(p => Item + table[p]);
-        // return found.personalImperative.map( p => ImperativeHead[ p ] + Item + table[ p ] );
+        // return found.personalImperative.map( p => Item + table[ p ] );
+        return found.personalImperative.map(p => ImperativeHead[p] + Item + table[p]);
     }
     // irregular-----------------------------
+    irrFutureSimpleTense(found, Item, word) {
+        const table = this.getElement(word.tag, word.type);
+        return found.personal.map((p, index) => table[p] + Item[index]);
+    }
     irrPretéritoPerDeSubTense(found, Item) {
         return found.personal.map(p => Item[0]);
         // return found.personal.map( p => HaberPastHead[ p ] + Item[ 0 ] );
@@ -86,6 +90,15 @@ export class VerbFunction {
         if (!irregularResult) {
             return regularResult;
         }
-        return regularResult.map((regularValue, index) => irregularResult[index] || regularValue);
+        return regularResult.map((regularValue, index) => {
+            return irregularResult[index] !== undefined
+                ? irregularResult[index]
+                : regularValue;
+        }
+        // irregularResult[ index ] || regularValue
+        );
+    }
+    merge(irregularResult) {
+        return;
     }
 }

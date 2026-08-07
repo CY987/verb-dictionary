@@ -1,4 +1,12 @@
 import { Pronoun, Tense, Type } from "./Data.js";
+const EmptySuffix = {
+    [Pronoun.Yo]: "",
+    [Pronoun.Tú]: "",
+    [Pronoun.ÉL]: "",
+    [Pronoun.Nosotros]: "",
+    [Pronoun.Vosotros]: "",
+    [Pronoun.Ellos]: "",
+};
 const FutureSuffix = {
     [Pronoun.Yo]: "é",
     [Pronoun.Tú]: "ás",
@@ -43,6 +51,8 @@ const GerundSuffix = {
     [Type.Ar]: GerundArSuffix,
     [Type.Er]: GerundErIrSuffix,
     [Type.Ir]: GerundErIrSuffix,
+    [Type.Se]: EmptySuffix,
+    [Type.Le]: EmptySuffix,
 };
 const PastParticipleArSuffix = {
     [Pronoun.Yo]: "ado",
@@ -64,6 +74,8 @@ const PastParticipleSuffix = {
     [Type.Ar]: PastParticipleArSuffix,
     [Type.Er]: PastParticipleErIrSuffix,
     [Type.Ir]: PastParticipleErIrSuffix,
+    [Type.Se]: EmptySuffix,
+    [Type.Le]: EmptySuffix,
 };
 export const EstarPresentHead = {
     [Pronoun.Yo]: "estoy ",
@@ -124,6 +136,8 @@ export const Morpheme = {
             [Pronoun.Vosotros]: "ís",
             [Pronoun.Ellos]: "en",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
     [Tense.Subjunctive]: {
         [Type.Ar]: {
@@ -150,6 +164,8 @@ export const Morpheme = {
             [Pronoun.Vosotros]: "áis",
             [Pronoun.Ellos]: "an",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
     [Tense.Pretérito]: {
         [Type.Ar]: {
@@ -176,6 +192,8 @@ export const Morpheme = {
             [Pronoun.Vosotros]: "isteis",
             [Pronoun.Ellos]: "ieron",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
     [Tense.Imperfect]: {
         [Type.Ar]: {
@@ -202,21 +220,29 @@ export const Morpheme = {
             [Pronoun.Vosotros]: "íais",
             [Pronoun.Ellos]: "ían",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
     [Tense.Future]: {
         [Type.Ar]: FutureSuffix,
         [Type.Er]: FutureSuffix,
         [Type.Ir]: FutureSuffix,
+        [Type.Se]: EmptySuffix,
+        [Type.Le]: EmptySuffix,
     },
     [Tense.FutureSimple]: {
         [Type.Ar]: FutureSimpleHead,
         [Type.Er]: FutureSimpleHead,
         [Type.Ir]: FutureSimpleHead,
+        [Type.Se]: FutureSimpleHead,
+        [Type.Le]: FutureSimpleHead,
     },
     [Tense.Conditional]: {
         [Type.Ar]: ConditionalSuffix,
         [Type.Er]: ConditionalSuffix,
         [Type.Ir]: ConditionalSuffix,
+        [Type.Se]: EmptySuffix,
+        [Type.Le]: EmptySuffix,
     },
     [Tense.ImperfectSubjunctiveRa]: {
         [Type.Ar]: {
@@ -243,6 +269,8 @@ export const Morpheme = {
             [Pronoun.Vosotros]: "ierais",
             [Pronoun.Ellos]: "ieran",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
     [Tense.ImperfectSubjunctiveSe]: {
         [Type.Ar]: {
@@ -269,6 +297,8 @@ export const Morpheme = {
             [Pronoun.Vosotros]: "ieseis",
             [Pronoun.Ellos]: "iesen",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
     [Tense.Gerund]: GerundSuffix,
     [Tense.PastGerund]: GerundSuffix,
@@ -301,5 +331,7 @@ export const Morpheme = {
             [Pronoun.VosotrosNegativo]: "áis",
             [Pronoun.Ustedes]: "an",
         },
+        [Type.Se]: {},
+        [Type.Le]: {}
     },
 };

@@ -3,6 +3,8 @@ export var Type;
     Type["Er"] = "er";
     Type["Ar"] = "ar";
     Type["Ir"] = "ir";
+    Type["Se"] = "se";
+    Type["Le"] = "le";
 })(Type || (Type = {}));
 export var Tense;
 (function (Tense) {

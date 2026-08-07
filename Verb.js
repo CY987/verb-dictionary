@@ -55,8 +55,10 @@ export class VerbConjugator {
                 }
             case Tense.FutureSimple:
                 {
-                    const regularResult = VerbFunction.Instance.futureSimpleTense(found, found.voc, selectWord);
-                    return VerbFunction.Instance.mergeIrregular(regularResult, irrWord);
+                    if (irrWord) {
+                        return VerbFunction.Instance.irrFutureSimpleTense(found, irrWord, selectWord);
+                    }
+                    return VerbFunction.Instance.futureSimpleTense(found, found.voc, selectWord);
                 }
             case Tense.Conditional:
                 {

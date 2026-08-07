@@ -18,6 +18,8 @@ export enum Type
     Er = "er",
     Ar = "ar",
     Ir = "ir",
+    Se = "se",
+    Le = "le",
 }
 export enum Tense
 {
