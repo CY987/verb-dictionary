@@ -6115,7 +6115,7 @@ export const nonRegularVerbs = [
             [Tense.Conditional]: [" ", " ", "ocurriría", " ", " ", "ocurrirían"],
             [Tense.ImperfectSubjunctiveRa]: [" ", " ", "ocurriera", " ", " ", "ocurrieran"],
             [Tense.ImperfectSubjunctiveSe]: [" ", " ", "ocurriese", " ", " ", "ocurriesen"],
-            [Tense.Imperative]: [" ", " ", "ocurra", "ocurran", " ", " ", " "],
+            [Tense.Imperative]: [" ", " ", "ocurra", " ", " ", "ocurran", " "],
             [Tense.Gerund]: ["ocurriendo"],
             [Tense.PastGerund]: ["ocurriendo"],
             [Tense.PretéritoPerDeSub]: ["ocurrido"],

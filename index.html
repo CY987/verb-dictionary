@@ -529,6 +529,25 @@
                 singleResult.classList.remove("hidden");
                 singleResult.innerHTML = "";
 
+                // ocurrir：只顯示 él、ellos
+                if (wordData?.voc === "ocurrir") {
+                    const ocurrirResult = [
+                        result[2], // él
+                        result[5]  // ellos
+                    ];
+
+                    const ocurrirPersonal = [
+                        "él",
+                        "ellos"
+                    ];
+
+                    renderSingleColumnResult(
+                        ocurrirResult,
+                        ocurrirPersonal
+                    );
+
+                    return;
+                }
 
                 // 只有 Imperative 顯示人稱
                 const personal =
