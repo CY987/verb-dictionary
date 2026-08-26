@@ -8,13 +8,13 @@ export var Type;
 })(Type || (Type = {}));
 export var Tense;
 (function (Tense) {
-    Tense["Present"] = "Present";
-    Tense["Subjunctive"] = "Subjunctive";
-    Tense["Pret\u00E9rito"] = "Pret\u00E9rito";
+    Tense["Present"] = "Present(\u73FE\u5728\u5F0F)";
+    Tense["Subjunctivo"] = "Subjunctivo(\u865B\u64EC\u5F0F)";
+    Tense["Pret\u00E9rito"] = "Pret\u00E9rito(\u904E\u53BB\u5F0F)";
     Tense["Imperfect"] = "Imperfect";
-    Tense["Future"] = "Future";
+    Tense["Futuro"] = "Futuro(\u672A\u4F86\u5F0F)";
     Tense["FutureSimple"] = "FutureSimple";
-    Tense["Conditional"] = "Conditional";
+    Tense["Conditional"] = "Conditional(\u689D\u4EF6\u5F0F)";
     Tense["ImperfectSubjunctiveRa"] = "ImperfectSubjunctiveRa";
     Tense["ImperfectSubjunctiveSe"] = "ImperfectSubjunctiveSe";
     Tense["Imperative"] = "Imperative";
@@ -38,11 +38,11 @@ export var Pronoun;
 export const ALL_MAIN_TENSES = [
     Tense.Present,
     Tense.Conditional,
-    Tense.Future,
+    Tense.Futuro,
     Tense.FutureSimple,
     Tense.Imperfect,
     Tense.Pretérito,
-    Tense.Subjunctive,
+    Tense.Subjunctivo,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
     Tense.PretéritoPerDeSub,

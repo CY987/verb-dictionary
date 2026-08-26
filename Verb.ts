@@ -1,7 +1,6 @@
 import { Tense, WordType } from "./Data.js";
 import { WordDataMap } from "./RegularVerbData.js";
 import { VerbFunction } from "./VerbFunction.js";
-import { irregular } from "./IrregularVerbData.js";
 import { nonRegularVerbs } from "./NewIrregularVerbData.js"
 export class VerbConjugator
 {
@@ -54,7 +53,7 @@ export class VerbConjugator
 
                     return VerbFunction.Instance.mergeIrregular( regularResult, irrWord );
                 }
-            case Tense.Subjunctive:
+            case Tense.Subjunctivo:
                 {
                     const regularResult = VerbFunction.Instance.subjunctiveTense( found, stem, selectWord );
 
@@ -72,7 +71,7 @@ export class VerbConjugator
 
                     return VerbFunction.Instance.mergeIrregular( regularResult, irrWord );
                 }
-            case Tense.Future:
+            case Tense.Futuro:
                 {
                     const regularResult = VerbFunction.Instance.futureTense( found, found.voc, selectWord );
 

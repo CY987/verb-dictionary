@@ -33,7 +33,7 @@ export class VerbConjugator {
                     const regularResult = VerbFunction.Instance.presentTense(found, stem, selectWord);
                     return VerbFunction.Instance.mergeIrregular(regularResult, irrWord);
                 }
-            case Tense.Subjunctive:
+            case Tense.Subjunctivo:
                 {
                     const regularResult = VerbFunction.Instance.subjunctiveTense(found, stem, selectWord);
                     return VerbFunction.Instance.mergeIrregular(regularResult, irrWord);
@@ -48,7 +48,7 @@ export class VerbConjugator {
                     const regularResult = VerbFunction.Instance.imperfectTense(found, stem, selectWord);
                     return VerbFunction.Instance.mergeIrregular(regularResult, irrWord);
                 }
-            case Tense.Future:
+            case Tense.Futuro:
                 {
                     const regularResult = VerbFunction.Instance.futureTense(found, found.voc, selectWord);
                     return VerbFunction.Instance.mergeIrregular(regularResult, irrWord);

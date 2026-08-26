@@ -78,20 +78,20 @@ export class VerbFunction
     public gerundTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type )
-        return found.personal.map( p => Item + table[ p ] );
-        // return found.personal.map( p => EstarPresentHead[ p ] + Item + table[ p ] );
+        // return found.personal.map( p => Item + table[ p ] );
+        return found.personal.map( p => EstarPresentHead[ p ] + Item + table[ p ] );
     }
     public pastGerundTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type )
-        return found.personal.map( p => Item + table[ p ] );
-        // return found.personal.map( p => EstarPastHead[ p ] + Item + table[ p ] );
+        // return found.personal.map( p => Item + table[ p ] );
+        return found.personal.map( p => EstarPastHead[ p ] + Item + table[ p ] );
     }
     public pretéritoPerDeSubTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type )
-        return found.personal.map( p => Item + table[ p ] );
-        // return found.personal.map( p => HaberPastHead[ p ] + Item + table[ p ] );
+        // return found.personal.map( p => Item + table[ p ] );
+        return found.personal.map( p => HaberPastHead[ p ] + Item + table[ p ] );
     }
     public imperativeTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
@@ -108,18 +108,18 @@ export class VerbFunction
 
     public irrPretéritoPerDeSubTense( found: VerbForm, Item: string[] ): string[]
     {
-        return found.personal.map( p => Item[ 0 ] );
-        // return found.personal.map( p => HaberPastHead[ p ] + Item[ 0 ] );
+        // return found.personal.map( p => Item[ 0 ] );
+        return found.personal.map( p => HaberPastHead[ p ] + Item[ 0 ] );
     }
     public irrGerundTense( found: VerbForm, Item: string[] ): string[]
     {
-        return found.personal.map( p => Item[ 0 ] );
-        // return found.personal.map( p => EstarPresentHead[ p ] + Item[ 0 ] );
+        // return found.personal.map( p => Item[ 0 ] );
+        return found.personal.map( p => EstarPresentHead[ p ] + Item[ 0 ] );
     }
     public irrPastGerundTense( found: VerbForm, Item: string[] ): string[]
     {
-        return found.personal.map( p => Item[ 0 ] );
-        // return found.personal.map( p => EstarPastHead[ p ] + Item[ 0 ] );
+        // return found.personal.map( p => Item[ 0 ] );
+        return found.personal.map( p => EstarPastHead[ p ] + Item[ 0 ] );
     }
     public mergeIrregular(
         regularResult: string[],

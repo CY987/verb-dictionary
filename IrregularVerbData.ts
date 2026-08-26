@@ -8,14 +8,14 @@ export interface Irregular
 export const irregular: Irregular[] = [
     {
         voc: "abrazar", obj: {
-            [ Tense.Subjunctive ]: [ "abrace", "abraces", "abrace", "abracemos", "abracéis", "abracen" ],
+            [ Tense.Subjunctivo ]: [ "abrace", "abraces", "abrace", "abracemos", "abracéis", "abracen" ],
             [ Tense.Pretérito ]: [ "abracé", "", "", "", "", "" ],
             [ Tense.Imperative ]: [ "", "no abraces", "abrace", "abracemos", "", "no abracéis", "abracen" ],
         }
     },
     {
         voc: "abrigar", obj: {
-            [ Tense.Subjunctive ]: [ "abrigue", "abrigues", "abrigue", "abriguemos", "abriguéis", "abriguen" ],
+            [ Tense.Subjunctivo ]: [ "abrigue", "abrigues", "abrigue", "abriguemos", "abriguéis", "abriguen" ],
             [ Tense.Pretérito ]: [ "abrigué", "", "", "", "", "" ],
             [ Tense.Imperative ]: [ "", "no abrigues", "abrigue", "abriguemos", "", "no abriguéis", "abriguen" ],
         }
@@ -24,7 +24,7 @@ export const irregular: Irregular[] = [
     {
         voc: "absolver", obj: {
             [ Tense.Present ]: [ "absuelvo", "absuelves", "absuelve", "", "", "absuelven" ],
-            [ Tense.Subjunctive ]: [ "absuelva", "absuelvas", "absuelva", "", "", "absuelvan" ],
+            [ Tense.Subjunctivo ]: [ "absuelva", "absuelvas", "absuelva", "", "", "absuelvan" ],
             [ Tense.PretéritoPerDeSub ]: [ "absuelto", ],
             [ Tense.Imperative ]: [ "absuelve", "no absuelvas", "absuelva", "", "", "", "absuelvan" ],
         }
@@ -32,21 +32,21 @@ export const irregular: Irregular[] = [
     {
         voc: "acertar", obj: {
             [ Tense.Present ]: [ "acierto", "aciertas", "acierta", "", "", "aciertan" ],
-            [ Tense.Subjunctive ]: [ "acierte", "aciertes", "acierte", "", "", "acierten" ],
+            [ Tense.Subjunctivo ]: [ "acierte", "aciertes", "acierte", "", "", "acierten" ],
             [ Tense.Imperative ]: [ "acierta", "no aciertes", "acierte", "", "", "", "acierten" ],
         }
     },
     {
         voc: "acordar", obj: {
             [ Tense.Present ]: [ "acuerdo", "acuerdas", "acuerda", "", "", "acuerdan" ],
-            [ Tense.Subjunctive ]: [ "acuerde", "acuerdes", "acuerde", "", "", "acuerden" ],
+            [ Tense.Subjunctivo ]: [ "acuerde", "acuerdes", "acuerde", "", "", "acuerden" ],
             [ Tense.Imperative ]: [ "acuerda", "no acuerdes", "acuerde", "", "", "", "acuerden" ],
         }
     },
     {
         voc: "adherir", obj: {
             [ Tense.Present ]: [ "adhiero", "adhieres", "adhiere", "", "", "adhieren" ],
-            [ Tense.Subjunctive ]: [ "adhiera", "adhieras", "adhiera", "adhiramos", "adhiráis", "adhieran" ],
+            [ Tense.Subjunctivo ]: [ "adhiera", "adhieras", "adhiera", "adhiramos", "adhiráis", "adhieran" ],
             [ Tense.Pretérito ]: [ "", "", "adhirió", "", "", "adhirieron" ],
             [ Tense.ImperfectSubjunctiveRa ]: [ "adhiriera", "adhirieras", "adhiriera", "adhiriéramos", "adhirierais", "adhirieran" ],
             [ Tense.ImperfectSubjunctiveSe ]: [ "adhiriese", "adhirieses", "adhiriese", "adhiriésemos", "adhirieseis", "adhiriesen" ],
@@ -68,7 +68,7 @@ export const irregular: Irregular[] = [
     {
         voc: "ser", obj: {
             [ Tense.Present ]: [ "soy", "eres", "es", "somos", "sois", "son" ],
-            [ Tense.Subjunctive ]: [ "sea", "seas", "sea", "seamos", "seáis", "sean" ],
+            [ Tense.Subjunctivo ]: [ "sea", "seas", "sea", "seamos", "seáis", "sean" ],
             [ Tense.Pretérito ]: [ "fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron" ],
             [ Tense.Imperfect ]: [ "era", "eras", "era", "éramos", "erais", "eran" ],
             [ Tense.ImperfectSubjunctiveRa ]: [ "fuera", "fueras", "fuera", "fuéramos", "fuerais", "fueran" ],

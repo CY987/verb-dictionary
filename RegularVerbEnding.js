@@ -139,7 +139,7 @@ export const Morpheme = {
         [Type.Se]: {},
         [Type.Le]: {}
     },
-    [Tense.Subjunctive]: {
+    [Tense.Subjunctivo]: {
         [Type.Ar]: {
             [Pronoun.Yo]: "e",
             [Pronoun.Tú]: "es",
@@ -223,7 +223,7 @@ export const Morpheme = {
         [Type.Se]: {},
         [Type.Le]: {}
     },
-    [Tense.Future]: {
+    [Tense.Futuro]: {
         [Type.Ar]: FutureSuffix,
         [Type.Er]: FutureSuffix,
         [Type.Ir]: FutureSuffix,

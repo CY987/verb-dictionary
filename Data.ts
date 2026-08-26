@@ -23,13 +23,13 @@ export enum Type
 }
 export enum Tense
 {
-    Present = "Present",
-    Subjunctive = "Subjunctive",
-    Pretérito = "Pretérito",
+    Present = "Present(現在式)",
+    Subjunctivo = "Subjunctivo(虛擬式)",
+    Pretérito = "Pretérito(過去式)",
     Imperfect = "Imperfect",
-    Future = "Future",
+    Futuro = "Futuro(未來式)",
     FutureSimple = "FutureSimple",
-    Conditional = "Conditional",
+    Conditional = "Conditional(條件式)",
     ImperfectSubjunctiveRa = "ImperfectSubjunctiveRa",
     ImperfectSubjunctiveSe = "ImperfectSubjunctiveSe",
     Imperative = "Imperative",
@@ -53,11 +53,11 @@ export enum Pronoun
 export const ALL_MAIN_TENSES = [
     Tense.Present,
     Tense.Conditional,
-    Tense.Future,
+    Tense.Futuro,
     Tense.FutureSimple,
     Tense.Imperfect,
     Tense.Pretérito,
-    Tense.Subjunctive,
+    Tense.Subjunctivo,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
     Tense.PretéritoPerDeSub,
