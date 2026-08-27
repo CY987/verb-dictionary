@@ -76,12 +76,18 @@ export class VerbConjugator {
                     return VerbFunction.Instance.mergeIrregular(regularResult, irrWord);
                 }
             case Tense.Gerund:
-                if (irrWord) {
+                if (found.voc === "estar") {
+                    return VerbFunction.Instance.gerundEstar(found, irrWord);
+                }
+                else if (irrWord) {
                     return VerbFunction.Instance.irrGerundTense(found, irrWord);
                 }
                 return VerbFunction.Instance.gerundTense(found, stem, selectWord);
             case Tense.PastGerund:
-                if (irrWord) {
+                if (found.voc === "estar") {
+                    return VerbFunction.Instance.gerundEstar(found, irrWord);
+                }
+                else if (irrWord) {
                     return VerbFunction.Instance.irrPastGerundTense(found, irrWord);
                 }
                 return VerbFunction.Instance.pastGerundTense(found, stem, selectWord);

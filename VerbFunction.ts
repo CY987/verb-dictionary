@@ -99,6 +99,10 @@ export class VerbFunction
         // return found.personalImperative.map( p => Item + table[ p ] );
         return found.personalImperative.map( p => ImperativeHead[ p ] + Item + table[ p ] );
     }
+    public gerundEstar( found: VerbForm, Item: string[] ): string[]
+    {
+        return found.personal.map( p => Item[ 0 ] );
+    }
     // irregular-----------------------------
     public irrFutureSimpleTense( found: VerbForm, Item: string[], word: WordType ): string[]
     {

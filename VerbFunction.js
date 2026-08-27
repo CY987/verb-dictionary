@@ -69,6 +69,9 @@ export class VerbFunction {
         // return found.personalImperative.map( p => Item + table[ p ] );
         return found.personalImperative.map(p => ImperativeHead[p] + Item + table[p]);
     }
+    gerundEstar(found, Item) {
+        return found.personal.map(p => Item[0]);
+    }
     // irregular-----------------------------
     irrFutureSimpleTense(found, Item, word) {
         const table = this.getElement(word.tag, word.type);
