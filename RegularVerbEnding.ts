@@ -87,33 +87,6 @@ const PastParticipleSuffix =
         [ Type.Se ]: EmptySuffix,
         [ Type.Le ]: EmptySuffix,
     } as const;
-export const EstarPresentHead =
-    {
-        [ Pronoun.Yo ]: "estoy ",
-        [ Pronoun.Tú ]: "estás ",
-        [ Pronoun.ÉL ]: "está ",
-        [ Pronoun.Nosotros ]: "estamos ",
-        [ Pronoun.Vosotros ]: "estáis ",
-        [ Pronoun.Ellos ]: "están ",
-    } as const;
-export const EstarPastHead =
-    {
-        [ Pronoun.Yo ]: "estuve ",
-        [ Pronoun.Tú ]: "estuviste ",
-        [ Pronoun.ÉL ]: "estuvo ",
-        [ Pronoun.Nosotros ]: "estuvimos ",
-        [ Pronoun.Vosotros ]: "estuvisteis ",
-        [ Pronoun.Ellos ]: "estuvieron ",
-    } as const;
-export const HaberPastHead =
-    {
-        [ Pronoun.Yo ]: "haya ",
-        [ Pronoun.Tú ]: "hayas ",
-        [ Pronoun.ÉL ]: "haya ",
-        [ Pronoun.Nosotros ]: "hayamos ",
-        [ Pronoun.Vosotros ]: "hayáis ",
-        [ Pronoun.Ellos ]: "hayan ",
-    } as const;
 export const ImperativeHead =
 {
     [ Pronoun.Tú ]: "",

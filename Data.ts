@@ -23,19 +23,21 @@ export enum Type
 }
 export enum Tense
 {
-    Present = "Present(現在式)",
-    Subjunctivo = "Subjunctivo(虛擬式)",
-    Pretérito = "Pretérito(過去式)",
-    Imperfect = "Imperfecto(未完成式)",
-    Futuro = "Futuro(未來式)",
-    FutureSimple = "FutureSimple(未來簡單式)",
-    Conditional = "Conditional(條件式)",
+    Present = "Present:現在式",
+    Subjunctivo = "Subjunctivo:虛擬式",
+    Pretérito = "Pretérito:過去式",
+    Imperfect = "Imperfecto:未完成式",
+    Futuro = "Futuro:未來式",
+    FutureSimple = "FutureSimple:未來簡單式",
+    Conditional = "Conditional:條件式",
     ImperfectSubjunctiveRa = "未完成虛擬式Ra",
     ImperfectSubjunctiveSe = "未完成虛擬式Se",
-    Imperative = "Imperative(祈使式)",
-    Gerund = "現在進行(estar現在式+現在分詞)",
-    PastGerund = "過去進行(estar過去式+現在分詞)",
-    PretéritoPerDeSub = "過去完成虛擬式",
+    Imperative = "Imperative:祈使式",
+    Gerund = "現在進行式:estar現在式+現在分詞",
+    PastParticiple = "過去分詞",
+    PastGerund = "過去進行式:estar過去式+現在分詞",
+    PretéritoPerDeSub = "過去完成虛擬式:haber未完成虛擬式+過去分詞",
+    PrePerfecto = "現在完成式:haber現在式+過去分詞",
 }
 export enum Pronoun
 {
@@ -60,9 +62,8 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctivo,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.PretéritoPerDeSub,
+    Tense.PastParticiple,
     Tense.Gerund,
-    Tense.PastGerund,
     Tense.Imperative,
 ];
 export const DEFAULT_PERSONAL = [
