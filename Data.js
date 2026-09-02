@@ -20,10 +20,13 @@ export var Tense;
     Tense["Imperative"] = "Imperative:\u7948\u4F7F\u5F0F";
     Tense["Gerund"] = "\u73FE\u5728\u9032\u884C\u5F0F:estar\u73FE\u5728\u5F0F+\u73FE\u5728\u5206\u8A5E";
     Tense["PastParticiple"] = "\u904E\u53BB\u5206\u8A5E";
-    Tense["PastGerund"] = "\u904E\u53BB\u9032\u884C\u5F0F:estar\u904E\u53BB\u5F0F+\u73FE\u5728\u5206\u8A5E";
-    Tense["Pret\u00E9ritoPerDeSub"] = "\u904E\u53BB\u5B8C\u6210\u865B\u64EC\u5F0F:haber\u672A\u5B8C\u6210\u865B\u64EC\u5F0F+\u904E\u53BB\u5206\u8A5E";
-    Tense["PrePerfecto"] = "\u73FE\u5728\u5B8C\u6210\u5F0F:haber\u73FE\u5728\u5F0F+\u904E\u53BB\u5206\u8A5E";
 })(Tense || (Tense = {}));
+export var TenseSyn;
+(function (TenseSyn) {
+    TenseSyn["PastGerund"] = "\u904E\u53BB\u9032\u884C\u5F0F:estar\u904E\u53BB\u5F0F+\u73FE\u5728\u5206\u8A5E";
+    TenseSyn["Pret\u00E9ritoPerDeSub"] = "\u904E\u53BB\u5B8C\u6210\u865B\u64EC\u5F0F:haber\u672A\u5B8C\u6210\u865B\u64EC\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSyn["PrePerfecto"] = "\u73FE\u5728\u5B8C\u6210\u5F0F:haber\u73FE\u5728\u5F0F+\u904E\u53BB\u5206\u8A5E";
+})(TenseSyn || (TenseSyn = {}));
 export var Pronoun;
 (function (Pronoun) {
     Pronoun["Yo"] = "yo";
@@ -47,9 +50,8 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctivo,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.PretéritoPerDeSub,
+    Tense.PastParticiple,
     Tense.Gerund,
-    Tense.PastGerund,
     Tense.Imperative,
 ];
 export const DEFAULT_PERSONAL = [

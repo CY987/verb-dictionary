@@ -10,7 +10,7 @@ export interface VerbForm
 export interface WordType
 {
     word: string,
-    tag: Tense,
+    tag: Tense | TenseSyn,
     type: Type,
 }
 export enum Type
@@ -35,6 +35,10 @@ export enum Tense
     Imperative = "Imperative:祈使式",
     Gerund = "現在進行式:estar現在式+現在分詞",
     PastParticiple = "過去分詞",
+
+}
+export enum TenseSyn
+{
     PastGerund = "過去進行式:estar過去式+現在分詞",
     PretéritoPerDeSub = "過去完成虛擬式:haber未完成虛擬式+過去分詞",
     PrePerfecto = "現在完成式:haber現在式+過去分詞",

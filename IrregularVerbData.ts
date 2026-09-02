@@ -20,12 +20,12 @@ export const irregular: Irregular[] = [
             [ Tense.Imperative ]: [ "", "no abrigues", "abrigue", "abriguemos", "", "no abriguéis", "abriguen" ],
         }
     },
-    { voc: "abrir", obj: { [ Tense.PretéritoPerDeSub ]: [ "abierto", ] } },
+    { voc: "abrir", obj: { [ Tense.PastParticiple ]: [ "abierto", ] } },
     {
         voc: "absolver", obj: {
             [ Tense.Present ]: [ "absuelvo", "absuelves", "absuelve", "", "", "absuelven" ],
             [ Tense.Subjunctivo ]: [ "absuelva", "absuelvas", "absuelva", "", "", "absuelvan" ],
-            [ Tense.PretéritoPerDeSub ]: [ "absuelto", ],
+            [ Tense.PastParticiple ]: [ "absuelto", ],
             [ Tense.Imperative ]: [ "absuelve", "no absuelvas", "absuelva", "", "", "", "absuelvan" ],
         }
     },
@@ -52,7 +52,6 @@ export const irregular: Irregular[] = [
             [ Tense.ImperfectSubjunctiveSe ]: [ "adhiriese", "adhirieses", "adhiriese", "adhiriésemos", "adhirieseis", "adhiriesen" ],
             [ Tense.Imperative ]: [ "adhiere", "no adhieras", "adhiera", "adhiramos", "", "no adhiráis", "adhieran" ],
             [ Tense.Gerund ]: [ "adhiriendo" ],
-            [ Tense.PastGerund ]: [ "adhiriendo" ],
         }
     },
     {
@@ -61,8 +60,7 @@ export const irregular: Irregular[] = [
             [ Tense.ImperfectSubjunctiveRa ]: [ "leyera", "leyeras", "leyera", "leyéramos", "leyerais", "leyeran" ],
             [ Tense.ImperfectSubjunctiveSe ]: [ "leyese", "leyeses", "leyese", "leyésemos", "leyeseis", "leyesen" ],
             [ Tense.Gerund ]: [ "leyendo" ],
-            [ Tense.PastGerund ]: [ "leyendo" ],
-            [ Tense.PretéritoPerDeSub ]: [ "leído" ],
+            [ Tense.PastParticiple ]: [ "leído" ],
         }
     },
     {

@@ -66,11 +66,11 @@ export class VerbFunction {
         // return found.personal.map( p => EstarPresentHead[ p ] + Item + table[ p ] );
     }
     pastGerundTense(found, Item, word) {
-        const table = this.getElement(word.tag, word.type);
+        const table = this.getElement(Tense.Gerund, word.type);
         return found.personal.map((p, index) => this._estarPretérito[index] + " " + Item + table[p]);
     }
     pretéritoPerDeSubTense(found, Item, word) {
-        const table = this.getElement(word.tag, word.type);
+        const table = this.getElement(Tense.PastParticiple, word.type);
         // return found.personal.map( p => Item + table[ p ] );
         return found.personal.map((p, index) => this._haberSubjunctivoRa[index] + " " + Item + table[p]);
     }

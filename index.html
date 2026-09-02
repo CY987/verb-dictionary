@@ -549,6 +549,24 @@
                     return;
                 }
 
+                // llover、nevar：只顯示 él
+                if (wordData?.voc === "nevar" || wordData?.voc === "llover") {
+                    const lloverResult = [
+                        result[2], // él
+                    ];
+
+                    const lloverPersonal = [
+                        "él",
+                    ];
+
+                    renderSingleColumnResult(
+                        lloverResult,
+                        lloverPersonal
+                    );
+
+                    return;
+                }
+
                 // 只有 Imperative 顯示人稱
                 const personal =
                     currentTense === Tense.Imperative

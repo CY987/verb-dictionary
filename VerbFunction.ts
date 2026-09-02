@@ -1,4 +1,4 @@
-import { Tense, Type, VerbForm, WordType } from "./Data.js";
+import { Tense, TenseSyn, Type, VerbForm, WordType } from "./Data.js";
 import { ImperativeHead, Morpheme, } from "./RegularVerbEnding.js";
 import { nonRegularVerbs } from "./NewIrregularVerbData.js";
 export class VerbFunction
@@ -22,7 +22,7 @@ export class VerbFunction
     private _estarPretérito = this.getWord( "estar", Tense.Pretérito );
     private _haberPresent = this.getWord( "haber", Tense.Present );
     private _haberSubjunctivoRa = this.getWord( "haber", Tense.ImperfectSubjunctiveRa );
-    private getElement( tense: Tense, type: Type )
+    private getElement( tense: Tense | TenseSyn, type: Type )
     {
         return Morpheme[ tense ][ type ];
     }
@@ -92,12 +92,12 @@ export class VerbFunction
     }
     public pastGerundTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
-        const table = this.getElement( word.tag, word.type );
+        const table = this.getElement( Tense.Gerund, word.type );
         return found.personal.map( ( p, index ) => this._estarPretérito[ index ] + " " + Item + table[ p ] );
     }
     public pretéritoPerDeSubTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
-        const table = this.getElement( word.tag, word.type )
+        const table = this.getElement( Tense.PastParticiple, word.type )
         // return found.personal.map( p => Item + table[ p ] );
         return found.personal.map( ( p, index ) => this._haberSubjunctivoRa[ index ] + " " + Item + table[ p ] );
     }
