@@ -10,7 +10,7 @@ export interface VerbForm
 export interface WordType
 {
     word: string,
-    tag: Tense | TenseSyn,
+    tag: Tense | TenseSynthesis,
     type: Type,
 }
 export enum Type
@@ -37,7 +37,7 @@ export enum Tense
     PastParticiple = "過去分詞",
 
 }
-export enum TenseSyn
+export enum TenseSynthesis
 {
     PastGerund = "過去進行式:estar過去式+現在分詞",
     PretéritoPerDeSub = "過去完成虛擬式:haber未完成虛擬式+過去分詞",

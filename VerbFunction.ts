@@ -1,4 +1,4 @@
-import { Tense, TenseSyn, Type, VerbForm, WordType } from "./Data.js";
+import { Tense, TenseSynthesis, Type, VerbForm, WordType } from "./Data.js";
 import { ImperativeHead, Morpheme, } from "./RegularVerbEnding.js";
 import { nonRegularVerbs } from "./NewIrregularVerbData.js";
 export class VerbFunction
@@ -22,7 +22,7 @@ export class VerbFunction
     private _estarPretérito = this.getWord( "estar", Tense.Pretérito );
     private _haberPresent = this.getWord( "haber", Tense.Present );
     private _haberSubjunctivoRa = this.getWord( "haber", Tense.ImperfectSubjunctiveRa );
-    private getElement( tense: Tense | TenseSyn, type: Type )
+    private getElement( tense: Tense | TenseSynthesis, type: Type )
     {
         return Morpheme[ tense ][ type ];
     }

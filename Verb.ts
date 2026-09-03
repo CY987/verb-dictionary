@@ -1,4 +1,4 @@
-import { Tense, TenseSyn, WordType } from "./Data.js";
+import { Tense, TenseSynthesis, WordType } from "./Data.js";
 import { WordDataMap } from "./RegularVerbData.js";
 import { VerbFunction } from "./VerbFunction.js";
 import { nonRegularVerbs } from "./NewIrregularVerbData.js"
@@ -114,7 +114,7 @@ export class VerbConjugator
                     return VerbFunction.Instance.irrGerundTense( found, irrWord );
                 }
                 return VerbFunction.Instance.gerundTense( found, stem, selectWord );
-            case TenseSyn.PastGerund:
+            case TenseSynthesis.PastGerund:
                 if ( found.voc === "estar" )
                 {
                     return VerbFunction.Instance.gerundEstar( found, irrWord );
@@ -124,7 +124,7 @@ export class VerbConjugator
                     return VerbFunction.Instance.irrPastGerundTense( found, irrWord );
                 }
                 return VerbFunction.Instance.pastGerundTense( found, stem, selectWord );
-            case TenseSyn.PretéritoPerDeSub:
+            case TenseSynthesis.PretéritoPerDeSub:
                 if ( irrWord )
                 {
                     return VerbFunction.Instance.irrPretéritoPerDeSubTense( found, irrWord );

@@ -1,4 +1,4 @@
-import { Pronoun, Tense, Type } from "./Data.js";
+import { Pronoun, Tense, TenseSynthesis, Type } from "./Data.js";
 const EmptySuffix = {
     [Pronoun.Yo]: "",
     [Pronoun.Tú]: "",
@@ -277,8 +277,8 @@ export const Morpheme = {
         [Type.Le]: {}
     },
     [Tense.Gerund]: GerundSuffix,
-    [Tense.PastGerund]: GerundSuffix,
-    [Tense.PretéritoPerDeSub]: PastParticipleSuffix,
+    [TenseSynthesis.PastGerund]: GerundSuffix,
+    [TenseSynthesis.PretéritoPerDeSub]: PastParticipleSuffix,
     [Tense.Imperative]: {
         [Type.Ar]: {
             [Pronoun.Tú]: "a",
