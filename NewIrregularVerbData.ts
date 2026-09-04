@@ -5,7 +5,7 @@ export interface Irregular
     obj: Partial<Record<Tense, string[]>>;
 }
 // 此檔案由 convertNonRegularVerbsToTs.ts 自動產生。
-export const nonRegularVerbs = [
+export const nonRegularVerbs: Irregular[] = [
     {
         voc: "abrazar",
         obj: {

@@ -278,7 +278,7 @@ export const Morpheme = {
     },
     [Tense.Gerund]: GerundSuffix,
     [TenseSynthesis.PastGerund]: GerundSuffix,
-    [TenseSynthesis.PretéritoPerDeSub]: PastParticipleSuffix,
+    [Tense.PastParticiple]: PastParticipleSuffix,
     [Tense.Imperative]: {
         [Type.Ar]: {
             [Pronoun.Tú]: "a",

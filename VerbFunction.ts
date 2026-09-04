@@ -1,6 +1,6 @@
 import { Tense, TenseSynthesis, Type, VerbForm, WordType } from "./Data.js";
 import { ImperativeHead, Morpheme, } from "./RegularVerbEnding.js";
-import { nonRegularVerbs } from "./NewIrregularVerbData.js";
+import { Irregular, nonRegularVerbs } from "./NewIrregularVerbData.js";
 export class VerbFunction
 {
     private static _instance: VerbFunction;
@@ -88,7 +88,6 @@ export class VerbFunction
     {
         const table = this.getElement( word.tag, word.type );
         return found.personal.map( ( p, index ) => this._estarPresent[ index ] + " " + Item + table[ p ] );
-        // return found.personal.map( p => EstarPresentHead[ p ] + Item + table[ p ] );
     }
     public pastGerundTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
@@ -98,46 +97,61 @@ export class VerbFunction
     public pretéritoPerDeSubTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
         const table = this.getElement( Tense.PastParticiple, word.type )
-        // return found.personal.map( p => Item + table[ p ] );
         return found.personal.map( ( p, index ) => this._haberSubjunctivoRa[ index ] + " " + Item + table[ p ] );
     }
     public imperativeTense( found: VerbForm, Item: string, word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type )
-        // return found.personalImperative.map( p => Item + table[ p ] );
         return found.personalImperative.map( p => ImperativeHead[ p ] + Item + table[ p ] );
     }
     public gerundEstar( found: VerbForm, Item: string[] ): string[]
     {
         return found.personal.map( p => Item[ 0 ] );
     }
-    public prePerfecto( found: VerbForm, Item: string[] )
+    public pastGerundEstar( Item: string ): string[]
     {
-        return found.personal.map( ( p, index ) => this._haberPresent[ index ] + " " + Item[ 0 ] );
+        return this.getWord( Item, Tense.Gerund );
+    }
+    public prePerfecto( found: VerbForm, Item: string, word: WordType ): string[]
+    {
+        const table = this.getElement( Tense.PastParticiple, word.type )
+        return found.personal.map( ( p, index ) => this._haberPresent[ index ] + " " + Item + table[ p ] );
     }
     // irregular-----------------------------
     public irrFutureSimpleTense( found: VerbForm, Item: string[], word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type );
-        return found.personal.map( ( p, index ) => table[ p ] + Item[ index ] );
+        return found.personal.map( ( p, index ) =>
+        {
+            if ( ( found.voc === "llover" || found.voc === "nevar" ) && index !== 2 )
+            {
+                return "";
+            }
+            return table[ p ] + Item[ index ];
+        } );
     }
 
-    public irrPretéritoPerDeSubTense( found: VerbForm, Item: string[] ): string[]
+    public irrPretéritoPerDeSubTense( found: VerbForm, word: Irregular ): string[]
     {
-        // return found.personal.map( p => Item[ 0 ] );
+        const Item = this.getWord( word.voc, Tense.PastParticiple )
         return found.personal.map( ( p, index ) => this._haberSubjunctivoRa[ index ] + " " + Item[ 0 ] );
     }
     public irrGerundTense( found: VerbForm, Item: string[] ): string[]
     {
-
-        // return found.personal.map( p => Item[ 0 ] );
         return found.personal.map( ( p, index ) => this._estarPresent[ index ] + " " + Item[ 0 ] );
     }
-    public irrPastGerundTense( found: VerbForm, Item: string[] ): string[]
+    public irrPastGerundTense( found: VerbForm, word: Irregular ): string[]
     {
-        // return found.personal.map( p => Item[ 0 ] );
+        const Item = this.getWord( word.voc, Tense.Gerund )
         return found.personal.map( ( p, index ) => this._estarPretérito[ index ] + " " + Item[ 0 ] );
     }
+    public irrPrePerfecto( found: VerbForm, word: Irregular ): string[]
+    {
+        const Item = this.getWord( word.voc, Tense.PastParticiple )
+        return found.personal.map( ( p, index ) => this._haberPresent[ index ] + " " + Item[ 0 ] );
+    }
+
+
     public mergeIrregular(
         regularResult: string[],
         irregularResult?: string[]

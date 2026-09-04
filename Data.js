@@ -42,6 +42,20 @@ export var Pronoun;
 })(Pronoun || (Pronoun = {}));
 export const ALL_MAIN_TENSES = [
     Tense.Present,
+    Tense.Subjunctivo,
+    Tense.Pretérito,
+    Tense.Imperfect,
+    Tense.Futuro,
+    Tense.FutureSimple,
+    Tense.Conditional,
+    Tense.ImperfectSubjunctiveRa,
+    Tense.ImperfectSubjunctiveSe,
+    Tense.Gerund,
+    Tense.PastParticiple,
+    Tense.Imperative,
+];
+export const OptionTense = [
+    Tense.Present,
     Tense.Conditional,
     Tense.Futuro,
     Tense.FutureSimple,
@@ -50,9 +64,11 @@ export const ALL_MAIN_TENSES = [
     Tense.Subjunctivo,
     Tense.ImperfectSubjunctiveRa,
     Tense.ImperfectSubjunctiveSe,
-    Tense.PastParticiple,
     Tense.Gerund,
     Tense.Imperative,
+    TenseSynthesis.PastGerund,
+    TenseSynthesis.PrePerfecto,
+    TenseSynthesis.PretéritoPerDeSub,
 ];
 export const DEFAULT_PERSONAL = [
     Pronoun.Yo,

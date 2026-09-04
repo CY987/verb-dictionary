@@ -17,15 +17,19 @@ export class VerbConjugator {
         }
         // 僅在動詞標記為不規則時，尋找目前時態的不規則結果
         let irrWord;
+        let irregularData;
         if (!found.regular) {
             // const irregularData = irregular.find(
             //     item => item.voc === found.voc
             // );
-            const irregularData = nonRegularVerbs.find(item => item.voc === found.voc);
+            irregularData = nonRegularVerbs.find(item => item.voc === found.voc);
             irrWord = irregularData?.obj[selectWord.tag];
         }
         // 取得字根 (例如 "comer" -> "com")
         const stem = VerbFunction.Instance.getStem(found.voc);
+        console.log("selectWord.tag =", selectWord.tag);
+        console.log("TenseSynthesis.PretéritoPerDeSub =", TenseSynthesis.PretéritoPerDeSub);
+        console.log("是否相等 =", selectWord.tag === TenseSynthesis.PretéritoPerDeSub);
         // 根據指定的時態進行變位
         switch (selectWord.tag) {
             case Tense.Present:
@@ -85,17 +89,22 @@ export class VerbConjugator {
                 return VerbFunction.Instance.gerundTense(found, stem, selectWord);
             case TenseSynthesis.PastGerund:
                 if (found.voc === "estar") {
-                    return VerbFunction.Instance.gerundEstar(found, irrWord);
+                    return VerbFunction.Instance.pastGerundEstar(found.voc);
                 }
                 else if (irrWord) {
-                    return VerbFunction.Instance.irrPastGerundTense(found, irrWord);
+                    return VerbFunction.Instance.irrPastGerundTense(found, irregularData);
                 }
                 return VerbFunction.Instance.pastGerundTense(found, stem, selectWord);
             case TenseSynthesis.PretéritoPerDeSub:
                 if (irrWord) {
-                    return VerbFunction.Instance.irrPretéritoPerDeSubTense(found, irrWord);
+                    return VerbFunction.Instance.irrPretéritoPerDeSubTense(found, irregularData);
                 }
                 return VerbFunction.Instance.pretéritoPerDeSubTense(found, stem, selectWord);
+            case TenseSynthesis.PrePerfecto:
+                if (irrWord) {
+                    return VerbFunction.Instance.irrPretéritoPerDeSubTense(found, irregularData);
+                }
+                return VerbFunction.Instance.prePerfecto(found, stem, selectWord);
             case Tense.Imperative:
                 {
                     const regularResult = VerbFunction.Instance.imperativeTense(found, stem, selectWord);

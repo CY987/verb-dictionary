@@ -63,7 +63,6 @@ export class VerbFunction {
     gerundTense(found, Item, word) {
         const table = this.getElement(word.tag, word.type);
         return found.personal.map((p, index) => this._estarPresent[index] + " " + Item + table[p]);
-        // return found.personal.map( p => EstarPresentHead[ p ] + Item + table[ p ] );
     }
     pastGerundTense(found, Item, word) {
         const table = this.getElement(Tense.Gerund, word.type);
@@ -71,36 +70,46 @@ export class VerbFunction {
     }
     pretéritoPerDeSubTense(found, Item, word) {
         const table = this.getElement(Tense.PastParticiple, word.type);
-        // return found.personal.map( p => Item + table[ p ] );
         return found.personal.map((p, index) => this._haberSubjunctivoRa[index] + " " + Item + table[p]);
     }
     imperativeTense(found, Item, word) {
         const table = this.getElement(word.tag, word.type);
-        // return found.personalImperative.map( p => Item + table[ p ] );
         return found.personalImperative.map(p => ImperativeHead[p] + Item + table[p]);
     }
     gerundEstar(found, Item) {
         return found.personal.map(p => Item[0]);
     }
-    prePerfecto(found, Item) {
-        return found.personal.map((p, index) => this._haberPresent[index] + " " + Item[0]);
+    pastGerundEstar(Item) {
+        return this.getWord(Item, Tense.Gerund);
+    }
+    prePerfecto(found, Item, word) {
+        const table = this.getElement(Tense.PastParticiple, word.type);
+        return found.personal.map((p, index) => this._haberPresent[index] + " " + Item + table[p]);
     }
     // irregular-----------------------------
     irrFutureSimpleTense(found, Item, word) {
         const table = this.getElement(word.tag, word.type);
-        return found.personal.map((p, index) => table[p] + Item[index]);
+        return found.personal.map((p, index) => {
+            if ((found.voc === "llover" || found.voc === "nevar") && index !== 2) {
+                return "";
+            }
+            return table[p] + Item[index];
+        });
     }
-    irrPretéritoPerDeSubTense(found, Item) {
-        // return found.personal.map( p => Item[ 0 ] );
+    irrPretéritoPerDeSubTense(found, word) {
+        const Item = this.getWord(word.voc, Tense.PastParticiple);
         return found.personal.map((p, index) => this._haberSubjunctivoRa[index] + " " + Item[0]);
     }
     irrGerundTense(found, Item) {
-        // return found.personal.map( p => Item[ 0 ] );
         return found.personal.map((p, index) => this._estarPresent[index] + " " + Item[0]);
     }
-    irrPastGerundTense(found, Item) {
-        // return found.personal.map( p => Item[ 0 ] );
+    irrPastGerundTense(found, word) {
+        const Item = this.getWord(word.voc, Tense.Gerund);
         return found.personal.map((p, index) => this._estarPretérito[index] + " " + Item[0]);
+    }
+    irrPrePerfecto(found, word) {
+        const Item = this.getWord(word.voc, Tense.PastParticiple);
+        return found.personal.map((p, index) => this._haberPresent[index] + " " + Item[0]);
     }
     mergeIrregular(regularResult, irregularResult) {
         if (!irregularResult) {
