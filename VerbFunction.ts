@@ -21,7 +21,12 @@ export class VerbFunction
     private _estarPresent = this.getWord( "estar", Tense.Present );
     private _estarPretérito = this.getWord( "estar", Tense.Pretérito );
     private _haberPresent = this.getWord( "haber", Tense.Present );
-    private _haberSubjunctivoRa = this.getWord( "haber", Tense.ImperfectSubjunctiveRa );
+    private _haberPretérito = this.getWord( "haber", Tense.Pretérito );
+    private _haberImperfect = this.getWord( "haber", Tense.Imperfect );
+    private _haberFuturo = this.getWord( "haber", Tense.Futuro );
+    private _haberConditional = this.getWord( "haber", Tense.Conditional );
+    private _haberSubjunctivo = this.getWord( "haber", Tense.Subjunctivo );
+    private _haberImSubjunctivoRa = this.getWord( "haber", Tense.ImperfectSubjunctiveRa );
     private getElement( tense: Tense | TenseSynthesis, type: Type )
     {
         return Morpheme[ tense ][ type ];
@@ -30,95 +35,85 @@ export class VerbFunction
     {
         return found.slice( 0, -2 );
     }
-    public presentTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public subjunctiveTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public pretéritoTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public imperfectTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public futureTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public futureSimpleTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => table[ p ] + Item );
-    }
-    public conditionalTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public impSubRaTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public impSubSeTense( found: VerbForm, Item: string, word: WordType ): string[]
-    {
-        const table = this.getElement( word.tag, word.type )
-
-        return found.personal.map( p => Item + table[ p ] );
-    }
-    public gerundTense( found: VerbForm, Item: string, word: WordType ): string[]
+    public simpleTense( found: VerbForm, item: string, word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type );
-        return found.personal.map( ( p, index ) => this._estarPresent[ index ] + " " + Item + table[ p ] );
+        return found.personal.map( p => item + table[ p ] );
     }
-    public pastGerundTense( found: VerbForm, Item: string, word: WordType ): string[]
+    private perfectTense( found: VerbForm, item: string, word: WordType, haber: string[] ): string[]
     {
-        const table = this.getElement( Tense.Gerund, word.type );
-        return found.personal.map( ( p, index ) => this._estarPretérito[ index ] + " " + Item + table[ p ] );
+        const table = this.getElement( Tense.PastParticiple, word.type );
+        return found.personal.map( ( p, index ) => haber[ index ] + " " + item + table[ p ] );
     }
-    public pretéritoPerDeSubTense( found: VerbForm, Item: string, word: WordType ): string[]
+    private irregularPerfectTense( found: VerbForm, word: Irregular, haber: string[] ): string[]
     {
-        const table = this.getElement( Tense.PastParticiple, word.type )
-        return found.personal.map( ( p, index ) => this._haberSubjunctivoRa[ index ] + " " + Item + table[ p ] );
+        const item = this.getWord( word.voc, Tense.PastParticiple );
+        return found.personal.map( ( _, index ) => haber[ index ] + " " + item[ 0 ] );
     }
-    public imperativeTense( found: VerbForm, Item: string, word: WordType ): string[]
+    public futureSimpleTense( found: VerbForm, item: string, word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type )
-        return found.personalImperative.map( p => ImperativeHead[ p ] + Item + table[ p ] );
+
+        return found.personal.map( p => table[ p ] + item );
     }
-    public gerundEstar( found: VerbForm, Item: string[] ): string[]
+    public gerundTense( found: VerbForm, item: string, word: WordType ): string[]
     {
-        return found.personal.map( p => Item[ 0 ] );
+        const table = this.getElement( word.tag, word.type );
+        return found.personal.map( ( p, index ) => this._estarPresent[ index ] + " " + item + table[ p ] );
     }
-    public pastGerundEstar( Item: string ): string[]
+    public pastGerundTense( found: VerbForm, item: string, word: WordType ): string[]
     {
-        return this.getWord( Item, Tense.Gerund );
+        const table = this.getElement( Tense.Gerund, word.type );
+        return found.personal.map( ( p, index ) => this._estarPretérito[ index ] + " " + item + table[ p ] );
     }
-    public prePerfecto( found: VerbForm, Item: string, word: WordType ): string[]
+    public imperativeTense( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        const table = this.getElement( word.tag, word.type )
+        return found.personalImperative.map( p => ImperativeHead[ p ] + item + table[ p ] );
+    }
+    public gerundEstar( found: VerbForm, item: string[] ): string[]
+    {
+        return found.personal.map( () => item[ 0 ] );
+    }
+    public pastGerundEstar( item: string ): string[]
+    {
+        return this.getWord( item, Tense.Gerund );
+    }
+    public prePerfecto( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberPresent );
+    }
+    public prePluscuamperfecto( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberImperfect );
+    }
+    public pretéritoPluPoint( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberPretérito );
+    }
+    public futuroPerfecto( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberFuturo );
+    }
+    public conditionalPerfecto( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberConditional );
+    }
+    public pretéritoPerDeSub( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberSubjunctivo );
+    }
+    public pluscuaDeSubTense( found: VerbForm, item: string, word: WordType ): string[]
+    {
+        return this.perfectTense( found, item, word, this._haberImSubjunctivoRa );
+    }
+    public pretéritoPluDeSubRa( found: VerbForm, item: string, word: WordType ): string[]
     {
         const table = this.getElement( Tense.PastParticiple, word.type )
-        return found.personal.map( ( p, index ) => this._haberPresent[ index ] + " " + Item + table[ p ] );
+        return found.personal.map( ( p, index ) => this._haberSubjunctivo[ index ] + " " + item + table[ p ] );
     }
     // irregular-----------------------------
-    public irrFutureSimpleTense( found: VerbForm, Item: string[], word: WordType ): string[]
+    public irrFutureSimpleTense( found: VerbForm, item: string[], word: WordType ): string[]
     {
         const table = this.getElement( word.tag, word.type );
         return found.personal.map( ( p, index ) =>
@@ -127,31 +122,46 @@ export class VerbFunction
             {
                 return "";
             }
-            return table[ p ] + Item[ index ];
+            return table[ p ] + item[ index ];
         } );
     }
-
-    public irrPretéritoPerDeSubTense( found: VerbForm, word: Irregular ): string[]
+    public irrGerundTense( found: VerbForm, item: string[] ): string[]
     {
-        const Item = this.getWord( word.voc, Tense.PastParticiple )
-        return found.personal.map( ( p, index ) => this._haberSubjunctivoRa[ index ] + " " + Item[ 0 ] );
-    }
-    public irrGerundTense( found: VerbForm, Item: string[] ): string[]
-    {
-        return found.personal.map( ( p, index ) => this._estarPresent[ index ] + " " + Item[ 0 ] );
+        return found.personal.map( ( p, index ) => this._estarPresent[ index ] + " " + item[ 0 ] );
     }
     public irrPastGerundTense( found: VerbForm, word: Irregular ): string[]
     {
-        const Item = this.getWord( word.voc, Tense.Gerund )
-        return found.personal.map( ( p, index ) => this._estarPretérito[ index ] + " " + Item[ 0 ] );
+        const item = this.getWord( word.voc, Tense.Gerund )
+        return found.personal.map( ( p, index ) => this._estarPretérito[ index ] + " " + item[ 0 ] );
+    }
+    public irrPluscuaDeSubTense( found: VerbForm, word: Irregular ): string[]
+    {
+        return this.irregularPerfectTense( found, word, this._haberImSubjunctivoRa );
     }
     public irrPrePerfecto( found: VerbForm, word: Irregular ): string[]
     {
-        const Item = this.getWord( word.voc, Tense.PastParticiple )
-        return found.personal.map( ( p, index ) => this._haberPresent[ index ] + " " + Item[ 0 ] );
+        return this.irregularPerfectTense( found, word, this._haberPresent );
     }
-
-
+    public irrPrePluscuamperfecto( found: VerbForm, word: Irregular ): string[]
+    {
+        return this.irregularPerfectTense( found, word, this._haberImperfect );
+    }
+    public irrPretéritoPluPoint( found: VerbForm, word: Irregular ): string[]
+    {
+        return this.irregularPerfectTense( found, word, this._haberPretérito );
+    }
+    public irrFuturoPerfecto( found: VerbForm, word: Irregular ): string[]
+    {
+        return this.irregularPerfectTense( found, word, this._haberFuturo );
+    }
+    public irrConditionalPerfecto( found: VerbForm, word: Irregular ): string[]
+    {
+        return this.irregularPerfectTense( found, word, this._haberConditional );
+    }
+    public irrpretéritoPerDeSub( found: VerbForm, word: Irregular ): string[]
+    {
+        return this.irregularPerfectTense( found, word, this._haberSubjunctivo );
+    }
     public mergeIrregular(
         regularResult: string[],
         irregularResult?: string[]
@@ -164,17 +174,14 @@ export class VerbFunction
 
         return regularResult.map(
             ( regularValue, index ) =>
-            {
-                return irregularResult[ index ] !== undefined
-                    ? irregularResult[ index ]
-                    : regularValue;
-            }
-            // irregularResult[ index ] || regularValue
+                irregularResult[ index ] ??
+                regularValue
+            // {
+            // return irregularResult[ index ] !== undefined
+            //     ? irregularResult[ index ]
+            //     : regularValue;
+            // }
         );
-    }
-    public merge( irregularResult: string[] )
-    {
-        return
     }
 }
 

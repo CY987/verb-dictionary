@@ -24,8 +24,13 @@ export var Tense;
 export var TenseSynthesis;
 (function (TenseSynthesis) {
     TenseSynthesis["PastGerund"] = "\u904E\u53BB\u9032\u884C\u5F0F:estar\u904E\u53BB\u5F0F+\u73FE\u5728\u5206\u8A5E";
-    TenseSynthesis["Pret\u00E9ritoPerDeSub"] = "\u904E\u53BB\u5B8C\u6210\u865B\u64EC\u5F0F:haber\u672A\u5B8C\u6210\u865B\u64EC\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSynthesis["Pret\u00E9ritoPlu"] = "\u904E\u53BB\u5B8C\u6210\u5F0F:haber\u672A\u5B8C\u6210\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSynthesis["PluscuaDeSubRa"] = "\u904E\u53BB\u5B8C\u6210\u865B\u64EC\u5F0F:haber\u672A\u5B8C\u6210\u865B\u64EC\u5F0FRa+\u904E\u53BB\u5206\u8A5E";
     TenseSynthesis["PrePerfecto"] = "\u73FE\u5728\u5B8C\u6210\u5F0F:haber\u73FE\u5728\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSynthesis["Pret\u00E9ritoPluPoint"] = "\u9EDE\u904E\u53BB\u5B8C\u6210\u5F0F:haber\u904E\u53BB\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSynthesis["FuturoPerfecto"] = "\u672A\u4F86\u5B8C\u6210\u5F0F:haber\u672A\u4F86\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSynthesis["ConditionalPerfecto"] = "\u689D\u4EF6\u5B8C\u6210\u5F0F:haber\u689D\u4EF6\u5F0F+\u904E\u53BB\u5206\u8A5E";
+    TenseSynthesis["Pret\u00E9ritoPerDeSub"] = "\u865B\u64EC\u73FE\u5728\u5B8C\u6210\u5F0F:haber\u865B\u64EC\u5F0F+\u904E\u53BB\u5206\u8A5E";
 })(TenseSynthesis || (TenseSynthesis = {}));
 export var Pronoun;
 (function (Pronoun) {
@@ -68,6 +73,11 @@ export const OptionTense = [
     Tense.Imperative,
     TenseSynthesis.PastGerund,
     TenseSynthesis.PrePerfecto,
+    TenseSynthesis.PretéritoPlu,
+    TenseSynthesis.PluscuaDeSubRa,
+    TenseSynthesis.PretéritoPluPoint,
+    TenseSynthesis.FuturoPerfecto,
+    TenseSynthesis.ConditionalPerfecto,
     TenseSynthesis.PretéritoPerDeSub,
 ];
 export const DEFAULT_PERSONAL = [

@@ -40,8 +40,13 @@ export enum Tense
 export enum TenseSynthesis
 {
     PastGerund = "過去進行式:estar過去式+現在分詞",
-    PretéritoPerDeSub = "過去完成虛擬式:haber未完成虛擬式+過去分詞",
+    PretéritoPlu = "過去完成式:haber未完成式+過去分詞",
+    PluscuaDeSubRa = "過去完成虛擬式:haber未完成虛擬式Ra+過去分詞",
     PrePerfecto = "現在完成式:haber現在式+過去分詞",
+    PretéritoPluPoint = "點過去完成式:haber過去式+過去分詞",
+    FuturoPerfecto = "未來完成式:haber未來式+過去分詞",
+    ConditionalPerfecto = "條件完成式:haber條件式+過去分詞",
+    PretéritoPerDeSub = "虛擬現在完成式:haber虛擬式+過去分詞",
 }
 export enum Pronoun
 {
@@ -84,6 +89,11 @@ export const OptionTense = [
     Tense.Imperative,
     TenseSynthesis.PastGerund,
     TenseSynthesis.PrePerfecto,
+    TenseSynthesis.PretéritoPlu,
+    TenseSynthesis.PluscuaDeSubRa,
+    TenseSynthesis.PretéritoPluPoint,
+    TenseSynthesis.FuturoPerfecto,
+    TenseSynthesis.ConditionalPerfecto,
     TenseSynthesis.PretéritoPerDeSub,
 ];
 export const DEFAULT_PERSONAL = [
