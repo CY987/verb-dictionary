@@ -16,6 +16,12 @@ export class VerbFunction
     private getWord( voc: string, tense: Tense ): string[]
     {
         const irregularData = nonRegularVerbs.find( item => item.voc === voc );
+        console.log(
+            "getWord:",
+            voc,
+            tense,
+            irregularData
+        );
         return irregularData.obj[ tense ]
     }
     private _estarPresent = this.getWord( "estar", Tense.Present );

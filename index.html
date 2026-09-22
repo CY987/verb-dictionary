@@ -566,7 +566,21 @@
 
                     return;
                 }
+                // concernir:不顯示欄位
+                if (wordData?.voc === "concernir") {
+                    const concernirResult = [
+                    ];
 
+                    const concernirPersonal = [
+                    ];
+
+                    renderSingleColumnResult(
+                        concernirResult,
+                        concernirPersonal
+                    );
+
+                    return;
+                }
                 // 只有 Imperative 顯示人稱
                 const personal =
                     currentTense === Tense.Imperative

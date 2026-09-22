@@ -21,6 +21,7 @@ export class VerbFunction {
     }
     getWord(voc, tense) {
         const irregularData = nonRegularVerbs.find(item => item.voc === voc);
+        console.log("getWord:", voc, tense, irregularData);
         return irregularData.obj[tense];
     }
     getElement(tense, type) {
