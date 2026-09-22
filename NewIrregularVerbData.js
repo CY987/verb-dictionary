@@ -1621,7 +1621,7 @@ export const nonRegularVerbs = [
             [Tense.Conditional]: ["", "", "concerniría", "", "", "concernirían"],
             [Tense.ImperfectSubjunctiveRa]: ["", "", "concerniera", "", "", "concernieran"],
             [Tense.ImperfectSubjunctiveSe]: ["", "", "concerniese", "", "", "concerniesen"],
-            [Tense.Imperative]: ["", "", "", "", "", "", ""],
+            [Tense.Imperative]: ["無此用法", "", "", "", "", "", ""],
             [Tense.Gerund]: ["concerniendo"],
             [Tense.PastParticiple]: ["concernido"],
         },
