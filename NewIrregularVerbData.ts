@@ -4037,6 +4037,26 @@ export const nonRegularVerbs: Irregular[] = [
             [ Tense.PastParticiple ]: [ "familiarizado" ],
         },
     },
+    // le結尾
+    /*
+      {
+                voc: "fascinarle",
+                obj: {
+                    [ Tense.Present ]: [ "fascina(n)", "fascina(n)", "fascina(n)", "fascina(n)", "fascina(n)", "fascina(n)" ],
+                    [ Tense.Subjunctivo ]: [ "fascine(n)", "fascine(n)", "fascine(n)", "fascine(n)", "fascine(n)", "fascine(n)" ],
+                    [ Tense.Pretérito ]: [ "fascinó (fascinaron)", "fascinó (fascinaron)", "fascinó (fascinaron)", "fascinó (fascinaron)", "fascinó (fascinaron)", "fascinó (fascinaron)" ],
+                    [ Tense.Imperfect ]: [ "fascinaba(n)", "fascinaba(n)", "fascinaba(n)", "fascinaba(n)", "fascinaba(n)", "fascinaba(n)" ],
+                    [ Tense.Futuro ]: [ "fascinará(n)", "fascinará(n)", "fascinará(n)", "fascinará(n)", "fascinará(n)", "fascinará(n)" ],
+                    [ Tense.FutureSimple ]: [ "fascinar", "fascinar", "fascinar", "fascinar", "fascinar", "fascinar" ],
+                    [ Tense.Conditional ]: [ "fascinaría(n)", "fascinaría(n)", "fascinaría(n)", "fascinaría(n)", "fascinaría(n)", "fascinaría(n)" ],
+                    [ Tense.ImperfectSubjunctiveRa ]: [ "fascinara(n)", "fascinara(n)", "fascinara(n)", "fascinara(n)", "fascinara(n)", "fascinara(n)" ],
+                    [ Tense.ImperfectSubjunctiveSe ]: [ "fascinase(n)", "fascinase(n)", "fascinase(n)", "fascinase(n)", "fascinase(n)", "fascinase(n)" ],
+                    [ Tense.Imperative ]: [ "", "", "fascine(n)", "", "", "", "" ],
+                    [ Tense.Gerund ]: [ "fascinando" ],
+                    [ Tense.PastParticiple ]: [ "fascinado" ],
+                },
+            },
+    */
     {
         voc: "fatigar",
         obj: {
@@ -4395,6 +4415,26 @@ export const nonRegularVerbs: Irregular[] = [
             [ Tense.PastParticiple ]: [ "guiado" ],
         },
     },
+    // le結尾
+    /*
+        {
+            voc: "gustarle",
+            obj: {
+                [ Tense.Present ]: [ "gusta(n)", "gusta(n)", "gusta(n)", "gusta(n)", "gusta(n)", "gusta(n)" ],
+                [ Tense.Subjunctivo ]: [ "guste(n)", "guste(n)", "guste(n)", "guste(n)", "guste(n)", "guste(n)" ],
+                [ Tense.Pretérito ]: [ "gustó (gustaron)", "gustó (gustaron)", "gustó (gustaron)", "gustó (gustaron)", "gustó (gustaron)", "gustó (gustaron)" ],
+                [ Tense.Imperfect ]: [ "gustaba(n)", "gustaba(n)", "gustaba(n)", "gustaba(n)", "gustaba(n)", "gustaba(n)" ],
+                [ Tense.Futuro ]: [ "gustará(n)", "gustará(n)", "gustará(n)", "gustará(n)", "gustará(n)", "gustará(n)" ],
+                [ Tense.FutureSimple ]: [ "gustar", "gustar", "gustar", "gustar", "gustar", "gustar" ],
+                [ Tense.Conditional ]: [ "gustaría(n)", "gustaría(n)", "gustaría(n)", "gustaría(n)", "gustaría(n)", "gustaría(n)" ],
+                [ Tense.ImperfectSubjunctiveRa ]: [ "gustara(n)", "gustara(n)", "gustara(n)", "gustara(n)", "gustara(n)", "gustara(n)" ],
+                [ Tense.ImperfectSubjunctiveSe ]: [ "gustase(n)", "gustase(n)", "gustase(n)", "gustase(n)", "gustase(n)", "gustase(n)" ],
+                [ Tense.Imperative ]: [ "", "", "guste(n)", "", "", "", "" ],
+                [ Tense.Gerund ]: [ "gustando" ],
+                [ Tense.PastParticiple ]: [ "gustado" ],
+            },
+        },
+    */
     {
         voc: "haber",
         obj: {
@@ -5062,6 +5102,24 @@ export const nonRegularVerbs: Irregular[] = [
             [ Tense.Imperative ]: [ "legaliza", "no legalices", "legalice", "legalicemos", "legalizad", "no legalicéis", "legalicen" ],
             [ Tense.Gerund ]: [ "legalizando" ],
             [ Tense.PastParticiple ]: [ "legalizado" ],
+        },
+    },
+    // 反身動詞
+    {
+        voc: "levantarse",
+        obj: {
+            [ Tense.Present ]: [ "levanto", "levantas", "levanta", "levantamos", "levantáis", "levantan" ],
+            [ Tense.Subjunctivo ]: [ "levante", "levantes", "levante", "levantemos", "levantéis", "levanten" ],
+            [ Tense.Pretérito ]: [ "levanté", "levantaste", "levantó", "levantamos", "levantasteis", "levantaron" ],
+            [ Tense.Imperfect ]: [ "levantaba", "levantabas", "levantaba", "levantábamos", "levantabais", "levantaban" ],
+            [ Tense.Futuro ]: [ "levantaré", "levantarás", "levantará", "levantaremos", "levantaréis", "levantarán" ],
+            [ Tense.FutureSimple ]: [ "levantar", "levantar", "levantar", "levantar", "levantar", "levantar" ],
+            [ Tense.Conditional ]: [ "levantaría", "levantarías", "levantaría", "levantaríamos", "levantaríais", "levantarían" ],
+            [ Tense.ImperfectSubjunctiveRa ]: [ "levantara", "levantaras", "levantara", "levantáramos", "levantarais", "levantaran" ],
+            [ Tense.ImperfectSubjunctiveSe ]: [ "levantase", "levantases", "levantase", "levantásemos", "levantaseis", "levantasen" ],
+            [ Tense.Imperative ]: [ "levántate", "no levantes", "levántese", "levantémonos", "levantaos", "no levantéis", "levántense" ],
+            [ Tense.Gerund ]: [ "levantando" ],
+            [ Tense.PastParticiple ]: [ "levantado" ],
         },
     },
     {
@@ -5747,6 +5805,23 @@ export const nonRegularVerbs: Irregular[] = [
         },
     },
     {
+        voc: "ocurrir",
+        obj: {
+            [ Tense.Present ]: [ "", "", "ocurre", "", "", "ocurren" ],
+            [ Tense.Subjunctivo ]: [ "", "", "ocurra", "", "", "ocurran" ],
+            [ Tense.Pretérito ]: [ "", "", "ocurrió", "", "", "ocurrieron" ],
+            [ Tense.Imperfect ]: [ "", "", "ocurría", "", "", "ocurrían" ],
+            [ Tense.Futuro ]: [ "", "", "ocurrirá", "", "", "ocurrirán" ],
+            [ Tense.FutureSimple ]: [ "", "", "ocurrir", "", "", "ocurrir" ],
+            [ Tense.Conditional ]: [ "", "", "ocurriría", "", "", "ocurrirían" ],
+            [ Tense.ImperfectSubjunctiveRa ]: [ "", "", "ocurriera", "", "", "ocurrieran" ],
+            [ Tense.ImperfectSubjunctiveSe ]: [ "", "", "ocurriese", "", "", "ocurriesen" ],
+            [ Tense.Imperative ]: [ "", "", "ocurra", "", "", "ocurran", "" ],
+            [ Tense.Gerund ]: [ "ocurriendo" ],
+            [ Tense.PastParticiple ]: [ "ocurrido" ],
+        },
+    },
+    {
         voc: "ofrecer",
         obj: {
             [ Tense.Present ]: [ "ofrezco", "ofreces", "ofrece", "ofrecemos", "ofrecéis", "ofrecen" ],
@@ -6358,6 +6433,24 @@ export const nonRegularVerbs: Irregular[] = [
             [ Tense.Imperative ]: [ "prefiere", "no prefieras", "prefiera", "prefiramos", "preferid", "no prefiráis", "prefieran" ],
             [ Tense.Gerund ]: [ "prefiriendo" ],
             [ Tense.PastParticiple ]: [ "preferido" ],
+        },
+    },
+    // 反身動詞
+    {
+        voc: "preocuparse",
+        obj: {
+            [ Tense.Present ]: [ "preocupo", "preocupas", "preocupa", "preocupamos", "preocupáis", "preocupan" ],
+            [ Tense.Subjunctivo ]: [ "preocupe", "preocupes", "preocupe", "preocupemos", "preocupemos", "preocupen" ],
+            [ Tense.Pretérito ]: [ "preocupé", "preocupaste", "preocupó", "preocupamos", "preocupasteis", "preocuparon" ],
+            [ Tense.Imperfect ]: [ "preocupaba", "preocupabas", "preocupaba", "preocupábamos", "preocupabais", "preocupaban" ],
+            [ Tense.Futuro ]: [ "preocuparé", "preocuparás", "preocupará", "preocuparemos", "preocuparéis", "preocuparán" ],
+            [ Tense.FutureSimple ]: [ "preocupar", "preocupar", "preocupar", "preocupar", "preocupar", "preocupar" ],
+            [ Tense.Conditional ]: [ "preocuparía", "preocuparías", "preocuparía", "preocuparíamos", "preocuparíais", "preocuparían" ],
+            [ Tense.ImperfectSubjunctiveRa ]: [ "preocupara", "preocuparas", "preocupara", "preocupáramos", "preocuparais", "preocuparan" ],
+            [ Tense.ImperfectSubjunctiveSe ]: [ "preocupase", "preocupase", "preocupase", "preocupásemos", "preocupaseis", "preocupasen" ],
+            [ Tense.Imperative ]: [ "preocúpate", "no preocupes", "preocúpase", "preocupémonos", "preocupaos", "no preocupéis", "preocúpense" ],
+            [ Tense.Gerund ]: [ "preocupando" ],
+            [ Tense.PastParticiple ]: [ "preocupado" ],
         },
     },
     {

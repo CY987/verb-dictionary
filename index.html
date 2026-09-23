@@ -219,7 +219,7 @@
     <script type="module">
 
         import {
-            Type, Tense, ALL_MAIN_TENSES, OptionTense,
+            Type, Tense, ALL_MAIN_TENSES, OptionTense, Pronoun,
         } from "./Data.js";
 
         import {
@@ -227,6 +227,8 @@
         } from "./Verb.js";
 
         import { WordDataMap } from "./RegularVerbData.js";
+
+        import { exceptionWords } from "./ExceptionWords.js";
 
         const conjugator = new VerbConjugator();
 
@@ -530,15 +532,15 @@
                 singleResult.innerHTML = "";
 
                 // ocurrir：只顯示 él、ellos
-                if (wordData?.voc === "ocurrir") {
+                if (wordData?.voc === exceptionWords.ocurrir) {
                     const ocurrirResult = [
                         result[2], // él
                         result[5]  // ellos
                     ];
 
                     const ocurrirPersonal = [
-                        "él",
-                        "ellos"
+                        Pronoun.ÉL,
+                        Pronoun.Ellos
                     ];
 
                     renderSingleColumnResult(
@@ -550,13 +552,13 @@
                 }
 
                 // llover、nevar：只顯示 él
-                if (wordData?.voc === "nevar" || wordData?.voc === "llover") {
+                if (wordData?.voc === exceptionWords.nevar || wordData?.voc === exceptionWords.llover) {
                     const lloverResult = [
                         result[2], // él
                     ];
 
                     const lloverPersonal = [
-                        "él",
+                        Pronoun.ÉL,
                     ];
 
                     renderSingleColumnResult(
@@ -567,7 +569,7 @@
                     return;
                 }
                 // concernir:不顯示欄位
-                if (wordData?.voc === "concernir") {
+                if (wordData?.voc === exceptionWords.concernir) {
                     const concernirResult = [
                         result[0],
                     ];
