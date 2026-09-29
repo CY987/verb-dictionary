@@ -1288,4 +1288,7 @@ WordDataMap.set(Type.Ar, ArVerb);
 WordDataMap.set(Type.Er, ErVerb);
 WordDataMap.set(Type.Ir, IrVerb);
 WordDataMap.set(Type.Se, SeVerb);
-WordDataMap.set(Type.Le, LeVerb);
+// 暫時關閉
+/*
+WordDataMap.set( Type.Le, LeVerb );
+*/ 
